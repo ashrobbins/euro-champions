@@ -8,13 +8,15 @@ import { MiniPitch } from './MiniPitch'
 interface Props {
   step: number
   picks: Partial<Squad>
+  /** Seeds which random 5 candidates are offered per position (see engine/draft.ts) — stable for the day. */
+  seed: string
   onBack: () => void
   onPick: (slot: DraftSlot, playerId: string) => void
 }
 
-export function DraftScreen({ step, picks, onBack, onPick }: Props) {
+export function DraftScreen({ step, picks, seed, onBack, onPick }: Props) {
   const slot = DRAFT_SLOTS[step]
-  const candidates = candidatesFor(slot)
+  const candidates = candidatesFor(slot, seed)
   const totalLegends = legendCount(picks)
 
   const squadForPitch: Partial<Record<DraftSlot, Player>> = {}
@@ -24,7 +26,7 @@ export function DraftScreen({ step, picks, onBack, onPick }: Props) {
   }
 
   return (
-    <div className="flex h-full flex-col">
+    <div className="flex h-full flex-col overflow-y-auto">
       <div className="flex items-center justify-between px-5 pt-5">
         <BackChevron onClick={onBack} />
         <div className="font-heading  bg-[var(--color-card)] px-3 py-1.5 text-xs font-semibold text-[var(--color-text-secondary)]">
@@ -75,7 +77,7 @@ export function DraftScreen({ step, picks, onBack, onPick }: Props) {
         })}
       </div>
 
-      <div className="mt-auto px-5 pt-2 pb-4">
+      <div className="mt-3 shrink-0 px-5 pb-4">
         <div className="mb-2.5 flex gap-2">
           {DRAFT_SLOTS.map((s, i) => (
             <div
@@ -85,7 +87,7 @@ export function DraftScreen({ step, picks, onBack, onPick }: Props) {
             />
           ))}
         </div>
-        <MiniPitch squad={squadForPitch} activeStep={step} />
+        <MiniPitch squad={squadForPitch} activeStep={step} height={150} />
       </div>
     </div>
   )

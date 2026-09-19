@@ -1,13 +1,25 @@
 import { describe, expect, it } from 'vitest'
-import { canSelect, candidatesFor, isValidSquad, legendCount } from '../engine/draft'
+import { CANDIDATES_SHOWN, canSelect, candidatesFor, isValidSquad, legendCount } from '../engine/draft'
 import type { DraftSlot, Squad } from '../types'
 
 describe('draft legend cap (§13.1)', () => {
-  it('finds exactly 3 candidates per position', () => {
+  it('offers exactly CANDIDATES_SHOWN random candidates per position, all matching that position', () => {
     const slots: DraftSlot[] = ['GK', 'DEF', 'MID', 'ATT', 'FLEX']
     for (const slot of slots) {
-      expect(candidatesFor(slot)).toHaveLength(3)
+      const candidates = candidatesFor(slot, 'test-seed')
+      expect(candidates).toHaveLength(CANDIDATES_SHOWN)
+      for (const p of candidates) expect(p.position).toBe(slot)
+      const ids = candidates.map((p) => p.id)
+      expect(new Set(ids).size).toBe(ids.length) // no repeats within the 5
     }
+  })
+
+  it('is deterministic for a given seed, and varies across seeds', () => {
+    const a = candidatesFor('MID', 'seed-a').map((p) => p.id)
+    const b = candidatesFor('MID', 'seed-a').map((p) => p.id)
+    expect(a).toEqual(b)
+    const c = candidatesFor('MID', 'seed-b').map((p) => p.id)
+    expect(c).not.toEqual(a)
   })
 
   it('allows up to 3 legends', () => {

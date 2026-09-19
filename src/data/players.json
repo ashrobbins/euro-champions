@@ -1,42 +1,3146 @@
 {
-  "$comment": "Draft pool: exactly 3 candidates per position. Edit this file directly to reconfigure players — no code changes needed for data-only tuning. Stat fields must match the eight canonical ratings; FLEX (wildcard) candidates additionally carry flexRole (MID or ATT) per the product decision that the wildcard plays as a midfielder or an attacker.",
-  "statFields": ["finishing", "passing", "composure", "setPieces", "defending", "goalkeeping", "pace", "stamina"],
-  "tiers": ["legend", "specialist", "pro", "workhorse"],
-  "positions": ["GK", "DEF", "MID", "ATT", "FLEX"],
+  "$comment": "Draft pool for the 5-slot squad builder. Edit this file directly to reconfigure players — no code changes needed for data-only tuning. Stat fields must match the eight canonical ratings; FLEX (wildcard) candidates additionally carry flexRole (MID or ATT) per the product decision that the wildcard plays as a midfielder or an attacker.",
+  "statFields": [
+    "finishing",
+    "passing",
+    "composure",
+    "setPieces",
+    "defending",
+    "goalkeeping",
+    "pace",
+    "stamina"
+  ],
+  "tiers": [
+    "legend",
+    "specialist",
+    "pro",
+    "workhorse"
+  ],
+  "positions": [
+    "GK",
+    "DEF",
+    "MID",
+    "ATT",
+    "FLEX"
+  ],
   "players": [
-    { "id": "kahn", "name": "O. Kahn", "position": "GK", "tier": "legend", "overall": 92, "traits": ["Shot-Stopper", "Commanding"],
-      "ratings": { "finishing": 15, "passing": 50, "composure": 95, "setPieces": 10, "defending": 35, "goalkeeping": 97, "pace": 45, "stamina": 80 } },
-    { "id": "cabizares", "name": "S. Cabizares", "position": "GK", "tier": "pro", "overall": 84, "traits": ["Reflexes", "Distribution"],
-      "ratings": { "finishing": 12, "passing": 48, "composure": 82, "setPieces": 8, "defending": 32, "goalkeeping": 85, "pace": 48, "stamina": 78 } },
-    { "id": "lehmann", "name": "J. Lehmann", "position": "GK", "tier": "pro", "overall": 81, "traits": ["Penalty Specialist"],
-      "ratings": { "finishing": 10, "passing": 45, "composure": 88, "setPieces": 5, "defending": 30, "goalkeeping": 85, "pace": 40, "stamina": 75 } },
-
-    { "id": "maldini", "name": "P. Maldini", "position": "DEF", "tier": "legend", "overall": 96, "traits": ["Last-Ditch Tackle", "Aerial Threat"],
-      "ratings": { "finishing": 30, "passing": 75, "composure": 94, "setPieces": 20, "defending": 97, "goalkeeping": 5, "pace": 70, "stamina": 88 } },
-    { "id": "sagnol", "name": "W. Sagnol", "position": "DEF", "tier": "pro", "overall": 83, "traits": ["Overlapping Run"],
-      "ratings": { "finishing": 35, "passing": 70, "composure": 78, "setPieces": 40, "defending": 80, "goalkeeping": 5, "pace": 75, "stamina": 82 } },
-    { "id": "samuel", "name": "W. Samuel", "position": "DEF", "tier": "pro", "overall": 85, "traits": ["Aggressive Tackling"],
-      "ratings": { "finishing": 20, "passing": 62, "composure": 84, "setPieces": 15, "defending": 88, "goalkeeping": 5, "pace": 72, "stamina": 85 } },
-
-    { "id": "zidane", "name": "Z. Zidane", "position": "MID", "tier": "legend", "overall": 97, "traits": ["Elite Vision", "Technical Ability", "Set-Piece Specialist"],
-      "ratings": { "finishing": 82, "passing": 97, "composure": 96, "setPieces": 84, "defending": 40, "goalkeeping": 5, "pace": 78, "stamina": 85 } },
-    { "id": "hamann", "name": "D. Hamann", "position": "MID", "tier": "workhorse", "overall": 78, "traits": ["Ball Recovery", "Press Resistance"],
-      "ratings": { "finishing": 55, "passing": 74, "composure": 76, "setPieces": 45, "defending": 70, "goalkeeping": 5, "pace": 60, "stamina": 90 } },
-    { "id": "hamdik", "name": "M. Hamdik", "position": "MID", "tier": "pro", "overall": 84, "traits": ["Passing Range"],
-      "ratings": { "finishing": 62, "passing": 80, "composure": 79, "setPieces": 58, "defending": 62, "goalkeeping": 5, "pace": 68, "stamina": 82 } },
-
-    { "id": "ronaldo", "name": "C. Ronaldo", "position": "ATT", "tier": "legend", "overall": 98, "traits": ["Aerial Threat", "Penalty Specialist", "Clutch"],
-      "ratings": { "finishing": 98, "passing": 82, "composure": 93, "setPieces": 90, "defending": 35, "goalkeeping": 5, "pace": 91, "stamina": 92 } },
-    { "id": "saviola", "name": "J. Saviola", "position": "ATT", "tier": "pro", "overall": 79, "traits": ["Poacher"],
-      "ratings": { "finishing": 78, "passing": 60, "composure": 70, "setPieces": 40, "defending": 28, "goalkeeping": 5, "pace": 85, "stamina": 74 } },
-    { "id": "gomez", "name": "M. Gómez", "position": "ATT", "tier": "pro", "overall": 83, "traits": ["Aerial Threat"],
-      "ratings": { "finishing": 80, "passing": 58, "composure": 74, "setPieces": 55, "defending": 30, "goalkeeping": 5, "pace": 78, "stamina": 78 } },
-
-    { "id": "iniesta", "name": "A. Iniesta", "position": "FLEX", "flexRole": "MID", "tier": "legend", "overall": 95, "traits": ["Press Resistance", "Clutch", "Technical Ability"],
-      "ratings": { "finishing": 78, "passing": 95, "composure": 96, "setPieces": 70, "defending": 45, "goalkeeping": 5, "pace": 72, "stamina": 84 } },
-    { "id": "parkjs", "name": "Park Ji-sung", "position": "FLEX", "flexRole": "MID", "tier": "pro", "overall": 88, "traits": ["Workhorse", "Two-Way"],
-      "ratings": { "finishing": 68, "passing": 78, "composure": 82, "setPieces": 40, "defending": 72, "goalkeeping": 5, "pace": 82, "stamina": 94 } },
-    { "id": "dembele", "name": "M. Dembele", "position": "FLEX", "flexRole": "ATT", "tier": "pro", "overall": 80, "traits": ["Dribbling"],
-      "ratings": { "finishing": 74, "passing": 72, "composure": 75, "setPieces": 50, "defending": 48, "goalkeeping": 5, "pace": 80, "stamina": 76 } }
+    {
+      "id": "kahn",
+      "name": "O. Kahn",
+      "position": "GK",
+      "tier": "legend",
+      "overall": 92,
+      "traits": [
+        "Shot-Stopper",
+        "Commanding"
+      ],
+      "ratings": {
+        "finishing": 10,
+        "passing": 45,
+        "composure": 90,
+        "setPieces": 8,
+        "defending": 32,
+        "goalkeeping": 94,
+        "pace": 42,
+        "stamina": 76
+      }
+    },
+    {
+      "id": "cabizares",
+      "name": "S. Cabizares",
+      "position": "GK",
+      "tier": "pro",
+      "overall": 84,
+      "traits": [
+        "Reflexes",
+        "Distribution"
+      ],
+      "ratings": {
+        "finishing": 10,
+        "passing": 45,
+        "composure": 82,
+        "setPieces": 8,
+        "defending": 32,
+        "goalkeeping": 86,
+        "pace": 42,
+        "stamina": 76
+      }
+    },
+    {
+      "id": "lehmann",
+      "name": "J. Lehmann",
+      "position": "GK",
+      "tier": "pro",
+      "overall": 81,
+      "traits": [
+        "Penalty Specialist"
+      ],
+      "ratings": {
+        "finishing": 10,
+        "passing": 45,
+        "composure": 79,
+        "setPieces": 8,
+        "defending": 32,
+        "goalkeeping": 83,
+        "pace": 42,
+        "stamina": 76
+      }
+    },
+    {
+      "id": "buffon",
+      "name": "G. Buffon",
+      "position": "GK",
+      "tier": "legend",
+      "overall": 95,
+      "traits": [
+        "Reflexes",
+        "Leadership"
+      ],
+      "ratings": {
+        "finishing": 10,
+        "passing": 45,
+        "composure": 93,
+        "setPieces": 8,
+        "defending": 32,
+        "goalkeeping": 99,
+        "pace": 42,
+        "stamina": 76
+      }
+    },
+    {
+      "id": "casillas",
+      "name": "I. Casillas",
+      "position": "GK",
+      "tier": "legend",
+      "overall": 93,
+      "traits": [
+        "Shot-Stopper",
+        "Big Game Player"
+      ],
+      "ratings": {
+        "finishing": 10,
+        "passing": 45,
+        "composure": 91,
+        "setPieces": 8,
+        "defending": 32,
+        "goalkeeping": 95,
+        "pace": 42,
+        "stamina": 76
+      }
+    },
+    {
+      "id": "neuer",
+      "name": "M. Neuer",
+      "position": "GK",
+      "tier": "legend",
+      "overall": 94,
+      "traits": [
+        "Sweeper-Keeper",
+        "Distribution"
+      ],
+      "ratings": {
+        "finishing": 10,
+        "passing": 60,
+        "composure": 92,
+        "setPieces": 8,
+        "defending": 32,
+        "goalkeeping": 96,
+        "pace": 50,
+        "stamina": 76
+      }
+    },
+    {
+      "id": "schmeichel",
+      "name": "P. Schmeichel",
+      "position": "GK",
+      "tier": "specialist",
+      "overall": 88,
+      "traits": [
+        "Commanding",
+        "Reflexes"
+      ],
+      "ratings": {
+        "finishing": 10,
+        "passing": 45,
+        "composure": 86,
+        "setPieces": 8,
+        "defending": 32,
+        "goalkeeping": 90,
+        "pace": 42,
+        "stamina": 76
+      }
+    },
+    {
+      "id": "cech",
+      "name": "P. Cech",
+      "position": "GK",
+      "tier": "pro",
+      "overall": 86,
+      "traits": [
+        "Shot-Stopper",
+        "Composure"
+      ],
+      "ratings": {
+        "finishing": 10,
+        "passing": 45,
+        "composure": 84,
+        "setPieces": 8,
+        "defending": 32,
+        "goalkeeping": 88,
+        "pace": 42,
+        "stamina": 76
+      }
+    },
+    {
+      "id": "barthez",
+      "name": "F. Barthez",
+      "position": "GK",
+      "tier": "pro",
+      "overall": 82,
+      "traits": [
+        "Reflexes"
+      ],
+      "ratings": {
+        "finishing": 10,
+        "passing": 45,
+        "composure": 80,
+        "setPieces": 8,
+        "defending": 32,
+        "goalkeeping": 84,
+        "pace": 42,
+        "stamina": 76
+      }
+    },
+    {
+      "id": "vandersar",
+      "name": "E. van der Sar",
+      "position": "GK",
+      "tier": "specialist",
+      "overall": 87,
+      "traits": [
+        "Distribution",
+        "Consistency"
+      ],
+      "ratings": {
+        "finishing": 10,
+        "passing": 55,
+        "composure": 85,
+        "setPieces": 8,
+        "defending": 32,
+        "goalkeeping": 89,
+        "pace": 42,
+        "stamina": 76
+      }
+    },
+    {
+      "id": "maldini",
+      "name": "P. Maldini",
+      "position": "DEF",
+      "tier": "legend",
+      "overall": 96,
+      "traits": [
+        "Last-Ditch Tackle",
+        "Aerial Threat"
+      ],
+      "ratings": {
+        "finishing": 22,
+        "passing": 65,
+        "composure": 92,
+        "setPieces": 25,
+        "defending": 99,
+        "goalkeeping": 5,
+        "pace": 68,
+        "stamina": 84
+      }
+    },
+    {
+      "id": "sagnol",
+      "name": "W. Sagnol",
+      "position": "DEF",
+      "tier": "pro",
+      "overall": 83,
+      "traits": [
+        "Overlapping Run"
+      ],
+      "ratings": {
+        "finishing": 22,
+        "passing": 65,
+        "composure": 79,
+        "setPieces": 25,
+        "defending": 86,
+        "goalkeeping": 5,
+        "pace": 68,
+        "stamina": 84
+      }
+    },
+    {
+      "id": "samuel",
+      "name": "W. Samuel",
+      "position": "DEF",
+      "tier": "pro",
+      "overall": 85,
+      "traits": [
+        "Aggressive Tackling"
+      ],
+      "ratings": {
+        "finishing": 22,
+        "passing": 65,
+        "composure": 81,
+        "setPieces": 25,
+        "defending": 88,
+        "goalkeeping": 5,
+        "pace": 68,
+        "stamina": 84
+      }
+    },
+    {
+      "id": "beckenbauer",
+      "name": "F. Beckenbauer",
+      "position": "DEF",
+      "tier": "legend",
+      "overall": 95,
+      "traits": [
+        "Sweeper",
+        "Elite Vision"
+      ],
+      "ratings": {
+        "finishing": 32,
+        "passing": 80,
+        "composure": 91,
+        "setPieces": 25,
+        "defending": 98,
+        "goalkeeping": 5,
+        "pace": 68,
+        "stamina": 84
+      }
+    },
+    {
+      "id": "cannavaro",
+      "name": "F. Cannavaro",
+      "position": "DEF",
+      "tier": "legend",
+      "overall": 91,
+      "traits": [
+        "Reading The Game"
+      ],
+      "ratings": {
+        "finishing": 22,
+        "passing": 65,
+        "composure": 87,
+        "setPieces": 25,
+        "defending": 94,
+        "goalkeeping": 5,
+        "pace": 68,
+        "stamina": 84
+      }
+    },
+    {
+      "id": "nesta",
+      "name": "A. Nesta",
+      "position": "DEF",
+      "tier": "specialist",
+      "overall": 90,
+      "traits": [
+        "Positioning"
+      ],
+      "ratings": {
+        "finishing": 22,
+        "passing": 65,
+        "composure": 86,
+        "setPieces": 25,
+        "defending": 93,
+        "goalkeeping": 5,
+        "pace": 68,
+        "stamina": 84
+      }
+    },
+    {
+      "id": "ramos",
+      "name": "S. Ramos",
+      "position": "DEF",
+      "tier": "legend",
+      "overall": 92,
+      "traits": [
+        "Aerial Threat",
+        "Clutch"
+      ],
+      "ratings": {
+        "finishing": 32,
+        "passing": 65,
+        "composure": 88,
+        "setPieces": 40,
+        "defending": 95,
+        "goalkeeping": 5,
+        "pace": 68,
+        "stamina": 84
+      }
+    },
+    {
+      "id": "baresi",
+      "name": "F. Baresi",
+      "position": "DEF",
+      "tier": "legend",
+      "overall": 93,
+      "traits": [
+        "Man-Marking",
+        "Leadership"
+      ],
+      "ratings": {
+        "finishing": 22,
+        "passing": 65,
+        "composure": 89,
+        "setPieces": 25,
+        "defending": 96,
+        "goalkeeping": 5,
+        "pace": 68,
+        "stamina": 84
+      }
+    },
+    {
+      "id": "thuram",
+      "name": "L. Thuram",
+      "position": "DEF",
+      "tier": "pro",
+      "overall": 84,
+      "traits": [
+        "Pace",
+        "Recovery Runs"
+      ],
+      "ratings": {
+        "finishing": 22,
+        "passing": 65,
+        "composure": 80,
+        "setPieces": 25,
+        "defending": 87,
+        "goalkeeping": 5,
+        "pace": 76,
+        "stamina": 84
+      }
+    },
+    {
+      "id": "carvalho",
+      "name": "R. Carvalho",
+      "position": "DEF",
+      "tier": "pro",
+      "overall": 85,
+      "traits": [
+        "Anticipation"
+      ],
+      "ratings": {
+        "finishing": 22,
+        "passing": 65,
+        "composure": 81,
+        "setPieces": 25,
+        "defending": 88,
+        "goalkeeping": 5,
+        "pace": 68,
+        "stamina": 84
+      }
+    },
+    {
+      "id": "zidane",
+      "name": "Z. Zidane",
+      "position": "MID",
+      "tier": "legend",
+      "overall": 97,
+      "traits": [
+        "Elite Vision",
+        "Technical Ability",
+        "Set-Piece Specialist"
+      ],
+      "ratings": {
+        "finishing": 70,
+        "passing": 99,
+        "composure": 95,
+        "setPieces": 75,
+        "defending": 55,
+        "goalkeeping": 5,
+        "pace": 66,
+        "stamina": 84
+      }
+    },
+    {
+      "id": "hamann",
+      "name": "D. Hamann",
+      "position": "MID",
+      "tier": "workhorse",
+      "overall": 78,
+      "traits": [
+        "Ball Recovery",
+        "Press Resistance"
+      ],
+      "ratings": {
+        "finishing": 40,
+        "passing": 80,
+        "composure": 76,
+        "setPieces": 55,
+        "defending": 67,
+        "goalkeeping": 5,
+        "pace": 66,
+        "stamina": 84
+      }
+    },
+    {
+      "id": "hamdik",
+      "name": "M. Hamdik",
+      "position": "MID",
+      "tier": "pro",
+      "overall": 84,
+      "traits": [
+        "Passing Range"
+      ],
+      "ratings": {
+        "finishing": 55,
+        "passing": 86,
+        "composure": 82,
+        "setPieces": 55,
+        "defending": 55,
+        "goalkeeping": 5,
+        "pace": 66,
+        "stamina": 84
+      }
+    },
+    {
+      "id": "xavi",
+      "name": "Xavi",
+      "position": "MID",
+      "tier": "legend",
+      "overall": 94,
+      "traits": [
+        "Tiki-Taka Architect",
+        "Vision"
+      ],
+      "ratings": {
+        "finishing": 55,
+        "passing": 96,
+        "composure": 92,
+        "setPieces": 55,
+        "defending": 55,
+        "goalkeeping": 5,
+        "pace": 66,
+        "stamina": 84
+      }
+    },
+    {
+      "id": "pirlo",
+      "name": "A. Pirlo",
+      "position": "MID",
+      "tier": "legend",
+      "overall": 93,
+      "traits": [
+        "Deep-Lying Playmaker",
+        "Set-Piece Specialist"
+      ],
+      "ratings": {
+        "finishing": 55,
+        "passing": 95,
+        "composure": 91,
+        "setPieces": 70,
+        "defending": 55,
+        "goalkeeping": 5,
+        "pace": 66,
+        "stamina": 84
+      }
+    },
+    {
+      "id": "gerrard",
+      "name": "S. Gerrard",
+      "position": "MID",
+      "tier": "legend",
+      "overall": 92,
+      "traits": [
+        "Box-to-Box",
+        "Long Range"
+      ],
+      "ratings": {
+        "finishing": 67,
+        "passing": 94,
+        "composure": 90,
+        "setPieces": 55,
+        "defending": 55,
+        "goalkeeping": 5,
+        "pace": 66,
+        "stamina": 84
+      }
+    },
+    {
+      "id": "modric",
+      "name": "L. Modric",
+      "position": "MID",
+      "tier": "legend",
+      "overall": 91,
+      "traits": [
+        "Tempo Control"
+      ],
+      "ratings": {
+        "finishing": 55,
+        "passing": 93,
+        "composure": 89,
+        "setPieces": 55,
+        "defending": 55,
+        "goalkeeping": 5,
+        "pace": 66,
+        "stamina": 84
+      }
+    },
+    {
+      "id": "keane",
+      "name": "R. Keane",
+      "position": "MID",
+      "tier": "specialist",
+      "overall": 87,
+      "traits": [
+        "Leadership",
+        "Tackling"
+      ],
+      "ratings": {
+        "finishing": 47,
+        "passing": 89,
+        "composure": 85,
+        "setPieces": 55,
+        "defending": 70,
+        "goalkeeping": 5,
+        "pace": 66,
+        "stamina": 84
+      }
+    },
+    {
+      "id": "makelele",
+      "name": "C. Makelele",
+      "position": "MID",
+      "tier": "specialist",
+      "overall": 86,
+      "traits": [
+        "Ball Winning"
+      ],
+      "ratings": {
+        "finishing": 35,
+        "passing": 88,
+        "composure": 84,
+        "setPieces": 55,
+        "defending": 75,
+        "goalkeeping": 5,
+        "pace": 66,
+        "stamina": 84
+      }
+    },
+    {
+      "id": "vieira",
+      "name": "P. Vieira",
+      "position": "MID",
+      "tier": "pro",
+      "overall": 88,
+      "traits": [
+        "Physical Presence"
+      ],
+      "ratings": {
+        "finishing": 55,
+        "passing": 90,
+        "composure": 86,
+        "setPieces": 55,
+        "defending": 65,
+        "goalkeeping": 5,
+        "pace": 66,
+        "stamina": 84
+      }
+    },
+    {
+      "id": "ronaldo",
+      "name": "C. Ronaldo",
+      "position": "ATT",
+      "tier": "legend",
+      "overall": 98,
+      "traits": [
+        "Aerial Threat",
+        "Penalty Specialist",
+        "Clutch"
+      ],
+      "ratings": {
+        "finishing": 99,
+        "passing": 62,
+        "composure": 94,
+        "setPieces": 53,
+        "defending": 25,
+        "goalkeeping": 5,
+        "pace": 89,
+        "stamina": 78
+      }
+    },
+    {
+      "id": "saviola",
+      "name": "J. Saviola",
+      "position": "ATT",
+      "tier": "pro",
+      "overall": 79,
+      "traits": [
+        "Poacher"
+      ],
+      "ratings": {
+        "finishing": 81,
+        "passing": 60,
+        "composure": 75,
+        "setPieces": 45,
+        "defending": 25,
+        "goalkeeping": 5,
+        "pace": 80,
+        "stamina": 78
+      }
+    },
+    {
+      "id": "gomez",
+      "name": "M. Gómez",
+      "position": "ATT",
+      "tier": "pro",
+      "overall": 83,
+      "traits": [
+        "Aerial Threat"
+      ],
+      "ratings": {
+        "finishing": 85,
+        "passing": 62,
+        "composure": 79,
+        "setPieces": 45,
+        "defending": 25,
+        "goalkeeping": 5,
+        "pace": 80,
+        "stamina": 78
+      }
+    },
+    {
+      "id": "messi",
+      "name": "Messi",
+      "position": "ATT",
+      "tier": "legend",
+      "overall": 98,
+      "traits": [
+        "Dribbling",
+        "Vision",
+        "Clutch"
+      ],
+      "ratings": {
+        "finishing": 99,
+        "passing": 82,
+        "composure": 94,
+        "setPieces": 45,
+        "defending": 25,
+        "goalkeeping": 5,
+        "pace": 86,
+        "stamina": 78
+      }
+    },
+    {
+      "id": "pele",
+      "name": "Pelé",
+      "position": "ATT",
+      "tier": "legend",
+      "overall": 97,
+      "traits": [
+        "Finishing",
+        "Big Game Player"
+      ],
+      "ratings": {
+        "finishing": 99,
+        "passing": 62,
+        "composure": 93,
+        "setPieces": 45,
+        "defending": 25,
+        "goalkeeping": 5,
+        "pace": 80,
+        "stamina": 78
+      }
+    },
+    {
+      "id": "maradona",
+      "name": "D. Maradona",
+      "position": "ATT",
+      "tier": "legend",
+      "overall": 96,
+      "traits": [
+        "Dribbling",
+        "Clutch"
+      ],
+      "ratings": {
+        "finishing": 98,
+        "passing": 77,
+        "composure": 92,
+        "setPieces": 45,
+        "defending": 25,
+        "goalkeeping": 5,
+        "pace": 80,
+        "stamina": 78
+      }
+    },
+    {
+      "id": "ronaldinho",
+      "name": "Ronaldinho",
+      "position": "ATT",
+      "tier": "legend",
+      "overall": 93,
+      "traits": [
+        "Flair",
+        "Vision"
+      ],
+      "ratings": {
+        "finishing": 95,
+        "passing": 74,
+        "composure": 89,
+        "setPieces": 45,
+        "defending": 25,
+        "goalkeeping": 5,
+        "pace": 80,
+        "stamina": 78
+      }
+    },
+    {
+      "id": "vanbasten",
+      "name": "M. van Basten",
+      "position": "ATT",
+      "tier": "legend",
+      "overall": 94,
+      "traits": [
+        "Clinical Finishing"
+      ],
+      "ratings": {
+        "finishing": 96,
+        "passing": 62,
+        "composure": 90,
+        "setPieces": 45,
+        "defending": 25,
+        "goalkeeping": 5,
+        "pace": 80,
+        "stamina": 78
+      }
+    },
+    {
+      "id": "shevchenko",
+      "name": "A. Shevchenko",
+      "position": "ATT",
+      "tier": "specialist",
+      "overall": 89,
+      "traits": [
+        "Movement"
+      ],
+      "ratings": {
+        "finishing": 91,
+        "passing": 62,
+        "composure": 85,
+        "setPieces": 45,
+        "defending": 25,
+        "goalkeeping": 5,
+        "pace": 80,
+        "stamina": 78
+      }
+    },
+    {
+      "id": "inzaghi",
+      "name": "F. Inzaghi",
+      "position": "ATT",
+      "tier": "pro",
+      "overall": 85,
+      "traits": [
+        "Offside Trap Timing"
+      ],
+      "ratings": {
+        "finishing": 87,
+        "passing": 62,
+        "composure": 81,
+        "setPieces": 45,
+        "defending": 25,
+        "goalkeeping": 5,
+        "pace": 80,
+        "stamina": 78
+      }
+    },
+    {
+      "id": "iniesta",
+      "name": "A. Iniesta",
+      "position": "FLEX",
+      "flexRole": "MID",
+      "tier": "legend",
+      "overall": 95,
+      "traits": [
+        "Press Resistance",
+        "Clutch",
+        "Technical Ability"
+      ],
+      "ratings": {
+        "finishing": 55,
+        "passing": 97,
+        "composure": 93,
+        "setPieces": 55,
+        "defending": 55,
+        "goalkeeping": 5,
+        "pace": 66,
+        "stamina": 84
+      }
+    },
+    {
+      "id": "parkjs",
+      "name": "Park Ji-sung",
+      "position": "FLEX",
+      "flexRole": "MID",
+      "tier": "pro",
+      "overall": 88,
+      "traits": [
+        "Workhorse",
+        "Two-Way"
+      ],
+      "ratings": {
+        "finishing": 55,
+        "passing": 90,
+        "composure": 86,
+        "setPieces": 55,
+        "defending": 70,
+        "goalkeeping": 5,
+        "pace": 66,
+        "stamina": 92
+      }
+    },
+    {
+      "id": "dembele",
+      "name": "M. Dembele",
+      "position": "FLEX",
+      "flexRole": "ATT",
+      "tier": "pro",
+      "overall": 80,
+      "traits": [
+        "Dribbling"
+      ],
+      "ratings": {
+        "finishing": 82,
+        "passing": 62,
+        "composure": 76,
+        "setPieces": 45,
+        "defending": 25,
+        "goalkeeping": 5,
+        "pace": 80,
+        "stamina": 78
+      }
+    },
+    {
+      "id": "kaka",
+      "name": "Kaká",
+      "position": "FLEX",
+      "flexRole": "ATT",
+      "tier": "legend",
+      "overall": 92,
+      "traits": [
+        "Explosive Runs",
+        "Vision"
+      ],
+      "ratings": {
+        "finishing": 94,
+        "passing": 70,
+        "composure": 88,
+        "setPieces": 45,
+        "defending": 25,
+        "goalkeeping": 5,
+        "pace": 80,
+        "stamina": 78
+      }
+    },
+    {
+      "id": "ozil",
+      "name": "M. Özil",
+      "position": "FLEX",
+      "flexRole": "MID",
+      "tier": "specialist",
+      "overall": 87,
+      "traits": [
+        "Killer Pass"
+      ],
+      "ratings": {
+        "finishing": 55,
+        "passing": 89,
+        "composure": 85,
+        "setPieces": 55,
+        "defending": 55,
+        "goalkeeping": 5,
+        "pace": 66,
+        "stamina": 84
+      }
+    },
+    {
+      "id": "robben",
+      "name": "A. Robben",
+      "position": "FLEX",
+      "flexRole": "ATT",
+      "tier": "specialist",
+      "overall": 88,
+      "traits": [
+        "Cut Inside"
+      ],
+      "ratings": {
+        "finishing": 90,
+        "passing": 62,
+        "composure": 84,
+        "setPieces": 45,
+        "defending": 25,
+        "goalkeeping": 5,
+        "pace": 90,
+        "stamina": 78
+      }
+    },
+    {
+      "id": "sneijder",
+      "name": "W. Sneijder",
+      "position": "FLEX",
+      "flexRole": "MID",
+      "tier": "pro",
+      "overall": 86,
+      "traits": [
+        "Long Range",
+        "Set-Piece Specialist"
+      ],
+      "ratings": {
+        "finishing": 55,
+        "passing": 88,
+        "composure": 84,
+        "setPieces": 67,
+        "defending": 55,
+        "goalkeeping": 5,
+        "pace": 66,
+        "stamina": 84
+      }
+    },
+    {
+      "id": "dimaria",
+      "name": "A. Di María",
+      "position": "FLEX",
+      "flexRole": "ATT",
+      "tier": "pro",
+      "overall": 85,
+      "traits": [
+        "Crossing",
+        "Pace"
+      ],
+      "ratings": {
+        "finishing": 87,
+        "passing": 62,
+        "composure": 81,
+        "setPieces": 45,
+        "defending": 25,
+        "goalkeeping": 5,
+        "pace": 90,
+        "stamina": 78
+      }
+    },
+    {
+      "id": "davidsilva",
+      "name": "David Silva",
+      "position": "FLEX",
+      "flexRole": "MID",
+      "tier": "legend",
+      "overall": 90,
+      "traits": [
+        "Playmaking"
+      ],
+      "ratings": {
+        "finishing": 55,
+        "passing": 92,
+        "composure": 88,
+        "setPieces": 55,
+        "defending": 55,
+        "goalkeeping": 5,
+        "pace": 66,
+        "stamina": 84
+      }
+    },
+    {
+      "id": "coutinho",
+      "name": "P. Coutinho",
+      "position": "FLEX",
+      "flexRole": "ATT",
+      "tier": "pro",
+      "overall": 84,
+      "traits": [
+        "Long Shots"
+      ],
+      "ratings": {
+        "finishing": 86,
+        "passing": 70,
+        "composure": 80,
+        "setPieces": 45,
+        "defending": 25,
+        "goalkeeping": 5,
+        "pace": 80,
+        "stamina": 78
+      }
+    },
+    {
+      "id": "yashin",
+      "name": "L. Yashin",
+      "position": "GK",
+      "tier": "legend",
+      "overall": 94,
+      "traits": [
+        "Sweeper-Keeper Pioneer"
+      ],
+      "ratings": {
+        "finishing": 10,
+        "passing": 45,
+        "composure": 92,
+        "setPieces": 8,
+        "defending": 32,
+        "goalkeeping": 96,
+        "pace": 42,
+        "stamina": 76
+      }
+    },
+    {
+      "id": "zoff",
+      "name": "D. Zoff",
+      "position": "GK",
+      "tier": "legend",
+      "overall": 90,
+      "traits": [
+        "Consistency",
+        "Leadership"
+      ],
+      "ratings": {
+        "finishing": 10,
+        "passing": 45,
+        "composure": 88,
+        "setPieces": 8,
+        "defending": 32,
+        "goalkeeping": 92,
+        "pace": 42,
+        "stamina": 76
+      }
+    },
+    {
+      "id": "banks",
+      "name": "G. Banks",
+      "position": "GK",
+      "tier": "legend",
+      "overall": 91,
+      "traits": [
+        "Shot-Stopper"
+      ],
+      "ratings": {
+        "finishing": 10,
+        "passing": 45,
+        "composure": 89,
+        "setPieces": 8,
+        "defending": 32,
+        "goalkeeping": 93,
+        "pace": 42,
+        "stamina": 76
+      }
+    },
+    {
+      "id": "higuita",
+      "name": "R. Higuita",
+      "position": "GK",
+      "tier": "specialist",
+      "overall": 83,
+      "traits": [
+        "Scorpion Kick",
+        "Eccentric"
+      ],
+      "ratings": {
+        "finishing": 10,
+        "passing": 45,
+        "composure": 81,
+        "setPieces": 8,
+        "defending": 32,
+        "goalkeeping": 85,
+        "pace": 42,
+        "stamina": 76
+      }
+    },
+    {
+      "id": "oblak",
+      "name": "J. Oblak",
+      "position": "GK",
+      "tier": "specialist",
+      "overall": 90,
+      "traits": [
+        "Reflexes"
+      ],
+      "ratings": {
+        "finishing": 10,
+        "passing": 45,
+        "composure": 88,
+        "setPieces": 8,
+        "defending": 32,
+        "goalkeeping": 92,
+        "pace": 42,
+        "stamina": 76
+      }
+    },
+    {
+      "id": "courtois",
+      "name": "T. Courtois",
+      "position": "GK",
+      "tier": "specialist",
+      "overall": 89,
+      "traits": [
+        "Positioning"
+      ],
+      "ratings": {
+        "finishing": 10,
+        "passing": 45,
+        "composure": 87,
+        "setPieces": 8,
+        "defending": 32,
+        "goalkeeping": 91,
+        "pace": 38,
+        "stamina": 76
+      }
+    },
+    {
+      "id": "donnarumma",
+      "name": "G. Donnarumma",
+      "position": "GK",
+      "tier": "pro",
+      "overall": 87,
+      "traits": [
+        "Shot-Stopper"
+      ],
+      "ratings": {
+        "finishing": 10,
+        "passing": 45,
+        "composure": 85,
+        "setPieces": 8,
+        "defending": 32,
+        "goalkeeping": 89,
+        "pace": 42,
+        "stamina": 76
+      }
+    },
+    {
+      "id": "lloris",
+      "name": "H. Lloris",
+      "position": "GK",
+      "tier": "pro",
+      "overall": 85,
+      "traits": [
+        "Leadership"
+      ],
+      "ratings": {
+        "finishing": 10,
+        "passing": 45,
+        "composure": 83,
+        "setPieces": 8,
+        "defending": 32,
+        "goalkeeping": 87,
+        "pace": 42,
+        "stamina": 76
+      }
+    },
+    {
+      "id": "ospina",
+      "name": "D. Ospina",
+      "position": "GK",
+      "tier": "workhorse",
+      "overall": 79,
+      "traits": [
+        "Reflexes"
+      ],
+      "ratings": {
+        "finishing": 10,
+        "passing": 45,
+        "composure": 77,
+        "setPieces": 8,
+        "defending": 32,
+        "goalkeeping": 81,
+        "pace": 42,
+        "stamina": 76
+      }
+    },
+    {
+      "id": "navas",
+      "name": "K. Navas",
+      "position": "GK",
+      "tier": "pro",
+      "overall": 85,
+      "traits": [
+        "Big Game Player"
+      ],
+      "ratings": {
+        "finishing": 10,
+        "passing": 45,
+        "composure": 83,
+        "setPieces": 8,
+        "defending": 32,
+        "goalkeeping": 87,
+        "pace": 42,
+        "stamina": 76
+      }
+    },
+    {
+      "id": "valdes",
+      "name": "J. Valdés",
+      "position": "GK",
+      "tier": "pro",
+      "overall": 84,
+      "traits": [
+        "Distribution"
+      ],
+      "ratings": {
+        "finishing": 10,
+        "passing": 53,
+        "composure": 82,
+        "setPieces": 8,
+        "defending": 32,
+        "goalkeeping": 86,
+        "pace": 42,
+        "stamina": 76
+      }
+    },
+    {
+      "id": "sommer",
+      "name": "N. Sommer",
+      "position": "GK",
+      "tier": "workhorse",
+      "overall": 80,
+      "traits": [
+        "Consistency"
+      ],
+      "ratings": {
+        "finishing": 10,
+        "passing": 45,
+        "composure": 78,
+        "setPieces": 8,
+        "defending": 32,
+        "goalkeeping": 82,
+        "pace": 42,
+        "stamina": 76
+      }
+    },
+    {
+      "id": "handanovic",
+      "name": "S. Handanović",
+      "position": "GK",
+      "tier": "pro",
+      "overall": 83,
+      "traits": [
+        "Positioning"
+      ],
+      "ratings": {
+        "finishing": 10,
+        "passing": 45,
+        "composure": 81,
+        "setPieces": 8,
+        "defending": 32,
+        "goalkeeping": 85,
+        "pace": 42,
+        "stamina": 76
+      }
+    },
+    {
+      "id": "onana",
+      "name": "A. Onana",
+      "position": "GK",
+      "tier": "specialist",
+      "overall": 82,
+      "traits": [
+        "Sweeper-Keeper"
+      ],
+      "ratings": {
+        "finishing": 10,
+        "passing": 55,
+        "composure": 80,
+        "setPieces": 8,
+        "defending": 32,
+        "goalkeeping": 84,
+        "pace": 48,
+        "stamina": 76
+      }
+    },
+    {
+      "id": "juliocesar",
+      "name": "R. Julio César",
+      "position": "GK",
+      "tier": "pro",
+      "overall": 84,
+      "traits": [
+        "Shot-Stopper"
+      ],
+      "ratings": {
+        "finishing": 10,
+        "passing": 45,
+        "composure": 82,
+        "setPieces": 8,
+        "defending": 32,
+        "goalkeeping": 86,
+        "pace": 42,
+        "stamina": 76
+      }
+    },
+    {
+      "id": "terstegen",
+      "name": "M. Ter Stegen",
+      "position": "GK",
+      "tier": "specialist",
+      "overall": 89,
+      "traits": [
+        "Distribution"
+      ],
+      "ratings": {
+        "finishing": 10,
+        "passing": 57,
+        "composure": 87,
+        "setPieces": 8,
+        "defending": 32,
+        "goalkeeping": 91,
+        "pace": 42,
+        "stamina": 76
+      }
+    },
+    {
+      "id": "alisson",
+      "name": "E. Álisson",
+      "position": "GK",
+      "tier": "specialist",
+      "overall": 90,
+      "traits": [
+        "Distribution",
+        "Sweeper-Keeper"
+      ],
+      "ratings": {
+        "finishing": 10,
+        "passing": 55,
+        "composure": 88,
+        "setPieces": 8,
+        "defending": 32,
+        "goalkeeping": 92,
+        "pace": 47,
+        "stamina": 76
+      }
+    },
+    {
+      "id": "sagbo",
+      "name": "W. Sagbo",
+      "position": "GK",
+      "tier": "workhorse",
+      "overall": 76,
+      "traits": [
+        "Reflexes"
+      ],
+      "ratings": {
+        "finishing": 10,
+        "passing": 45,
+        "composure": 74,
+        "setPieces": 8,
+        "defending": 32,
+        "goalkeeping": 78,
+        "pace": 42,
+        "stamina": 76
+      }
+    },
+    {
+      "id": "leno",
+      "name": "B. Leno",
+      "position": "GK",
+      "tier": "workhorse",
+      "overall": 81,
+      "traits": [
+        "Shot-Stopper"
+      ],
+      "ratings": {
+        "finishing": 10,
+        "passing": 45,
+        "composure": 79,
+        "setPieces": 8,
+        "defending": 32,
+        "goalkeeping": 83,
+        "pace": 42,
+        "stamina": 76
+      }
+    },
+    {
+      "id": "neto",
+      "name": "M. Neto",
+      "position": "GK",
+      "tier": "workhorse",
+      "overall": 78,
+      "traits": [
+        "Reflexes"
+      ],
+      "ratings": {
+        "finishing": 10,
+        "passing": 45,
+        "composure": 76,
+        "setPieces": 8,
+        "defending": 32,
+        "goalkeeping": 80,
+        "pace": 42,
+        "stamina": 76
+      }
+    },
+    {
+      "id": "robertocarlos",
+      "name": "R. Carlos",
+      "position": "DEF",
+      "tier": "legend",
+      "overall": 92,
+      "traits": [
+        "Free Kicks",
+        "Overlapping Run"
+      ],
+      "ratings": {
+        "finishing": 22,
+        "passing": 65,
+        "composure": 88,
+        "setPieces": 50,
+        "defending": 95,
+        "goalkeeping": 5,
+        "pace": 83,
+        "stamina": 84
+      }
+    },
+    {
+      "id": "cafu",
+      "name": "Cafu",
+      "position": "DEF",
+      "tier": "legend",
+      "overall": 91,
+      "traits": [
+        "Stamina",
+        "Overlapping Run"
+      ],
+      "ratings": {
+        "finishing": 22,
+        "passing": 65,
+        "composure": 87,
+        "setPieces": 25,
+        "defending": 94,
+        "goalkeeping": 5,
+        "pace": 78,
+        "stamina": 94
+      }
+    },
+    {
+      "id": "vidal2",
+      "name": "P. Vidal",
+      "position": "DEF",
+      "tier": "pro",
+      "overall": 82,
+      "traits": [
+        "Physicality"
+      ],
+      "ratings": {
+        "finishing": 22,
+        "passing": 65,
+        "composure": 78,
+        "setPieces": 25,
+        "defending": 85,
+        "goalkeeping": 5,
+        "pace": 68,
+        "stamina": 84
+      }
+    },
+    {
+      "id": "chiellini",
+      "name": "S. Chiellini",
+      "position": "DEF",
+      "tier": "specialist",
+      "overall": 90,
+      "traits": [
+        "Aggressive Tackling"
+      ],
+      "ratings": {
+        "finishing": 22,
+        "passing": 65,
+        "composure": 86,
+        "setPieces": 25,
+        "defending": 93,
+        "goalkeeping": 5,
+        "pace": 68,
+        "stamina": 84
+      }
+    },
+    {
+      "id": "gchiellini",
+      "name": "G. Chiellini",
+      "position": "DEF",
+      "tier": "pro",
+      "overall": 83,
+      "traits": [
+        "Marking"
+      ],
+      "ratings": {
+        "finishing": 22,
+        "passing": 65,
+        "composure": 79,
+        "setPieces": 25,
+        "defending": 86,
+        "goalkeeping": 5,
+        "pace": 68,
+        "stamina": 84
+      }
+    },
+    {
+      "id": "alaba",
+      "name": "T. Alaba",
+      "position": "DEF",
+      "tier": "pro",
+      "overall": 86,
+      "traits": [
+        "Versatility"
+      ],
+      "ratings": {
+        "finishing": 22,
+        "passing": 75,
+        "composure": 82,
+        "setPieces": 25,
+        "defending": 89,
+        "goalkeeping": 5,
+        "pace": 68,
+        "stamina": 84
+      }
+    },
+    {
+      "id": "vandijk",
+      "name": "V. van Dijk",
+      "position": "DEF",
+      "tier": "legend",
+      "overall": 93,
+      "traits": [
+        "Composure",
+        "Aerial Threat"
+      ],
+      "ratings": {
+        "finishing": 30,
+        "passing": 65,
+        "composure": 89,
+        "setPieces": 25,
+        "defending": 96,
+        "goalkeeping": 5,
+        "pace": 68,
+        "stamina": 84
+      }
+    },
+    {
+      "id": "carvajal2",
+      "name": "R. Carvajal",
+      "position": "DEF",
+      "tier": "pro",
+      "overall": 83,
+      "traits": [
+        "Overlapping Run"
+      ],
+      "ratings": {
+        "finishing": 22,
+        "passing": 65,
+        "composure": 79,
+        "setPieces": 25,
+        "defending": 86,
+        "goalkeeping": 5,
+        "pace": 76,
+        "stamina": 84
+      }
+    },
+    {
+      "id": "danialves",
+      "name": "D. Alves",
+      "position": "DEF",
+      "tier": "legend",
+      "overall": 89,
+      "traits": [
+        "Overlapping Run",
+        "Crossing"
+      ],
+      "ratings": {
+        "finishing": 32,
+        "passing": 65,
+        "composure": 85,
+        "setPieces": 25,
+        "defending": 92,
+        "goalkeeping": 5,
+        "pace": 78,
+        "stamina": 84
+      }
+    },
+    {
+      "id": "hierro",
+      "name": "A. Hierro",
+      "position": "DEF",
+      "tier": "specialist",
+      "overall": 87,
+      "traits": [
+        "Long Range",
+        "Set-Piece Specialist"
+      ],
+      "ratings": {
+        "finishing": 34,
+        "passing": 65,
+        "composure": 83,
+        "setPieces": 40,
+        "defending": 90,
+        "goalkeeping": 5,
+        "pace": 68,
+        "stamina": 84
+      }
+    },
+    {
+      "id": "puyol",
+      "name": "J. Puyol",
+      "position": "DEF",
+      "tier": "legend",
+      "overall": 90,
+      "traits": [
+        "Leadership",
+        "Aggressive Tackling"
+      ],
+      "ratings": {
+        "finishing": 22,
+        "passing": 65,
+        "composure": 86,
+        "setPieces": 25,
+        "defending": 93,
+        "goalkeeping": 5,
+        "pace": 68,
+        "stamina": 84
+      }
+    },
+    {
+      "id": "ferdinand",
+      "name": "R. Ferdinand",
+      "position": "DEF",
+      "tier": "specialist",
+      "overall": 88,
+      "traits": [
+        "Composure",
+        "Reading The Game"
+      ],
+      "ratings": {
+        "finishing": 22,
+        "passing": 65,
+        "composure": 84,
+        "setPieces": 25,
+        "defending": 91,
+        "goalkeeping": 5,
+        "pace": 68,
+        "stamina": 84
+      }
+    },
+    {
+      "id": "terry",
+      "name": "J. Terry",
+      "position": "DEF",
+      "tier": "specialist",
+      "overall": 87,
+      "traits": [
+        "Leadership",
+        "Aerial Threat"
+      ],
+      "ratings": {
+        "finishing": 30,
+        "passing": 65,
+        "composure": 83,
+        "setPieces": 25,
+        "defending": 90,
+        "goalkeeping": 5,
+        "pace": 68,
+        "stamina": 84
+      }
+    },
+    {
+      "id": "desailly",
+      "name": "M. Desailly",
+      "position": "DEF",
+      "tier": "pro",
+      "overall": 85,
+      "traits": [
+        "Physicality"
+      ],
+      "ratings": {
+        "finishing": 22,
+        "passing": 65,
+        "composure": 81,
+        "setPieces": 25,
+        "defending": 88,
+        "goalkeeping": 5,
+        "pace": 68,
+        "stamina": 84
+      }
+    },
+    {
+      "id": "bonucci",
+      "name": "L. Bonucci",
+      "position": "DEF",
+      "tier": "pro",
+      "overall": 86,
+      "traits": [
+        "Long Passing"
+      ],
+      "ratings": {
+        "finishing": 22,
+        "passing": 75,
+        "composure": 82,
+        "setPieces": 25,
+        "defending": 89,
+        "goalkeeping": 5,
+        "pace": 68,
+        "stamina": 84
+      }
+    },
+    {
+      "id": "pique",
+      "name": "G. Pique",
+      "position": "DEF",
+      "tier": "specialist",
+      "overall": 87,
+      "traits": [
+        "Composure"
+      ],
+      "ratings": {
+        "finishing": 22,
+        "passing": 73,
+        "composure": 83,
+        "setPieces": 25,
+        "defending": 90,
+        "goalkeeping": 5,
+        "pace": 68,
+        "stamina": 84
+      }
+    },
+    {
+      "id": "lahm",
+      "name": "P. Lahm",
+      "position": "DEF",
+      "tier": "legend",
+      "overall": 90,
+      "traits": [
+        "Versatility",
+        "Composure"
+      ],
+      "ratings": {
+        "finishing": 22,
+        "passing": 75,
+        "composure": 86,
+        "setPieces": 25,
+        "defending": 93,
+        "goalkeeping": 5,
+        "pace": 68,
+        "stamina": 84
+      }
+    },
+    {
+      "id": "passarella",
+      "name": "D. Passarella",
+      "position": "DEF",
+      "tier": "specialist",
+      "overall": 86,
+      "traits": [
+        "Aerial Threat",
+        "Set-Piece Specialist"
+      ],
+      "ratings": {
+        "finishing": 32,
+        "passing": 65,
+        "composure": 82,
+        "setPieces": 37,
+        "defending": 89,
+        "goalkeeping": 5,
+        "pace": 68,
+        "stamina": 84
+      }
+    },
+    {
+      "id": "zanetti",
+      "name": "C. Zanetti",
+      "position": "DEF",
+      "tier": "pro",
+      "overall": 85,
+      "traits": [
+        "Consistency",
+        "Versatility"
+      ],
+      "ratings": {
+        "finishing": 22,
+        "passing": 65,
+        "composure": 81,
+        "setPieces": 25,
+        "defending": 88,
+        "goalkeeping": 5,
+        "pace": 68,
+        "stamina": 84
+      }
+    },
+    {
+      "id": "cabrini",
+      "name": "A. Cabrini",
+      "position": "DEF",
+      "tier": "pro",
+      "overall": 82,
+      "traits": [
+        "Marking"
+      ],
+      "ratings": {
+        "finishing": 22,
+        "passing": 65,
+        "composure": 78,
+        "setPieces": 25,
+        "defending": 85,
+        "goalkeeping": 5,
+        "pace": 68,
+        "stamina": 84
+      }
+    },
+    {
+      "id": "baggio",
+      "name": "R. Baggio",
+      "position": "MID",
+      "tier": "legend",
+      "overall": 92,
+      "traits": [
+        "Flair",
+        "Set-Piece Specialist"
+      ],
+      "ratings": {
+        "finishing": 70,
+        "passing": 94,
+        "composure": 90,
+        "setPieces": 70,
+        "defending": 55,
+        "goalkeeping": 5,
+        "pace": 66,
+        "stamina": 84
+      }
+    },
+    {
+      "id": "rijkaard",
+      "name": "F. Rijkaard",
+      "position": "MID",
+      "tier": "legend",
+      "overall": 89,
+      "traits": [
+        "Box-to-Box"
+      ],
+      "ratings": {
+        "finishing": 55,
+        "passing": 91,
+        "composure": 87,
+        "setPieces": 55,
+        "defending": 65,
+        "goalkeeping": 5,
+        "pace": 66,
+        "stamina": 84
+      }
+    },
+    {
+      "id": "nedved",
+      "name": "P. Nedvěd",
+      "position": "MID",
+      "tier": "specialist",
+      "overall": 88,
+      "traits": [
+        "Stamina",
+        "Long Range"
+      ],
+      "ratings": {
+        "finishing": 65,
+        "passing": 90,
+        "composure": 86,
+        "setPieces": 55,
+        "defending": 55,
+        "goalkeeping": 5,
+        "pace": 66,
+        "stamina": 94
+      }
+    },
+    {
+      "id": "ballack",
+      "name": "M. Ballack",
+      "position": "MID",
+      "tier": "specialist",
+      "overall": 88,
+      "traits": [
+        "Long Range",
+        "Aerial Threat"
+      ],
+      "ratings": {
+        "finishing": 67,
+        "passing": 90,
+        "composure": 86,
+        "setPieces": 55,
+        "defending": 55,
+        "goalkeeping": 5,
+        "pace": 66,
+        "stamina": 84
+      }
+    },
+    {
+      "id": "debruyne",
+      "name": "K. De Bruyne",
+      "position": "MID",
+      "tier": "legend",
+      "overall": 93,
+      "traits": [
+        "Vision",
+        "Long Range"
+      ],
+      "ratings": {
+        "finishing": 65,
+        "passing": 95,
+        "composure": 91,
+        "setPieces": 65,
+        "defending": 55,
+        "goalkeeping": 5,
+        "pace": 66,
+        "stamina": 84
+      }
+    },
+    {
+      "id": "kroos",
+      "name": "T. Kroos",
+      "position": "MID",
+      "tier": "legend",
+      "overall": 91,
+      "traits": [
+        "Passing Range",
+        "Set-Piece Specialist"
+      ],
+      "ratings": {
+        "finishing": 55,
+        "passing": 93,
+        "composure": 89,
+        "setPieces": 70,
+        "defending": 55,
+        "goalkeeping": 5,
+        "pace": 66,
+        "stamina": 84
+      }
+    },
+    {
+      "id": "kante",
+      "name": "N. Kanté",
+      "position": "MID",
+      "tier": "specialist",
+      "overall": 88,
+      "traits": [
+        "Ball Winning"
+      ],
+      "ratings": {
+        "finishing": 40,
+        "passing": 90,
+        "composure": 86,
+        "setPieces": 55,
+        "defending": 77,
+        "goalkeeping": 5,
+        "pace": 66,
+        "stamina": 84
+      }
+    },
+    {
+      "id": "casemiro",
+      "name": "Casemiro",
+      "position": "MID",
+      "tier": "pro",
+      "overall": 87,
+      "traits": [
+        "Ball Winning"
+      ],
+      "ratings": {
+        "finishing": 45,
+        "passing": 89,
+        "composure": 85,
+        "setPieces": 55,
+        "defending": 73,
+        "goalkeeping": 5,
+        "pace": 66,
+        "stamina": 84
+      }
+    },
+    {
+      "id": "fabregas",
+      "name": "Fabregas",
+      "position": "MID",
+      "tier": "pro",
+      "overall": 87,
+      "traits": [
+        "Vision"
+      ],
+      "ratings": {
+        "finishing": 55,
+        "passing": 89,
+        "composure": 85,
+        "setPieces": 55,
+        "defending": 55,
+        "goalkeeping": 5,
+        "pace": 66,
+        "stamina": 84
+      }
+    },
+    {
+      "id": "tigana",
+      "name": "Y. Tigana",
+      "position": "MID",
+      "tier": "pro",
+      "overall": 85,
+      "traits": [
+        "Box-to-Box"
+      ],
+      "ratings": {
+        "finishing": 55,
+        "passing": 87,
+        "composure": 83,
+        "setPieces": 55,
+        "defending": 55,
+        "goalkeeping": 5,
+        "pace": 66,
+        "stamina": 84
+      }
+    },
+    {
+      "id": "platini",
+      "name": "M. Platini",
+      "position": "MID",
+      "tier": "legend",
+      "overall": 94,
+      "traits": [
+        "Set-Piece Specialist",
+        "Clutch"
+      ],
+      "ratings": {
+        "finishing": 70,
+        "passing": 96,
+        "composure": 92,
+        "setPieces": 75,
+        "defending": 55,
+        "goalkeeping": 5,
+        "pace": 66,
+        "stamina": 84
+      }
+    },
+    {
+      "id": "brunofernandes",
+      "name": "B. Fernandes",
+      "position": "MID",
+      "tier": "pro",
+      "overall": 87,
+      "traits": [
+        "Set-Piece Specialist"
+      ],
+      "ratings": {
+        "finishing": 63,
+        "passing": 89,
+        "composure": 85,
+        "setPieces": 65,
+        "defending": 55,
+        "goalkeeping": 5,
+        "pace": 66,
+        "stamina": 84
+      }
+    },
+    {
+      "id": "rivaldo",
+      "name": "Rivaldo",
+      "position": "MID",
+      "tier": "legend",
+      "overall": 91,
+      "traits": [
+        "Long Range",
+        "Flair"
+      ],
+      "ratings": {
+        "finishing": 70,
+        "passing": 93,
+        "composure": 89,
+        "setPieces": 55,
+        "defending": 55,
+        "goalkeeping": 5,
+        "pace": 66,
+        "stamina": 84
+      }
+    },
+    {
+      "id": "cambiasso",
+      "name": "E. Cambiasso",
+      "position": "MID",
+      "tier": "pro",
+      "overall": 83,
+      "traits": [
+        "Ball Recovery"
+      ],
+      "ratings": {
+        "finishing": 55,
+        "passing": 85,
+        "composure": 81,
+        "setPieces": 55,
+        "defending": 65,
+        "goalkeeping": 5,
+        "pace": 66,
+        "stamina": 84
+      }
+    },
+    {
+      "id": "deschamps",
+      "name": "J. Deschamps",
+      "position": "MID",
+      "tier": "pro",
+      "overall": 82,
+      "traits": [
+        "Leadership"
+      ],
+      "ratings": {
+        "finishing": 55,
+        "passing": 84,
+        "composure": 80,
+        "setPieces": 55,
+        "defending": 55,
+        "goalkeeping": 5,
+        "pace": 66,
+        "stamina": 84
+      }
+    },
+    {
+      "id": "matthaus",
+      "name": "G. Matthäus",
+      "position": "MID",
+      "tier": "legend",
+      "overall": 92,
+      "traits": [
+        "Box-to-Box",
+        "Long Range"
+      ],
+      "ratings": {
+        "finishing": 67,
+        "passing": 94,
+        "composure": 90,
+        "setPieces": 55,
+        "defending": 55,
+        "goalkeeping": 5,
+        "pace": 66,
+        "stamina": 84
+      }
+    },
+    {
+      "id": "socrates",
+      "name": "Sócrates",
+      "position": "MID",
+      "tier": "specialist",
+      "overall": 89,
+      "traits": [
+        "Vision",
+        "Flair"
+      ],
+      "ratings": {
+        "finishing": 55,
+        "passing": 91,
+        "composure": 87,
+        "setPieces": 55,
+        "defending": 55,
+        "goalkeeping": 5,
+        "pace": 66,
+        "stamina": 84
+      }
+    },
+    {
+      "id": "frenkiedejong",
+      "name": "F. de Jong",
+      "position": "MID",
+      "tier": "pro",
+      "overall": 85,
+      "traits": [
+        "Ball Progression"
+      ],
+      "ratings": {
+        "finishing": 55,
+        "passing": 87,
+        "composure": 83,
+        "setPieces": 55,
+        "defending": 55,
+        "goalkeeping": 5,
+        "pace": 66,
+        "stamina": 84
+      }
+    },
+    {
+      "id": "songbilong",
+      "name": "J. Song",
+      "position": "MID",
+      "tier": "workhorse",
+      "overall": 77,
+      "traits": [
+        "Ball Winning"
+      ],
+      "ratings": {
+        "finishing": 40,
+        "passing": 79,
+        "composure": 75,
+        "setPieces": 55,
+        "defending": 70,
+        "goalkeeping": 5,
+        "pace": 66,
+        "stamina": 84
+      }
+    },
+    {
+      "id": "bernardosilva",
+      "name": "B. Silva",
+      "position": "MID",
+      "tier": "specialist",
+      "overall": 87,
+      "traits": [
+        "Technical Ability"
+      ],
+      "ratings": {
+        "finishing": 55,
+        "passing": 89,
+        "composure": 85,
+        "setPieces": 55,
+        "defending": 55,
+        "goalkeeping": 5,
+        "pace": 66,
+        "stamina": 84
+      }
+    },
+    {
+      "id": "vanpersie",
+      "name": "R. Van Persie",
+      "position": "ATT",
+      "tier": "specialist",
+      "overall": 89,
+      "traits": [
+        "Finishing"
+      ],
+      "ratings": {
+        "finishing": 91,
+        "passing": 62,
+        "composure": 85,
+        "setPieces": 45,
+        "defending": 25,
+        "goalkeeping": 5,
+        "pace": 80,
+        "stamina": 78
+      }
+    },
+    {
+      "id": "henry",
+      "name": "T. Henry",
+      "position": "ATT",
+      "tier": "legend",
+      "overall": 94,
+      "traits": [
+        "Pace",
+        "Finishing"
+      ],
+      "ratings": {
+        "finishing": 96,
+        "passing": 62,
+        "composure": 90,
+        "setPieces": 45,
+        "defending": 25,
+        "goalkeeping": 5,
+        "pace": 88,
+        "stamina": 78
+      }
+    },
+    {
+      "id": "distefano",
+      "name": "A. Di Stéfano",
+      "position": "ATT",
+      "tier": "legend",
+      "overall": 96,
+      "traits": [
+        "Complete Forward",
+        "Clutch"
+      ],
+      "ratings": {
+        "finishing": 98,
+        "passing": 72,
+        "composure": 92,
+        "setPieces": 45,
+        "defending": 25,
+        "goalkeeping": 5,
+        "pace": 80,
+        "stamina": 78
+      }
+    },
+    {
+      "id": "eusebio",
+      "name": "E. Eusébio",
+      "position": "ATT",
+      "tier": "legend",
+      "overall": 94,
+      "traits": [
+        "Finishing",
+        "Pace"
+      ],
+      "ratings": {
+        "finishing": 96,
+        "passing": 62,
+        "composure": 90,
+        "setPieces": 45,
+        "defending": 25,
+        "goalkeeping": 5,
+        "pace": 88,
+        "stamina": 78
+      }
+    },
+    {
+      "id": "muller2",
+      "name": "G. Müller",
+      "position": "ATT",
+      "tier": "legend",
+      "overall": 95,
+      "traits": [
+        "Poacher",
+        "Clinical Finishing"
+      ],
+      "ratings": {
+        "finishing": 97,
+        "passing": 62,
+        "composure": 91,
+        "setPieces": 45,
+        "defending": 25,
+        "goalkeeping": 5,
+        "pace": 80,
+        "stamina": 78
+      }
+    },
+    {
+      "id": "puskas",
+      "name": "F. Puskás",
+      "position": "ATT",
+      "tier": "legend",
+      "overall": 96,
+      "traits": [
+        "Finishing",
+        "Free Kicks"
+      ],
+      "ratings": {
+        "finishing": 98,
+        "passing": 62,
+        "composure": 92,
+        "setPieces": 60,
+        "defending": 25,
+        "goalkeeping": 5,
+        "pace": 80,
+        "stamina": 78
+      }
+    },
+    {
+      "id": "ronaldonazario",
+      "name": "R. Nazário",
+      "position": "ATT",
+      "tier": "legend",
+      "overall": 97,
+      "traits": [
+        "Pace",
+        "Dribbling"
+      ],
+      "ratings": {
+        "finishing": 99,
+        "passing": 62,
+        "composure": 93,
+        "setPieces": 45,
+        "defending": 25,
+        "goalkeeping": 5,
+        "pace": 90,
+        "stamina": 78
+      }
+    },
+    {
+      "id": "romario",
+      "name": "Romário",
+      "position": "ATT",
+      "tier": "legend",
+      "overall": 94,
+      "traits": [
+        "Poacher",
+        "Clinical Finishing"
+      ],
+      "ratings": {
+        "finishing": 96,
+        "passing": 62,
+        "composure": 90,
+        "setPieces": 45,
+        "defending": 25,
+        "goalkeeping": 5,
+        "pace": 80,
+        "stamina": 78
+      }
+    },
+    {
+      "id": "zico",
+      "name": "Zico",
+      "position": "ATT",
+      "tier": "legend",
+      "overall": 92,
+      "traits": [
+        "Set-Piece Specialist",
+        "Vision"
+      ],
+      "ratings": {
+        "finishing": 94,
+        "passing": 72,
+        "composure": 88,
+        "setPieces": 60,
+        "defending": 25,
+        "goalkeeping": 5,
+        "pace": 80,
+        "stamina": 78
+      }
+    },
+    {
+      "id": "rush",
+      "name": "J. Rush",
+      "position": "ATT",
+      "tier": "specialist",
+      "overall": 88,
+      "traits": [
+        "Poacher"
+      ],
+      "ratings": {
+        "finishing": 90,
+        "passing": 62,
+        "composure": 84,
+        "setPieces": 45,
+        "defending": 25,
+        "goalkeeping": 5,
+        "pace": 80,
+        "stamina": 78
+      }
+    },
+    {
+      "id": "batistuta",
+      "name": "G. Batistuta",
+      "position": "ATT",
+      "tier": "legend",
+      "overall": 92,
+      "traits": [
+        "Power",
+        "Finishing"
+      ],
+      "ratings": {
+        "finishing": 94,
+        "passing": 62,
+        "composure": 88,
+        "setPieces": 53,
+        "defending": 25,
+        "goalkeeping": 5,
+        "pace": 80,
+        "stamina": 78
+      }
+    },
+    {
+      "id": "shearer",
+      "name": "A. Shearer",
+      "position": "ATT",
+      "tier": "specialist",
+      "overall": 90,
+      "traits": [
+        "Physicality",
+        "Finishing"
+      ],
+      "ratings": {
+        "finishing": 92,
+        "passing": 62,
+        "composure": 86,
+        "setPieces": 45,
+        "defending": 25,
+        "goalkeeping": 5,
+        "pace": 80,
+        "stamina": 78
+      }
+    },
+    {
+      "id": "kane",
+      "name": "H. Kane",
+      "position": "ATT",
+      "tier": "legend",
+      "overall": 91,
+      "traits": [
+        "Finishing",
+        "Vision"
+      ],
+      "ratings": {
+        "finishing": 93,
+        "passing": 70,
+        "composure": 87,
+        "setPieces": 45,
+        "defending": 25,
+        "goalkeeping": 5,
+        "pace": 80,
+        "stamina": 78
+      }
+    },
+    {
+      "id": "lewandowski",
+      "name": "R. Lewandowski",
+      "position": "ATT",
+      "tier": "legend",
+      "overall": 93,
+      "traits": [
+        "Clinical Finishing",
+        "Movement"
+      ],
+      "ratings": {
+        "finishing": 95,
+        "passing": 62,
+        "composure": 89,
+        "setPieces": 45,
+        "defending": 25,
+        "goalkeeping": 5,
+        "pace": 80,
+        "stamina": 78
+      }
+    },
+    {
+      "id": "benzema",
+      "name": "K. Benzema",
+      "position": "ATT",
+      "tier": "legend",
+      "overall": 91,
+      "traits": [
+        "Movement",
+        "Vision"
+      ],
+      "ratings": {
+        "finishing": 93,
+        "passing": 68,
+        "composure": 87,
+        "setPieces": 45,
+        "defending": 25,
+        "goalkeeping": 5,
+        "pace": 80,
+        "stamina": 78
+      }
+    },
+    {
+      "id": "luissuarez",
+      "name": "L. Suárez",
+      "position": "ATT",
+      "tier": "legend",
+      "overall": 92,
+      "traits": [
+        "Finishing",
+        "Dribbling"
+      ],
+      "ratings": {
+        "finishing": 94,
+        "passing": 62,
+        "composure": 88,
+        "setPieces": 45,
+        "defending": 25,
+        "goalkeeping": 5,
+        "pace": 80,
+        "stamina": 78
+      }
+    },
+    {
+      "id": "drogba",
+      "name": "D. Drogba",
+      "position": "ATT",
+      "tier": "specialist",
+      "overall": 90,
+      "traits": [
+        "Physicality",
+        "Big Game Player"
+      ],
+      "ratings": {
+        "finishing": 92,
+        "passing": 62,
+        "composure": 86,
+        "setPieces": 45,
+        "defending": 25,
+        "goalkeeping": 5,
+        "pace": 80,
+        "stamina": 78
+      }
+    },
+    {
+      "id": "etoo",
+      "name": "S. Eto’o",
+      "position": "ATT",
+      "tier": "specialist",
+      "overall": 90,
+      "traits": [
+        "Pace",
+        "Finishing"
+      ],
+      "ratings": {
+        "finishing": 92,
+        "passing": 62,
+        "composure": 86,
+        "setPieces": 45,
+        "defending": 25,
+        "goalkeeping": 5,
+        "pace": 88,
+        "stamina": 78
+      }
+    },
+    {
+      "id": "careca",
+      "name": "Careca",
+      "position": "ATT",
+      "tier": "pro",
+      "overall": 85,
+      "traits": [
+        "Poacher"
+      ],
+      "ratings": {
+        "finishing": 87,
+        "passing": 62,
+        "composure": 81,
+        "setPieces": 45,
+        "defending": 25,
+        "goalkeeping": 5,
+        "pace": 80,
+        "stamina": 78
+      }
+    },
+    {
+      "id": "altafini",
+      "name": "J. Altafini",
+      "position": "ATT",
+      "tier": "pro",
+      "overall": 84,
+      "traits": [
+        "Finishing"
+      ],
+      "ratings": {
+        "finishing": 86,
+        "passing": 62,
+        "composure": 80,
+        "setPieces": 45,
+        "defending": 25,
+        "goalkeeping": 5,
+        "pace": 80,
+        "stamina": 78
+      }
+    },
+    {
+      "id": "georgebest",
+      "name": "George Best",
+      "position": "FLEX",
+      "flexRole": "ATT",
+      "tier": "legend",
+      "overall": 92,
+      "traits": [
+        "Dribbling",
+        "Flair"
+      ],
+      "ratings": {
+        "finishing": 94,
+        "passing": 62,
+        "composure": 88,
+        "setPieces": 45,
+        "defending": 25,
+        "goalkeeping": 5,
+        "pace": 85,
+        "stamina": 78
+      }
+    },
+    {
+      "id": "cruyff",
+      "name": "J. Cruyff",
+      "position": "FLEX",
+      "flexRole": "ATT",
+      "tier": "legend",
+      "overall": 96,
+      "traits": [
+        "Vision",
+        "Flair"
+      ],
+      "ratings": {
+        "finishing": 98,
+        "passing": 74,
+        "composure": 92,
+        "setPieces": 45,
+        "defending": 25,
+        "goalkeeping": 5,
+        "pace": 80,
+        "stamina": 78
+      }
+    },
+    {
+      "id": "garrincha",
+      "name": "Garrincha",
+      "position": "FLEX",
+      "flexRole": "ATT",
+      "tier": "legend",
+      "overall": 93,
+      "traits": [
+        "Dribbling",
+        "Flair"
+      ],
+      "ratings": {
+        "finishing": 95,
+        "passing": 62,
+        "composure": 89,
+        "setPieces": 45,
+        "defending": 25,
+        "goalkeeping": 5,
+        "pace": 80,
+        "stamina": 78
+      }
+    },
+    {
+      "id": "figo",
+      "name": "L. Figo",
+      "position": "FLEX",
+      "flexRole": "MID",
+      "tier": "specialist",
+      "overall": 89,
+      "traits": [
+        "Crossing",
+        "Dribbling"
+      ],
+      "ratings": {
+        "finishing": 55,
+        "passing": 91,
+        "composure": 87,
+        "setPieces": 55,
+        "defending": 55,
+        "goalkeeping": 5,
+        "pace": 72,
+        "stamina": 84
+      }
+    },
+    {
+      "id": "beckham",
+      "name": "D. Beckham",
+      "position": "FLEX",
+      "flexRole": "MID",
+      "tier": "specialist",
+      "overall": 88,
+      "traits": [
+        "Crossing",
+        "Set-Piece Specialist"
+      ],
+      "ratings": {
+        "finishing": 55,
+        "passing": 90,
+        "composure": 86,
+        "setPieces": 73,
+        "defending": 55,
+        "goalkeeping": 5,
+        "pace": 66,
+        "stamina": 84
+      }
+    },
+    {
+      "id": "giggs",
+      "name": "R. Giggs",
+      "position": "FLEX",
+      "flexRole": "MID",
+      "tier": "specialist",
+      "overall": 88,
+      "traits": [
+        "Dribbling",
+        "Consistency"
+      ],
+      "ratings": {
+        "finishing": 55,
+        "passing": 90,
+        "composure": 86,
+        "setPieces": 55,
+        "defending": 55,
+        "goalkeeping": 5,
+        "pace": 66,
+        "stamina": 84
+      }
+    },
+    {
+      "id": "iniesta2",
+      "name": "A. Iniesta",
+      "position": "FLEX",
+      "flexRole": "MID",
+      "tier": "legend",
+      "overall": 95,
+      "traits": [
+        "Press Resistance",
+        "Clutch"
+      ],
+      "ratings": {
+        "finishing": 55,
+        "passing": 97,
+        "composure": 93,
+        "setPieces": 55,
+        "defending": 55,
+        "goalkeeping": 5,
+        "pace": 66,
+        "stamina": 84
+      }
+    },
+    {
+      "id": "bergkamp",
+      "name": "N. Bergkamp",
+      "position": "FLEX",
+      "flexRole": "ATT",
+      "tier": "specialist",
+      "overall": 89,
+      "traits": [
+        "Vision",
+        "Technical Ability"
+      ],
+      "ratings": {
+        "finishing": 91,
+        "passing": 72,
+        "composure": 85,
+        "setPieces": 45,
+        "defending": 25,
+        "goalkeeping": 5,
+        "pace": 80,
+        "stamina": 78
+      }
+    },
+    {
+      "id": "vieri",
+      "name": "C. Vieri",
+      "position": "FLEX",
+      "flexRole": "ATT",
+      "tier": "pro",
+      "overall": 86,
+      "traits": [
+        "Aerial Threat",
+        "Finishing"
+      ],
+      "ratings": {
+        "finishing": 88,
+        "passing": 62,
+        "composure": 82,
+        "setPieces": 45,
+        "defending": 25,
+        "goalkeeping": 5,
+        "pace": 80,
+        "stamina": 78
+      }
+    },
+    {
+      "id": "gullit",
+      "name": "R. Gullit",
+      "position": "FLEX",
+      "flexRole": "MID",
+      "tier": "legend",
+      "overall": 90,
+      "traits": [
+        "Versatility",
+        "Physicality"
+      ],
+      "ratings": {
+        "finishing": 55,
+        "passing": 92,
+        "composure": 88,
+        "setPieces": 55,
+        "defending": 55,
+        "goalkeeping": 5,
+        "pace": 66,
+        "stamina": 84
+      }
+    },
+    {
+      "id": "vanbasten2",
+      "name": "M. Van Basten",
+      "position": "FLEX",
+      "flexRole": "ATT",
+      "tier": "legend",
+      "overall": 94,
+      "traits": [
+        "Clinical Finishing"
+      ],
+      "ratings": {
+        "finishing": 96,
+        "passing": 62,
+        "composure": 90,
+        "setPieces": 45,
+        "defending": 25,
+        "goalkeeping": 5,
+        "pace": 80,
+        "stamina": 78
+      }
+    },
+    {
+      "id": "forlan",
+      "name": "D. Forlán",
+      "position": "FLEX",
+      "flexRole": "ATT",
+      "tier": "pro",
+      "overall": 85,
+      "traits": [
+        "Long Range"
+      ],
+      "ratings": {
+        "finishing": 87,
+        "passing": 62,
+        "composure": 81,
+        "setPieces": 45,
+        "defending": 25,
+        "goalkeeping": 5,
+        "pace": 80,
+        "stamina": 78
+      }
+    },
+    {
+      "id": "neymar",
+      "name": "Neymar",
+      "position": "FLEX",
+      "flexRole": "ATT",
+      "tier": "legend",
+      "overall": 93,
+      "traits": [
+        "Dribbling",
+        "Flair"
+      ],
+      "ratings": {
+        "finishing": 95,
+        "passing": 72,
+        "composure": 89,
+        "setPieces": 45,
+        "defending": 25,
+        "goalkeeping": 5,
+        "pace": 80,
+        "stamina": 78
+      }
+    },
+    {
+      "id": "hazard",
+      "name": "E. Hazard",
+      "position": "FLEX",
+      "flexRole": "ATT",
+      "tier": "specialist",
+      "overall": 89,
+      "traits": [
+        "Dribbling",
+        "Vision"
+      ],
+      "ratings": {
+        "finishing": 91,
+        "passing": 70,
+        "composure": 85,
+        "setPieces": 45,
+        "defending": 25,
+        "goalkeeping": 5,
+        "pace": 80,
+        "stamina": 78
+      }
+    },
+    {
+      "id": "bale",
+      "name": "G. Bale",
+      "position": "FLEX",
+      "flexRole": "ATT",
+      "tier": "specialist",
+      "overall": 88,
+      "traits": [
+        "Pace",
+        "Long Range"
+      ],
+      "ratings": {
+        "finishing": 90,
+        "passing": 62,
+        "composure": 84,
+        "setPieces": 45,
+        "defending": 25,
+        "goalkeeping": 5,
+        "pace": 90,
+        "stamina": 78
+      }
+    },
+    {
+      "id": "griezmann",
+      "name": "A. Griezmann",
+      "position": "FLEX",
+      "flexRole": "ATT",
+      "tier": "specialist",
+      "overall": 88,
+      "traits": [
+        "Movement",
+        "Vision"
+      ],
+      "ratings": {
+        "finishing": 90,
+        "passing": 68,
+        "composure": 84,
+        "setPieces": 45,
+        "defending": 25,
+        "goalkeeping": 5,
+        "pace": 80,
+        "stamina": 78
+      }
+    },
+    {
+      "id": "mbappe",
+      "name": "Mbappé",
+      "position": "FLEX",
+      "flexRole": "ATT",
+      "tier": "legend",
+      "overall": 94,
+      "traits": [
+        "Pace",
+        "Finishing"
+      ],
+      "ratings": {
+        "finishing": 96,
+        "passing": 62,
+        "composure": 90,
+        "setPieces": 45,
+        "defending": 25,
+        "goalkeeping": 5,
+        "pace": 94,
+        "stamina": 78
+      }
+    },
+    {
+      "id": "salah",
+      "name": "J. Salah",
+      "position": "FLEX",
+      "flexRole": "ATT",
+      "tier": "specialist",
+      "overall": 89,
+      "traits": [
+        "Pace",
+        "Finishing"
+      ],
+      "ratings": {
+        "finishing": 91,
+        "passing": 62,
+        "composure": 85,
+        "setPieces": 45,
+        "defending": 25,
+        "goalkeeping": 5,
+        "pace": 88,
+        "stamina": 78
+      }
+    },
+    {
+      "id": "declan",
+      "name": "K. Mbappe Junior",
+      "position": "FLEX",
+      "flexRole": "MID",
+      "tier": "pro",
+      "overall": 82,
+      "traits": [
+        "Box-to-Box"
+      ],
+      "ratings": {
+        "finishing": 55,
+        "passing": 84,
+        "composure": 80,
+        "setPieces": 55,
+        "defending": 61,
+        "goalkeeping": 5,
+        "pace": 66,
+        "stamina": 84
+      }
+    },
+    {
+      "id": "nakata",
+      "name": "P. Nakata",
+      "position": "FLEX",
+      "flexRole": "MID",
+      "tier": "workhorse",
+      "overall": 78,
+      "traits": [
+        "Stamina"
+      ],
+      "ratings": {
+        "finishing": 55,
+        "passing": 80,
+        "composure": 76,
+        "setPieces": 55,
+        "defending": 55,
+        "goalkeeping": 5,
+        "pace": 66,
+        "stamina": 92
+      }
+    }
   ]
 }

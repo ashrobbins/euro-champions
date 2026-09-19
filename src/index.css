@@ -25,6 +25,11 @@
   --color-pos-att: #e0527a;
 }
 
+html,
+body {
+  overflow-x: hidden;
+}
+
 body {
   margin: 0;
   background: var(--color-bg);

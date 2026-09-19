@@ -153,7 +153,7 @@ export function MatchHeader({
 export function ScreenShell({ children }: { children: React.ReactNode }) {
   return (
     <div
-      className="relative flex h-[844px] w-[390px] flex-col overflow-hidden  font-body text-[var(--color-text-primary)]"
+      className="relative flex h-dvh w-full max-w-[390px] flex-col overflow-hidden font-body text-[var(--color-text-primary)] sm:h-[844px]"
       style={{
         background: 'radial-gradient(120% 70% at 50% -10%, #f6f3fc 0%, #ffffff 55%), #ffffff',
       }}

@@ -258,14 +258,14 @@ function App() {
   const activeFixture = fixtures.find((f) => f.n === activeFixtureN)
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-black p-6">
+    <div className="flex min-h-dvh w-full items-center justify-center bg-black p-0 sm:p-6">
       <ScreenShell>
         {screen === 'home' && (
           <HomeScreen onPlay={handlePlay} onNewGame={handleNewGame} hasSquad={squadValid} />
         )}
 
         {screen === 'draft' && (
-          <DraftScreen step={draftStep} picks={picks} onBack={handleDraftBack} onPick={handleDraftPick} />
+          <DraftScreen step={draftStep} picks={picks} seed={dayId} onBack={handleDraftBack} onPick={handleDraftPick} />
         )}
 
         {screen === 'squad' && squadValid && squadPlayersMap && (
