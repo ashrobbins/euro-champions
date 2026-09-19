@@ -1,0 +1,42 @@
+{
+  "$comment": "Draft pool: exactly 3 candidates per position. Edit this file directly to reconfigure players — no code changes needed for data-only tuning. Stat fields must match the eight canonical ratings; FLEX (wildcard) candidates additionally carry flexRole (MID or ATT) per the product decision that the wildcard plays as a midfielder or an attacker.",
+  "statFields": ["finishing", "passing", "composure", "setPieces", "defending", "goalkeeping", "pace", "stamina"],
+  "tiers": ["legend", "specialist", "pro", "workhorse"],
+  "positions": ["GK", "DEF", "MID", "ATT", "FLEX"],
+  "players": [
+    { "id": "kahn", "name": "O. Kahn", "position": "GK", "tier": "legend", "overall": 92, "traits": ["Shot-Stopper", "Commanding"],
+      "ratings": { "finishing": 15, "passing": 50, "composure": 95, "setPieces": 10, "defending": 35, "goalkeeping": 97, "pace": 45, "stamina": 80 } },
+    { "id": "cabizares", "name": "S. Cabizares", "position": "GK", "tier": "pro", "overall": 84, "traits": ["Reflexes", "Distribution"],
+      "ratings": { "finishing": 12, "passing": 48, "composure": 82, "setPieces": 8, "defending": 32, "goalkeeping": 85, "pace": 48, "stamina": 78 } },
+    { "id": "lehmann", "name": "J. Lehmann", "position": "GK", "tier": "pro", "overall": 81, "traits": ["Penalty Specialist"],
+      "ratings": { "finishing": 10, "passing": 45, "composure": 88, "setPieces": 5, "defending": 30, "goalkeeping": 85, "pace": 40, "stamina": 75 } },
+
+    { "id": "maldini", "name": "P. Maldini", "position": "DEF", "tier": "legend", "overall": 96, "traits": ["Last-Ditch Tackle", "Aerial Threat"],
+      "ratings": { "finishing": 30, "passing": 75, "composure": 94, "setPieces": 20, "defending": 97, "goalkeeping": 5, "pace": 70, "stamina": 88 } },
+    { "id": "sagnol", "name": "W. Sagnol", "position": "DEF", "tier": "pro", "overall": 83, "traits": ["Overlapping Run"],
+      "ratings": { "finishing": 35, "passing": 70, "composure": 78, "setPieces": 40, "defending": 80, "goalkeeping": 5, "pace": 75, "stamina": 82 } },
+    { "id": "samuel", "name": "W. Samuel", "position": "DEF", "tier": "pro", "overall": 85, "traits": ["Aggressive Tackling"],
+      "ratings": { "finishing": 20, "passing": 62, "composure": 84, "setPieces": 15, "defending": 88, "goalkeeping": 5, "pace": 72, "stamina": 85 } },
+
+    { "id": "zidane", "name": "Z. Zidane", "position": "MID", "tier": "legend", "overall": 97, "traits": ["Elite Vision", "Technical Ability", "Set-Piece Specialist"],
+      "ratings": { "finishing": 82, "passing": 97, "composure": 96, "setPieces": 84, "defending": 40, "goalkeeping": 5, "pace": 78, "stamina": 85 } },
+    { "id": "hamann", "name": "D. Hamann", "position": "MID", "tier": "workhorse", "overall": 78, "traits": ["Ball Recovery", "Press Resistance"],
+      "ratings": { "finishing": 55, "passing": 74, "composure": 76, "setPieces": 45, "defending": 70, "goalkeeping": 5, "pace": 60, "stamina": 90 } },
+    { "id": "hamdik", "name": "M. Hamdik", "position": "MID", "tier": "pro", "overall": 84, "traits": ["Passing Range"],
+      "ratings": { "finishing": 62, "passing": 80, "composure": 79, "setPieces": 58, "defending": 62, "goalkeeping": 5, "pace": 68, "stamina": 82 } },
+
+    { "id": "ronaldo", "name": "C. Ronaldo", "position": "ATT", "tier": "legend", "overall": 98, "traits": ["Aerial Threat", "Penalty Specialist", "Clutch"],
+      "ratings": { "finishing": 98, "passing": 82, "composure": 93, "setPieces": 90, "defending": 35, "goalkeeping": 5, "pace": 91, "stamina": 92 } },
+    { "id": "saviola", "name": "J. Saviola", "position": "ATT", "tier": "pro", "overall": 79, "traits": ["Poacher"],
+      "ratings": { "finishing": 78, "passing": 60, "composure": 70, "setPieces": 40, "defending": 28, "goalkeeping": 5, "pace": 85, "stamina": 74 } },
+    { "id": "gomez", "name": "M. Gómez", "position": "ATT", "tier": "pro", "overall": 83, "traits": ["Aerial Threat"],
+      "ratings": { "finishing": 80, "passing": 58, "composure": 74, "setPieces": 55, "defending": 30, "goalkeeping": 5, "pace": 78, "stamina": 78 } },
+
+    { "id": "iniesta", "name": "A. Iniesta", "position": "FLEX", "flexRole": "MID", "tier": "legend", "overall": 95, "traits": ["Press Resistance", "Clutch", "Technical Ability"],
+      "ratings": { "finishing": 78, "passing": 95, "composure": 96, "setPieces": 70, "defending": 45, "goalkeeping": 5, "pace": 72, "stamina": 84 } },
+    { "id": "parkjs", "name": "Park Ji-sung", "position": "FLEX", "flexRole": "MID", "tier": "pro", "overall": 88, "traits": ["Workhorse", "Two-Way"],
+      "ratings": { "finishing": 68, "passing": 78, "composure": 82, "setPieces": 40, "defending": 72, "goalkeeping": 5, "pace": 82, "stamina": 94 } },
+    { "id": "dembele", "name": "M. Dembele", "position": "FLEX", "flexRole": "ATT", "tier": "pro", "overall": 80, "traits": ["Dribbling"],
+      "ratings": { "finishing": 74, "passing": 72, "composure": 75, "setPieces": 50, "defending": 48, "goalkeeping": 5, "pace": 80, "stamina": 76 } }
+  ]
+}

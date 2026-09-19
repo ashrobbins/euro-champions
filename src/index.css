@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=IBM+Plex+Sans:wght@400;500;600&family=Bebas+Neue&family=Anton&display=swap');
+@import 'tailwindcss';
+
+@theme {
+  --font-heading: 'Space Grotesk', system-ui, sans-serif;
+  --font-body: 'IBM Plex Sans', system-ui, sans-serif;
+  /* Extra-tall condensed display face for the match-centre redesign (scores, team names, titles). */
+  --font-score: 'Bebas Neue', 'Anton', 'Archivo Black', system-ui, sans-serif;
+
+  --color-bg: #ffffff;
+  --color-bg-elev: #f6f3fc;
+  --color-card: #f4f1fb;
+  --color-card-border: rgb(0 0 0 / 8%);
+  --color-text-primary: #0a0a0a;
+  --color-text-secondary: rgb(10 10 10 / 62%);
+  --color-text-tertiary: rgb(10 10 10 / 42%);
+  --color-accent: #6d28d9;
+  --color-accent-dim: rgb(109 40 217 / 12%);
+  --color-green: #16a34a;
+  --color-red: #dc2626;
+
+  --color-pos-gk: #22b573;
+  --color-pos-def: #3e6fe0;
+  --color-pos-mid: #8266e0;
+  --color-pos-att: #e0527a;
+}
+
+body {
+  margin: 0;
+  background: var(--color-bg);
+  color: var(--color-text-primary);
+  font-family: var(--font-body);
+}
