@@ -1,6 +1,5 @@
 export type Position = 'GK' | 'DEF' | 'MID' | 'ATT' | 'FLEX'
 export type FlexRole = 'MID' | 'ATT'
-export type Tier = 'legend' | 'specialist' | 'pro' | 'workhorse'
 export type Tactic = 'aggressive' | 'balanced' | 'defensive'
 
 export const STAT_FIELDS = [
@@ -22,7 +21,6 @@ export interface Player {
   name: string
   position: Position
   flexRole?: FlexRole
-  tier: Tier
   overall: number
   traits: string[]
   ratings: Ratings
@@ -30,7 +28,6 @@ export interface Player {
 
 export interface PlayersData {
   statFields: readonly string[]
-  tiers: readonly string[]
   positions: readonly string[]
   players: Player[]
 }

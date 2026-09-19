@@ -9,7 +9,7 @@ import { MatchEngine, isUserGoalEvent, minuteForDecisions, revealedScore } from 
 import { SeededRandom } from './engine/random'
 import { buildLeagueTable } from './engine/league'
 import { buildBracket } from './engine/knockout'
-import { load, save, defaultState, todayId, addCareerGoals } from './engine/persistence'
+import { load, save, defaultState, todayId, addCareerGoals, loadTeamName, saveTeamName } from './engine/persistence'
 import { DEFAULT_TEAM_COLOR } from './theme'
 import { ScreenShell } from './components/ui'
 import { HomeScreen } from './components/HomeScreen'
@@ -24,6 +24,7 @@ import { LeagueTableScreen } from './components/LeagueTableScreen'
 import { PlayerScreen } from './components/PlayerScreen'
 import { KnockoutFlow } from './components/KnockoutFlow'
 import { TrophyScreen } from './components/TrophyScreen'
+import { TeamNameScreen } from './components/TeamNameScreen'
 
 const teams = teamsData.teams as unknown as Team[]
 const teamsById: Record<string, Team> = Object.fromEntries(teams.map((t) => [t.id, t]))
@@ -32,7 +33,7 @@ const mockStandings = mockLeagueStageData.standings as LeagueRow[]
 /** Fixed demo squad used to jump straight into the knockout stage via ?simKnockout, bypassing the draft. */
 const SIM_SQUAD: Squad = { GK: 'kahn', DEF: 'maldini', MID: 'zidane', ATT: 'saviola', FLEX: 'parkjs' }
 
-type Screen = 'home' | 'draft' | 'squad' | 'fixtures' | 'match' | 'results' | 'league' | 'player' | 'knockout' | 'trophy'
+type Screen = 'home' | 'draft' | 'squad' | 'fixtures' | 'match' | 'results' | 'league' | 'player' | 'knockout' | 'trophy' | 'nameEntry' | 'settings'
 
 function App() {
   const dayId = useMemo(() => todayId(), [])
@@ -51,6 +52,7 @@ function App() {
   const [activeFixtureN, setActiveFixtureN] = useState<number | null>(null)
   const [viewedSlot, setViewedSlot] = useState<DraftSlot | null>(null)
   const [teamColor, setTeamColor] = useState<string>(initial.teamColor ?? DEFAULT_TEAM_COLOR)
+  const [teamName, setTeamName] = useState<string>(() => loadTeamName() ?? '')
   const [pendingOutcome, setPendingOutcome] = useState<DecisionRecord | null>(null)
   const [decisionOpen, setDecisionOpen] = useState(false)
   const [bracket, setBracket] = useState<Bracket | null>(null)
@@ -101,6 +103,7 @@ function App() {
   }, [])
 
   const squadValid = isValidSquad(picks)
+  const displayName = teamName || 'Your Squad'
   const squadPlayersMap = useMemo(() => {
     if (!squadValid) return null
     const map = {} as Record<DraftSlot, Player>
@@ -135,11 +138,34 @@ function App() {
   }
 
   function handlePlay() {
+    if (!teamName) {
+      setScreen('nameEntry')
+      return
+    }
+    enterSquadFlow()
+  }
+
+  function enterSquadFlow() {
     if (squadValid) setScreen('squad')
     else {
       setDraftStep(0)
       setScreen('draft')
     }
+  }
+
+  function handleSetTeamName(name: string) {
+    setTeamName(name)
+    saveTeamName(name)
+  }
+
+  function handleNameEntrySubmit(name: string) {
+    handleSetTeamName(name)
+    enterSquadFlow()
+  }
+
+  function handleSettingsSubmit(name: string) {
+    handleSetTeamName(name)
+    setScreen('home')
   }
 
   /** Wipes today's squad/tactic/fixtures (keeps streak/last-result history) and starts a fresh draft. */
@@ -251,8 +277,8 @@ function App() {
 
   const leagueRows = useMemo(() => {
     if (screen !== 'league') return []
-    return buildLeagueTable(dayId, teams, 'Your Squad', teamColor, fixtures)
-  }, [screen, dayId, fixtures, teamColor])
+    return buildLeagueTable(dayId, teams, displayName, teamColor, fixtures)
+  }, [screen, dayId, fixtures, teamColor, displayName])
 
   const engine = engineRef.current
   const activeFixture = fixtures.find((f) => f.n === activeFixtureN)
@@ -261,7 +287,18 @@ function App() {
     <div className="flex min-h-dvh w-full items-center justify-center bg-black p-0 sm:p-6">
       <ScreenShell>
         {screen === 'home' && (
-          <HomeScreen onPlay={handlePlay} onNewGame={handleNewGame} hasSquad={squadValid} />
+          <HomeScreen
+            onPlay={handlePlay}
+            onNewGame={handleNewGame}
+            onOpenSettings={() => setScreen('settings')}
+            hasSquad={squadValid}
+          />
+        )}
+
+        {screen === 'nameEntry' && <TeamNameScreen mode="onboarding" initialName={teamName} onSubmit={handleNameEntrySubmit} />}
+
+        {screen === 'settings' && (
+          <TeamNameScreen mode="settings" initialName={teamName} onBack={() => setScreen('home')} onSubmit={handleSettingsSubmit} />
         )}
 
         {screen === 'draft' && (
@@ -274,6 +311,7 @@ function App() {
             players={squadPlayersMap}
             tactic={tactic}
             teamColor={teamColor}
+            teamName={displayName}
             onBack={() => setScreen('home')}
             onSetTactic={handleSetTactic}
             onSetTeamColor={handleSetTeamColor}
@@ -293,6 +331,7 @@ function App() {
           <>
             <MatchScreen
               opponent={engine.opponent}
+              userTeamName={displayName}
               label={`Group ${activeFixtureN}`}
               venue={activeFixture?.venue ?? 'HOME'}
               decisions={engine.decisions}
@@ -324,6 +363,7 @@ function App() {
           <ResultsScreen
             result={engine.result()}
             opponent={engine.opponent}
+            userTeamName={displayName}
             label={`Group ${activeFixtureN}`}
             venue={activeFixture?.venue ?? 'HOME'}
             userColor={teamColor}
@@ -354,6 +394,7 @@ function App() {
             squad={squadPlayers(picks as Squad)}
             tactic={tactic}
             teamColor={teamColor}
+            userTeamName={displayName}
             seed={dayId}
             onExit={() => setScreen('league')}
             debugEntry={knockoutDebugEntry}
@@ -361,7 +402,7 @@ function App() {
         )}
 
         {screen === 'trophy' && (
-          <TrophyScreen userTeamName="Your Squad" userColor={teamColor} onDone={() => setScreen('home')} />
+          <TrophyScreen userTeamName={displayName} userColor={teamColor} onDone={() => setScreen('home')} />
         )}
       </ScreenShell>
     </div>

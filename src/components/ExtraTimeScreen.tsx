@@ -5,7 +5,8 @@ import { AccentButton, MatchHeader } from './ui'
 interface Props {
   opponent: Team
   userColor: string
-  /** True when the user is the away side for this leg — swaps which side of the header "Your Squad" sits on. */
+  userTeamName: string
+  /** True when the user is the away side for this leg — swaps which side of the header the user's team sits on. */
   isHomeVenue: boolean
   /** Aggregate score heading into extra time, so the header reads as a continuation of the tie. */
   aggUserBefore: number
@@ -23,7 +24,7 @@ function formatClock(totalSeconds: number): string {
   return `${mm}:${String(ss).padStart(2, '0')}`
 }
 
-export function ExtraTimeScreen({ opponent, userColor, isHomeVenue, aggUserBefore, aggOppBefore, ambientEvents, onDone }: Props) {
+export function ExtraTimeScreen({ opponent, userColor, userTeamName, isHomeVenue, aggUserBefore, aggOppBefore, ambientEvents, onDone }: Props) {
   const [displaySeconds, setDisplaySeconds] = useState(90 * 60)
   const [running, setRunning] = useState(true)
   const frameRef = useRef<number | undefined>(undefined)
@@ -65,8 +66,8 @@ export function ExtraTimeScreen({ opponent, userColor, isHomeVenue, aggUserBefor
       <MatchHeader
         eyebrowTop="Extra Time"
         eyebrowBottom="30 Minutes"
-        homeLabel={isHomeVenue ? 'Your Squad' : opponent.name}
-        awayLabel={isHomeVenue ? opponent.name : 'Your Squad'}
+        homeLabel={isHomeVenue ? userTeamName : opponent.name}
+        awayLabel={isHomeVenue ? opponent.name : userTeamName}
         homeGoals={isHomeVenue ? aggUserBefore + userSoFar : aggOppBefore + oppSoFar}
         awayGoals={isHomeVenue ? aggOppBefore + oppSoFar : aggUserBefore + userSoFar}
         homeColor={isHomeVenue ? userColor : opponent.accentColor}
@@ -74,12 +75,12 @@ export function ExtraTimeScreen({ opponent, userColor, isHomeVenue, aggUserBefor
         clockBadge={formatClock(displaySeconds)}
       />
 
-      <div className="grow px-6 pt-6.5">
-        <div className="flex h-full flex-col bg-[var(--color-card)] p-3.5">
+      <div className="min-h-0 grow px-6 pt-6.5">
+        <div className="flex h-full min-h-0 flex-col bg-[var(--color-card)] p-3.5">
           <div className="font-heading mb-2.5 text-[11px] font-bold tracking-[0.08em] text-[var(--color-text-tertiary)]">
             EXTRA TIME
           </div>
-          <div className="flex flex-col gap-2 text-[13px] text-[var(--color-text-secondary)] overflow-y-auto">
+          <div className="min-h-0 grow overflow-y-auto flex flex-col gap-2 text-[13px] text-[var(--color-text-secondary)]">
             {running && <div>Both sides pushing for a winner&hellip;</div>}
             {!running && revealedNewestFirst.length === 0 && <div>Stalemate holds — this one's going to penalties.</div>}
             {revealedNewestFirst.map((e, i) => (

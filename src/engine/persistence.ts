@@ -48,6 +48,26 @@ export function defaultState(dayId: string): SavedState {
 
 export const DRAFT_SLOT_KEYS: DraftSlot[] = ['GK', 'DEF', 'MID', 'ATT', 'FLEX']
 
+/** The user's own squad name — set once on first play, editable later from Settings. Its own key (not part of SavedState) so it survives the daily reset. */
+const TEAM_NAME_KEY = 'euro-champions:team-name:v1'
+
+export function loadTeamName(): string | null {
+  try {
+    const raw = localStorage.getItem(TEAM_NAME_KEY)
+    return raw && raw.trim() ? raw : null
+  } catch {
+    return null
+  }
+}
+
+export function saveTeamName(name: string) {
+  try {
+    localStorage.setItem(TEAM_NAME_KEY, name.trim())
+  } catch {
+    // localStorage unavailable — degrade silently, per MVP scope.
+  }
+}
+
 /** Player name -> career goals, tallied across every match ever played. Survives "New Game" and day rollover — it's not part of SavedState. */
 export type CareerGoals = Record<string, number>
 const CAREER_KEY = 'euro-champions:career-goals:v1'

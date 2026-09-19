@@ -5,6 +5,7 @@ import { AccentButton, MatchHeader } from './ui'
 
 interface Props {
   opponent: Team
+  userTeamName: string
   /** Eyebrow label, e.g. "Group 3" or "Round of 16 · Leg 1". */
   label: string
   venue: 'HOME' | 'AWAY'
@@ -44,6 +45,7 @@ const LEAD_IN_LINES = [
 
 export function MatchScreen({
   opponent,
+  userTeamName,
   label,
   venue,
   aggregateBefore,
@@ -164,9 +166,9 @@ export function MatchScreen({
         eyebrowTop={label}
         eyebrowBottom="Live Match"
         onBack={onBack}
-        homeLabel={isHomeVenue ? 'Your Squad' : opponent.name}
+        homeLabel={isHomeVenue ? userTeamName : opponent.name}
         homeSub={isHomeVenue ? 'Home' : 'Away'}
-        awayLabel={isHomeVenue ? opponent.name : 'Your Squad'}
+        awayLabel={isHomeVenue ? opponent.name : userTeamName}
         awaySub={isHomeVenue ? 'Away' : 'Home'}
         homeGoals={isHomeVenue ? displayUserGoals : displayOppGoals}
         awayGoals={isHomeVenue ? displayOppGoals : displayUserGoals}
@@ -176,12 +178,12 @@ export function MatchScreen({
         aggregateNote={aggregateNote}
       />
 
-      <div className="grow px-6 pt-6.5">
-        <div className="flex h-full flex-col  bg-[var(--color-card)] p-3.5">
+      <div className="min-h-0 grow px-6 pt-6.5">
+        <div className="flex h-full min-h-0 flex-col  bg-[var(--color-card)] p-3.5">
           <div className="font-heading mb-2.5 text-[11px] font-bold tracking-[0.08em] text-[var(--color-text-tertiary)]">
             MATCH EVENTS
           </div>
-          <div className="flex flex-col gap-2 text-[13px] text-[var(--color-text-secondary)] overflow-y-auto">
+          <div className="min-h-0 grow overflow-y-auto flex flex-col gap-2 text-[13px] text-[var(--color-text-secondary)]">
             {!paused && running && <div className="text-[var(--color-text-secondary)]">Play in progress&hellip;</div>}
             {!paused && !running && !isComplete && (
               <div className="text-[var(--color-text-primary)] font-medium">{leadIn}</div>

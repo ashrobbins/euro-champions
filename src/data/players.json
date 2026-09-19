@@ -10,12 +10,6 @@
     "pace",
     "stamina"
   ],
-  "tiers": [
-    "legend",
-    "specialist",
-    "pro",
-    "workhorse"
-  ],
   "positions": [
     "GK",
     "DEF",
@@ -28,7 +22,6 @@
       "id": "kahn",
       "name": "O. Kahn",
       "position": "GK",
-      "tier": "legend",
       "overall": 92,
       "traits": [
         "Shot-Stopper",
@@ -49,7 +42,6 @@
       "id": "cabizares",
       "name": "S. Cabizares",
       "position": "GK",
-      "tier": "pro",
       "overall": 84,
       "traits": [
         "Reflexes",
@@ -70,7 +62,6 @@
       "id": "lehmann",
       "name": "J. Lehmann",
       "position": "GK",
-      "tier": "pro",
       "overall": 81,
       "traits": [
         "Penalty Specialist"
@@ -90,7 +81,6 @@
       "id": "buffon",
       "name": "G. Buffon",
       "position": "GK",
-      "tier": "legend",
       "overall": 95,
       "traits": [
         "Reflexes",
@@ -111,7 +101,6 @@
       "id": "casillas",
       "name": "I. Casillas",
       "position": "GK",
-      "tier": "legend",
       "overall": 93,
       "traits": [
         "Shot-Stopper",
@@ -132,7 +121,6 @@
       "id": "neuer",
       "name": "M. Neuer",
       "position": "GK",
-      "tier": "legend",
       "overall": 94,
       "traits": [
         "Sweeper-Keeper",
@@ -153,7 +141,6 @@
       "id": "schmeichel",
       "name": "P. Schmeichel",
       "position": "GK",
-      "tier": "specialist",
       "overall": 88,
       "traits": [
         "Commanding",
@@ -174,7 +161,6 @@
       "id": "cech",
       "name": "P. Cech",
       "position": "GK",
-      "tier": "pro",
       "overall": 86,
       "traits": [
         "Shot-Stopper",
@@ -195,7 +181,6 @@
       "id": "barthez",
       "name": "F. Barthez",
       "position": "GK",
-      "tier": "pro",
       "overall": 82,
       "traits": [
         "Reflexes"
@@ -215,7 +200,6 @@
       "id": "vandersar",
       "name": "E. van der Sar",
       "position": "GK",
-      "tier": "specialist",
       "overall": 87,
       "traits": [
         "Distribution",
@@ -236,7 +220,6 @@
       "id": "maldini",
       "name": "P. Maldini",
       "position": "DEF",
-      "tier": "legend",
       "overall": 96,
       "traits": [
         "Last-Ditch Tackle",
@@ -257,7 +240,6 @@
       "id": "sagnol",
       "name": "W. Sagnol",
       "position": "DEF",
-      "tier": "pro",
       "overall": 83,
       "traits": [
         "Overlapping Run"
@@ -277,7 +259,6 @@
       "id": "samuel",
       "name": "W. Samuel",
       "position": "DEF",
-      "tier": "pro",
       "overall": 85,
       "traits": [
         "Aggressive Tackling"
@@ -297,7 +278,6 @@
       "id": "beckenbauer",
       "name": "F. Beckenbauer",
       "position": "DEF",
-      "tier": "legend",
       "overall": 95,
       "traits": [
         "Sweeper",
@@ -318,7 +298,6 @@
       "id": "cannavaro",
       "name": "F. Cannavaro",
       "position": "DEF",
-      "tier": "legend",
       "overall": 91,
       "traits": [
         "Reading The Game"
@@ -338,7 +317,6 @@
       "id": "nesta",
       "name": "A. Nesta",
       "position": "DEF",
-      "tier": "specialist",
       "overall": 90,
       "traits": [
         "Positioning"
@@ -358,7 +336,6 @@
       "id": "ramos",
       "name": "S. Ramos",
       "position": "DEF",
-      "tier": "legend",
       "overall": 92,
       "traits": [
         "Aerial Threat",
@@ -379,7 +356,6 @@
       "id": "baresi",
       "name": "F. Baresi",
       "position": "DEF",
-      "tier": "legend",
       "overall": 93,
       "traits": [
         "Man-Marking",
@@ -400,7 +376,6 @@
       "id": "thuram",
       "name": "L. Thuram",
       "position": "DEF",
-      "tier": "pro",
       "overall": 84,
       "traits": [
         "Pace",
@@ -421,7 +396,6 @@
       "id": "carvalho",
       "name": "R. Carvalho",
       "position": "DEF",
-      "tier": "pro",
       "overall": 85,
       "traits": [
         "Anticipation"
@@ -441,7 +415,6 @@
       "id": "zidane",
       "name": "Z. Zidane",
       "position": "MID",
-      "tier": "legend",
       "overall": 97,
       "traits": [
         "Elite Vision",
@@ -463,7 +436,6 @@
       "id": "hamann",
       "name": "D. Hamann",
       "position": "MID",
-      "tier": "workhorse",
       "overall": 78,
       "traits": [
         "Ball Recovery",
@@ -484,7 +456,6 @@
       "id": "hamdik",
       "name": "M. Hamdik",
       "position": "MID",
-      "tier": "pro",
       "overall": 84,
       "traits": [
         "Passing Range"
@@ -504,7 +475,6 @@
       "id": "xavi",
       "name": "Xavi",
       "position": "MID",
-      "tier": "legend",
       "overall": 94,
       "traits": [
         "Tiki-Taka Architect",
@@ -525,7 +495,6 @@
       "id": "pirlo",
       "name": "A. Pirlo",
       "position": "MID",
-      "tier": "legend",
       "overall": 93,
       "traits": [
         "Deep-Lying Playmaker",
@@ -546,7 +515,6 @@
       "id": "gerrard",
       "name": "S. Gerrard",
       "position": "MID",
-      "tier": "legend",
       "overall": 92,
       "traits": [
         "Box-to-Box",
@@ -567,7 +535,6 @@
       "id": "modric",
       "name": "L. Modric",
       "position": "MID",
-      "tier": "legend",
       "overall": 91,
       "traits": [
         "Tempo Control"
@@ -587,7 +554,6 @@
       "id": "keane",
       "name": "R. Keane",
       "position": "MID",
-      "tier": "specialist",
       "overall": 87,
       "traits": [
         "Leadership",
@@ -608,7 +574,6 @@
       "id": "makelele",
       "name": "C. Makelele",
       "position": "MID",
-      "tier": "specialist",
       "overall": 86,
       "traits": [
         "Ball Winning"
@@ -628,7 +593,6 @@
       "id": "vieira",
       "name": "P. Vieira",
       "position": "MID",
-      "tier": "pro",
       "overall": 88,
       "traits": [
         "Physical Presence"
@@ -648,7 +612,6 @@
       "id": "ronaldo",
       "name": "C. Ronaldo",
       "position": "ATT",
-      "tier": "legend",
       "overall": 98,
       "traits": [
         "Aerial Threat",
@@ -670,7 +633,6 @@
       "id": "saviola",
       "name": "J. Saviola",
       "position": "ATT",
-      "tier": "pro",
       "overall": 79,
       "traits": [
         "Poacher"
@@ -690,7 +652,6 @@
       "id": "gomez",
       "name": "M. Gómez",
       "position": "ATT",
-      "tier": "pro",
       "overall": 83,
       "traits": [
         "Aerial Threat"
@@ -710,7 +671,6 @@
       "id": "messi",
       "name": "Messi",
       "position": "ATT",
-      "tier": "legend",
       "overall": 98,
       "traits": [
         "Dribbling",
@@ -732,7 +692,6 @@
       "id": "pele",
       "name": "Pelé",
       "position": "ATT",
-      "tier": "legend",
       "overall": 97,
       "traits": [
         "Finishing",
@@ -753,7 +712,6 @@
       "id": "maradona",
       "name": "D. Maradona",
       "position": "ATT",
-      "tier": "legend",
       "overall": 96,
       "traits": [
         "Dribbling",
@@ -774,7 +732,6 @@
       "id": "ronaldinho",
       "name": "Ronaldinho",
       "position": "ATT",
-      "tier": "legend",
       "overall": 93,
       "traits": [
         "Flair",
@@ -795,7 +752,6 @@
       "id": "vanbasten",
       "name": "M. van Basten",
       "position": "ATT",
-      "tier": "legend",
       "overall": 94,
       "traits": [
         "Clinical Finishing"
@@ -815,7 +771,6 @@
       "id": "shevchenko",
       "name": "A. Shevchenko",
       "position": "ATT",
-      "tier": "specialist",
       "overall": 89,
       "traits": [
         "Movement"
@@ -835,7 +790,6 @@
       "id": "inzaghi",
       "name": "F. Inzaghi",
       "position": "ATT",
-      "tier": "pro",
       "overall": 85,
       "traits": [
         "Offside Trap Timing"
@@ -856,7 +810,6 @@
       "name": "A. Iniesta",
       "position": "FLEX",
       "flexRole": "MID",
-      "tier": "legend",
       "overall": 95,
       "traits": [
         "Press Resistance",
@@ -879,7 +832,6 @@
       "name": "Park Ji-sung",
       "position": "FLEX",
       "flexRole": "MID",
-      "tier": "pro",
       "overall": 88,
       "traits": [
         "Workhorse",
@@ -901,7 +853,6 @@
       "name": "M. Dembele",
       "position": "FLEX",
       "flexRole": "ATT",
-      "tier": "pro",
       "overall": 80,
       "traits": [
         "Dribbling"
@@ -922,7 +873,6 @@
       "name": "Kaká",
       "position": "FLEX",
       "flexRole": "ATT",
-      "tier": "legend",
       "overall": 92,
       "traits": [
         "Explosive Runs",
@@ -944,7 +894,6 @@
       "name": "M. Özil",
       "position": "FLEX",
       "flexRole": "MID",
-      "tier": "specialist",
       "overall": 87,
       "traits": [
         "Killer Pass"
@@ -965,7 +914,6 @@
       "name": "A. Robben",
       "position": "FLEX",
       "flexRole": "ATT",
-      "tier": "specialist",
       "overall": 88,
       "traits": [
         "Cut Inside"
@@ -986,7 +934,6 @@
       "name": "W. Sneijder",
       "position": "FLEX",
       "flexRole": "MID",
-      "tier": "pro",
       "overall": 86,
       "traits": [
         "Long Range",
@@ -1008,7 +955,6 @@
       "name": "A. Di María",
       "position": "FLEX",
       "flexRole": "ATT",
-      "tier": "pro",
       "overall": 85,
       "traits": [
         "Crossing",
@@ -1030,7 +976,6 @@
       "name": "David Silva",
       "position": "FLEX",
       "flexRole": "MID",
-      "tier": "legend",
       "overall": 90,
       "traits": [
         "Playmaking"
@@ -1051,7 +996,6 @@
       "name": "P. Coutinho",
       "position": "FLEX",
       "flexRole": "ATT",
-      "tier": "pro",
       "overall": 84,
       "traits": [
         "Long Shots"
@@ -1071,7 +1015,6 @@
       "id": "yashin",
       "name": "L. Yashin",
       "position": "GK",
-      "tier": "legend",
       "overall": 94,
       "traits": [
         "Sweeper-Keeper Pioneer"
@@ -1091,7 +1034,6 @@
       "id": "zoff",
       "name": "D. Zoff",
       "position": "GK",
-      "tier": "legend",
       "overall": 90,
       "traits": [
         "Consistency",
@@ -1112,7 +1054,6 @@
       "id": "banks",
       "name": "G. Banks",
       "position": "GK",
-      "tier": "legend",
       "overall": 91,
       "traits": [
         "Shot-Stopper"
@@ -1132,7 +1073,6 @@
       "id": "higuita",
       "name": "R. Higuita",
       "position": "GK",
-      "tier": "specialist",
       "overall": 83,
       "traits": [
         "Scorpion Kick",
@@ -1153,7 +1093,6 @@
       "id": "oblak",
       "name": "J. Oblak",
       "position": "GK",
-      "tier": "specialist",
       "overall": 90,
       "traits": [
         "Reflexes"
@@ -1173,7 +1112,6 @@
       "id": "courtois",
       "name": "T. Courtois",
       "position": "GK",
-      "tier": "specialist",
       "overall": 89,
       "traits": [
         "Positioning"
@@ -1193,7 +1131,6 @@
       "id": "donnarumma",
       "name": "G. Donnarumma",
       "position": "GK",
-      "tier": "pro",
       "overall": 87,
       "traits": [
         "Shot-Stopper"
@@ -1213,7 +1150,6 @@
       "id": "lloris",
       "name": "H. Lloris",
       "position": "GK",
-      "tier": "pro",
       "overall": 85,
       "traits": [
         "Leadership"
@@ -1233,7 +1169,6 @@
       "id": "ospina",
       "name": "D. Ospina",
       "position": "GK",
-      "tier": "workhorse",
       "overall": 79,
       "traits": [
         "Reflexes"
@@ -1253,7 +1188,6 @@
       "id": "navas",
       "name": "K. Navas",
       "position": "GK",
-      "tier": "pro",
       "overall": 85,
       "traits": [
         "Big Game Player"
@@ -1273,7 +1207,6 @@
       "id": "valdes",
       "name": "J. Valdés",
       "position": "GK",
-      "tier": "pro",
       "overall": 84,
       "traits": [
         "Distribution"
@@ -1293,7 +1226,6 @@
       "id": "sommer",
       "name": "N. Sommer",
       "position": "GK",
-      "tier": "workhorse",
       "overall": 80,
       "traits": [
         "Consistency"
@@ -1313,7 +1245,6 @@
       "id": "handanovic",
       "name": "S. Handanović",
       "position": "GK",
-      "tier": "pro",
       "overall": 83,
       "traits": [
         "Positioning"
@@ -1333,7 +1264,6 @@
       "id": "onana",
       "name": "A. Onana",
       "position": "GK",
-      "tier": "specialist",
       "overall": 82,
       "traits": [
         "Sweeper-Keeper"
@@ -1353,7 +1283,6 @@
       "id": "juliocesar",
       "name": "R. Julio César",
       "position": "GK",
-      "tier": "pro",
       "overall": 84,
       "traits": [
         "Shot-Stopper"
@@ -1373,7 +1302,6 @@
       "id": "terstegen",
       "name": "M. Ter Stegen",
       "position": "GK",
-      "tier": "specialist",
       "overall": 89,
       "traits": [
         "Distribution"
@@ -1393,7 +1321,6 @@
       "id": "alisson",
       "name": "E. Álisson",
       "position": "GK",
-      "tier": "specialist",
       "overall": 90,
       "traits": [
         "Distribution",
@@ -1414,7 +1341,6 @@
       "id": "sagbo",
       "name": "W. Sagbo",
       "position": "GK",
-      "tier": "workhorse",
       "overall": 76,
       "traits": [
         "Reflexes"
@@ -1434,7 +1360,6 @@
       "id": "leno",
       "name": "B. Leno",
       "position": "GK",
-      "tier": "workhorse",
       "overall": 81,
       "traits": [
         "Shot-Stopper"
@@ -1454,7 +1379,6 @@
       "id": "neto",
       "name": "M. Neto",
       "position": "GK",
-      "tier": "workhorse",
       "overall": 78,
       "traits": [
         "Reflexes"
@@ -1474,7 +1398,6 @@
       "id": "robertocarlos",
       "name": "R. Carlos",
       "position": "DEF",
-      "tier": "legend",
       "overall": 92,
       "traits": [
         "Free Kicks",
@@ -1495,7 +1418,6 @@
       "id": "cafu",
       "name": "Cafu",
       "position": "DEF",
-      "tier": "legend",
       "overall": 91,
       "traits": [
         "Stamina",
@@ -1516,7 +1438,6 @@
       "id": "vidal2",
       "name": "P. Vidal",
       "position": "DEF",
-      "tier": "pro",
       "overall": 82,
       "traits": [
         "Physicality"
@@ -1536,7 +1457,6 @@
       "id": "chiellini",
       "name": "S. Chiellini",
       "position": "DEF",
-      "tier": "specialist",
       "overall": 90,
       "traits": [
         "Aggressive Tackling"
@@ -1556,7 +1476,6 @@
       "id": "gchiellini",
       "name": "G. Chiellini",
       "position": "DEF",
-      "tier": "pro",
       "overall": 83,
       "traits": [
         "Marking"
@@ -1576,7 +1495,6 @@
       "id": "alaba",
       "name": "T. Alaba",
       "position": "DEF",
-      "tier": "pro",
       "overall": 86,
       "traits": [
         "Versatility"
@@ -1596,7 +1514,6 @@
       "id": "vandijk",
       "name": "V. van Dijk",
       "position": "DEF",
-      "tier": "legend",
       "overall": 93,
       "traits": [
         "Composure",
@@ -1617,7 +1534,6 @@
       "id": "carvajal2",
       "name": "R. Carvajal",
       "position": "DEF",
-      "tier": "pro",
       "overall": 83,
       "traits": [
         "Overlapping Run"
@@ -1637,7 +1553,6 @@
       "id": "danialves",
       "name": "D. Alves",
       "position": "DEF",
-      "tier": "legend",
       "overall": 89,
       "traits": [
         "Overlapping Run",
@@ -1658,7 +1573,6 @@
       "id": "hierro",
       "name": "A. Hierro",
       "position": "DEF",
-      "tier": "specialist",
       "overall": 87,
       "traits": [
         "Long Range",
@@ -1679,7 +1593,6 @@
       "id": "puyol",
       "name": "J. Puyol",
       "position": "DEF",
-      "tier": "legend",
       "overall": 90,
       "traits": [
         "Leadership",
@@ -1700,7 +1613,6 @@
       "id": "ferdinand",
       "name": "R. Ferdinand",
       "position": "DEF",
-      "tier": "specialist",
       "overall": 88,
       "traits": [
         "Composure",
@@ -1721,7 +1633,6 @@
       "id": "terry",
       "name": "J. Terry",
       "position": "DEF",
-      "tier": "specialist",
       "overall": 87,
       "traits": [
         "Leadership",
@@ -1742,7 +1653,6 @@
       "id": "desailly",
       "name": "M. Desailly",
       "position": "DEF",
-      "tier": "pro",
       "overall": 85,
       "traits": [
         "Physicality"
@@ -1762,7 +1672,6 @@
       "id": "bonucci",
       "name": "L. Bonucci",
       "position": "DEF",
-      "tier": "pro",
       "overall": 86,
       "traits": [
         "Long Passing"
@@ -1782,7 +1691,6 @@
       "id": "pique",
       "name": "G. Pique",
       "position": "DEF",
-      "tier": "specialist",
       "overall": 87,
       "traits": [
         "Composure"
@@ -1802,7 +1710,6 @@
       "id": "lahm",
       "name": "P. Lahm",
       "position": "DEF",
-      "tier": "legend",
       "overall": 90,
       "traits": [
         "Versatility",
@@ -1823,7 +1730,6 @@
       "id": "passarella",
       "name": "D. Passarella",
       "position": "DEF",
-      "tier": "specialist",
       "overall": 86,
       "traits": [
         "Aerial Threat",
@@ -1844,7 +1750,6 @@
       "id": "zanetti",
       "name": "C. Zanetti",
       "position": "DEF",
-      "tier": "pro",
       "overall": 85,
       "traits": [
         "Consistency",
@@ -1865,7 +1770,6 @@
       "id": "cabrini",
       "name": "A. Cabrini",
       "position": "DEF",
-      "tier": "pro",
       "overall": 82,
       "traits": [
         "Marking"
@@ -1885,7 +1789,6 @@
       "id": "baggio",
       "name": "R. Baggio",
       "position": "MID",
-      "tier": "legend",
       "overall": 92,
       "traits": [
         "Flair",
@@ -1906,7 +1809,6 @@
       "id": "rijkaard",
       "name": "F. Rijkaard",
       "position": "MID",
-      "tier": "legend",
       "overall": 89,
       "traits": [
         "Box-to-Box"
@@ -1926,7 +1828,6 @@
       "id": "nedved",
       "name": "P. Nedvěd",
       "position": "MID",
-      "tier": "specialist",
       "overall": 88,
       "traits": [
         "Stamina",
@@ -1947,7 +1848,6 @@
       "id": "ballack",
       "name": "M. Ballack",
       "position": "MID",
-      "tier": "specialist",
       "overall": 88,
       "traits": [
         "Long Range",
@@ -1968,7 +1868,6 @@
       "id": "debruyne",
       "name": "K. De Bruyne",
       "position": "MID",
-      "tier": "legend",
       "overall": 93,
       "traits": [
         "Vision",
@@ -1989,7 +1888,6 @@
       "id": "kroos",
       "name": "T. Kroos",
       "position": "MID",
-      "tier": "legend",
       "overall": 91,
       "traits": [
         "Passing Range",
@@ -2010,7 +1908,6 @@
       "id": "kante",
       "name": "N. Kanté",
       "position": "MID",
-      "tier": "specialist",
       "overall": 88,
       "traits": [
         "Ball Winning"
@@ -2030,7 +1927,6 @@
       "id": "casemiro",
       "name": "Casemiro",
       "position": "MID",
-      "tier": "pro",
       "overall": 87,
       "traits": [
         "Ball Winning"
@@ -2050,7 +1946,6 @@
       "id": "fabregas",
       "name": "Fabregas",
       "position": "MID",
-      "tier": "pro",
       "overall": 87,
       "traits": [
         "Vision"
@@ -2070,7 +1965,6 @@
       "id": "tigana",
       "name": "Y. Tigana",
       "position": "MID",
-      "tier": "pro",
       "overall": 85,
       "traits": [
         "Box-to-Box"
@@ -2090,7 +1984,6 @@
       "id": "platini",
       "name": "M. Platini",
       "position": "MID",
-      "tier": "legend",
       "overall": 94,
       "traits": [
         "Set-Piece Specialist",
@@ -2111,7 +2004,6 @@
       "id": "brunofernandes",
       "name": "B. Fernandes",
       "position": "MID",
-      "tier": "pro",
       "overall": 87,
       "traits": [
         "Set-Piece Specialist"
@@ -2131,7 +2023,6 @@
       "id": "rivaldo",
       "name": "Rivaldo",
       "position": "MID",
-      "tier": "legend",
       "overall": 91,
       "traits": [
         "Long Range",
@@ -2152,7 +2043,6 @@
       "id": "cambiasso",
       "name": "E. Cambiasso",
       "position": "MID",
-      "tier": "pro",
       "overall": 83,
       "traits": [
         "Ball Recovery"
@@ -2172,7 +2062,6 @@
       "id": "deschamps",
       "name": "J. Deschamps",
       "position": "MID",
-      "tier": "pro",
       "overall": 82,
       "traits": [
         "Leadership"
@@ -2192,7 +2081,6 @@
       "id": "matthaus",
       "name": "G. Matthäus",
       "position": "MID",
-      "tier": "legend",
       "overall": 92,
       "traits": [
         "Box-to-Box",
@@ -2213,7 +2101,6 @@
       "id": "socrates",
       "name": "Sócrates",
       "position": "MID",
-      "tier": "specialist",
       "overall": 89,
       "traits": [
         "Vision",
@@ -2234,7 +2121,6 @@
       "id": "frenkiedejong",
       "name": "F. de Jong",
       "position": "MID",
-      "tier": "pro",
       "overall": 85,
       "traits": [
         "Ball Progression"
@@ -2254,7 +2140,6 @@
       "id": "songbilong",
       "name": "J. Song",
       "position": "MID",
-      "tier": "workhorse",
       "overall": 77,
       "traits": [
         "Ball Winning"
@@ -2274,7 +2159,6 @@
       "id": "bernardosilva",
       "name": "B. Silva",
       "position": "MID",
-      "tier": "specialist",
       "overall": 87,
       "traits": [
         "Technical Ability"
@@ -2294,7 +2178,6 @@
       "id": "vanpersie",
       "name": "R. Van Persie",
       "position": "ATT",
-      "tier": "specialist",
       "overall": 89,
       "traits": [
         "Finishing"
@@ -2314,7 +2197,6 @@
       "id": "henry",
       "name": "T. Henry",
       "position": "ATT",
-      "tier": "legend",
       "overall": 94,
       "traits": [
         "Pace",
@@ -2335,7 +2217,6 @@
       "id": "distefano",
       "name": "A. Di Stéfano",
       "position": "ATT",
-      "tier": "legend",
       "overall": 96,
       "traits": [
         "Complete Forward",
@@ -2356,7 +2237,6 @@
       "id": "eusebio",
       "name": "E. Eusébio",
       "position": "ATT",
-      "tier": "legend",
       "overall": 94,
       "traits": [
         "Finishing",
@@ -2377,7 +2257,6 @@
       "id": "muller2",
       "name": "G. Müller",
       "position": "ATT",
-      "tier": "legend",
       "overall": 95,
       "traits": [
         "Poacher",
@@ -2398,7 +2277,6 @@
       "id": "puskas",
       "name": "F. Puskás",
       "position": "ATT",
-      "tier": "legend",
       "overall": 96,
       "traits": [
         "Finishing",
@@ -2419,7 +2297,6 @@
       "id": "ronaldonazario",
       "name": "R. Nazário",
       "position": "ATT",
-      "tier": "legend",
       "overall": 97,
       "traits": [
         "Pace",
@@ -2440,7 +2317,6 @@
       "id": "romario",
       "name": "Romário",
       "position": "ATT",
-      "tier": "legend",
       "overall": 94,
       "traits": [
         "Poacher",
@@ -2461,7 +2337,6 @@
       "id": "zico",
       "name": "Zico",
       "position": "ATT",
-      "tier": "legend",
       "overall": 92,
       "traits": [
         "Set-Piece Specialist",
@@ -2482,7 +2357,6 @@
       "id": "rush",
       "name": "J. Rush",
       "position": "ATT",
-      "tier": "specialist",
       "overall": 88,
       "traits": [
         "Poacher"
@@ -2502,7 +2376,6 @@
       "id": "batistuta",
       "name": "G. Batistuta",
       "position": "ATT",
-      "tier": "legend",
       "overall": 92,
       "traits": [
         "Power",
@@ -2523,7 +2396,6 @@
       "id": "shearer",
       "name": "A. Shearer",
       "position": "ATT",
-      "tier": "specialist",
       "overall": 90,
       "traits": [
         "Physicality",
@@ -2544,7 +2416,6 @@
       "id": "kane",
       "name": "H. Kane",
       "position": "ATT",
-      "tier": "legend",
       "overall": 91,
       "traits": [
         "Finishing",
@@ -2565,7 +2436,6 @@
       "id": "lewandowski",
       "name": "R. Lewandowski",
       "position": "ATT",
-      "tier": "legend",
       "overall": 93,
       "traits": [
         "Clinical Finishing",
@@ -2586,7 +2456,6 @@
       "id": "benzema",
       "name": "K. Benzema",
       "position": "ATT",
-      "tier": "legend",
       "overall": 91,
       "traits": [
         "Movement",
@@ -2607,7 +2476,6 @@
       "id": "luissuarez",
       "name": "L. Suárez",
       "position": "ATT",
-      "tier": "legend",
       "overall": 92,
       "traits": [
         "Finishing",
@@ -2628,7 +2496,6 @@
       "id": "drogba",
       "name": "D. Drogba",
       "position": "ATT",
-      "tier": "specialist",
       "overall": 90,
       "traits": [
         "Physicality",
@@ -2649,7 +2516,6 @@
       "id": "etoo",
       "name": "S. Eto’o",
       "position": "ATT",
-      "tier": "specialist",
       "overall": 90,
       "traits": [
         "Pace",
@@ -2670,7 +2536,6 @@
       "id": "careca",
       "name": "Careca",
       "position": "ATT",
-      "tier": "pro",
       "overall": 85,
       "traits": [
         "Poacher"
@@ -2690,7 +2555,6 @@
       "id": "altafini",
       "name": "J. Altafini",
       "position": "ATT",
-      "tier": "pro",
       "overall": 84,
       "traits": [
         "Finishing"
@@ -2711,7 +2575,6 @@
       "name": "George Best",
       "position": "FLEX",
       "flexRole": "ATT",
-      "tier": "legend",
       "overall": 92,
       "traits": [
         "Dribbling",
@@ -2733,7 +2596,6 @@
       "name": "J. Cruyff",
       "position": "FLEX",
       "flexRole": "ATT",
-      "tier": "legend",
       "overall": 96,
       "traits": [
         "Vision",
@@ -2755,7 +2617,6 @@
       "name": "Garrincha",
       "position": "FLEX",
       "flexRole": "ATT",
-      "tier": "legend",
       "overall": 93,
       "traits": [
         "Dribbling",
@@ -2777,7 +2638,6 @@
       "name": "L. Figo",
       "position": "FLEX",
       "flexRole": "MID",
-      "tier": "specialist",
       "overall": 89,
       "traits": [
         "Crossing",
@@ -2799,7 +2659,6 @@
       "name": "D. Beckham",
       "position": "FLEX",
       "flexRole": "MID",
-      "tier": "specialist",
       "overall": 88,
       "traits": [
         "Crossing",
@@ -2821,7 +2680,6 @@
       "name": "R. Giggs",
       "position": "FLEX",
       "flexRole": "MID",
-      "tier": "specialist",
       "overall": 88,
       "traits": [
         "Dribbling",
@@ -2843,7 +2701,6 @@
       "name": "A. Iniesta",
       "position": "FLEX",
       "flexRole": "MID",
-      "tier": "legend",
       "overall": 95,
       "traits": [
         "Press Resistance",
@@ -2865,7 +2722,6 @@
       "name": "N. Bergkamp",
       "position": "FLEX",
       "flexRole": "ATT",
-      "tier": "specialist",
       "overall": 89,
       "traits": [
         "Vision",
@@ -2887,7 +2743,6 @@
       "name": "C. Vieri",
       "position": "FLEX",
       "flexRole": "ATT",
-      "tier": "pro",
       "overall": 86,
       "traits": [
         "Aerial Threat",
@@ -2909,7 +2764,6 @@
       "name": "R. Gullit",
       "position": "FLEX",
       "flexRole": "MID",
-      "tier": "legend",
       "overall": 90,
       "traits": [
         "Versatility",
@@ -2931,7 +2785,6 @@
       "name": "M. Van Basten",
       "position": "FLEX",
       "flexRole": "ATT",
-      "tier": "legend",
       "overall": 94,
       "traits": [
         "Clinical Finishing"
@@ -2952,7 +2805,6 @@
       "name": "D. Forlán",
       "position": "FLEX",
       "flexRole": "ATT",
-      "tier": "pro",
       "overall": 85,
       "traits": [
         "Long Range"
@@ -2973,7 +2825,6 @@
       "name": "Neymar",
       "position": "FLEX",
       "flexRole": "ATT",
-      "tier": "legend",
       "overall": 93,
       "traits": [
         "Dribbling",
@@ -2995,7 +2846,6 @@
       "name": "E. Hazard",
       "position": "FLEX",
       "flexRole": "ATT",
-      "tier": "specialist",
       "overall": 89,
       "traits": [
         "Dribbling",
@@ -3017,7 +2867,6 @@
       "name": "G. Bale",
       "position": "FLEX",
       "flexRole": "ATT",
-      "tier": "specialist",
       "overall": 88,
       "traits": [
         "Pace",
@@ -3039,7 +2888,6 @@
       "name": "A. Griezmann",
       "position": "FLEX",
       "flexRole": "ATT",
-      "tier": "specialist",
       "overall": 88,
       "traits": [
         "Movement",
@@ -3061,7 +2909,6 @@
       "name": "Mbappé",
       "position": "FLEX",
       "flexRole": "ATT",
-      "tier": "legend",
       "overall": 94,
       "traits": [
         "Pace",
@@ -3083,7 +2930,6 @@
       "name": "J. Salah",
       "position": "FLEX",
       "flexRole": "ATT",
-      "tier": "specialist",
       "overall": 89,
       "traits": [
         "Pace",
@@ -3105,7 +2951,6 @@
       "name": "K. Mbappe Junior",
       "position": "FLEX",
       "flexRole": "MID",
-      "tier": "pro",
       "overall": 82,
       "traits": [
         "Box-to-Box"
@@ -3126,7 +2971,6 @@
       "name": "P. Nakata",
       "position": "FLEX",
       "flexRole": "MID",
-      "tier": "workhorse",
       "overall": 78,
       "traits": [
         "Stamina"

@@ -1,5 +1,5 @@
 import type { Player } from '../types'
-import { POS_HEX, TIER_STYLE, posAbbr, posColorKey } from '../theme'
+import { POS_HEX, posAbbr, posColorKey } from '../theme'
 
 export function Ring({ player, size = 40 }: { player: Player; size?: number }) {
   const hex = POS_HEX[posColorKey(player)]
@@ -10,18 +10,6 @@ export function Ring({ player, size = 40 }: { player: Player; size?: number }) {
     >
       {posAbbr(player)}
     </div>
-  )
-}
-
-export function TierBadge({ tier }: { tier: string }) {
-  const t = TIER_STYLE[tier]
-  return (
-    <span
-      className=" px-2 py-0.5 text-[10px] font-semibold tracking-wide"
-      style={{ color: t.color, background: t.bg }}
-    >
-      {t.label}
-    </span>
   )
 }
 
@@ -59,6 +47,13 @@ export function BackChevron({ onClick }: { onClick: () => void }) {
       <path d="M15 5l-7 7 7 7" />
     </svg>
   )
+}
+
+/** Scales a team-name label down as it gets longer, so a long single-word name (no spaces to wrap on) still fits its column without forcing it wider. */
+function nameSizeClass(name: string): string {
+  if (name.length > 16) return 'text-[13px]'
+  if (name.length > 11) return 'text-[15px]'
+  return 'text-[19px]'
 }
 
 /**
@@ -109,9 +104,12 @@ export function MatchHeader({
         <div className="w-5.5" />
       </div>
 
-      <div className="mt-5 flex items-center justify-between px-5">
-        <div className="flex-1">
-          <div className="font-heading text-[19px] leading-[1.05] uppercase">{homeLabel}</div>
+      {/* Grid (not flex) so the two side columns always stay equal width — an unbreakable long
+          team name in flexbox can force its column wider via min-content sizing, pushing the
+          score off-centre. min-w-0 + overflow-wrap lets a long name wrap instead of doing that. */}
+      <div className="mt-5 grid items-center gap-2 px-5" style={{ gridTemplateColumns: '1fr auto 1fr' }}>
+        <div className="min-w-0" style={{ overflowWrap: 'anywhere' }}>
+          <div className={`font-heading ${nameSizeClass(homeLabel)} leading-[1.05] uppercase`}>{homeLabel}</div>
           {homeSub && <div className="mt-1 text-[11px] text-[var(--color-text-tertiary)]">{homeSub}</div>}
         </div>
 
@@ -134,8 +132,8 @@ export function MatchHeader({
           )}
         </div>
 
-        <div className="flex-1 text-right">
-          <div className="font-heading text-[19px] leading-[1.05] uppercase">{awayLabel}</div>
+        <div className="min-w-0 text-right" style={{ overflowWrap: 'anywhere' }}>
+          <div className={`font-heading ${nameSizeClass(awayLabel)} leading-[1.05] uppercase`}>{awayLabel}</div>
           {awaySub && <div className="mt-1 text-[11px] text-[var(--color-text-tertiary)]">{awaySub}</div>}
         </div>
       </div>

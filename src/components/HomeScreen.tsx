@@ -3,10 +3,12 @@ import { AccentButton, ScreenShell } from './ui'
 export function HomeScreen({
   onPlay,
   onNewGame,
+  onOpenSettings,
   hasSquad,
 }: {
   onPlay: () => void
   onNewGame: () => void
+  onOpenSettings: () => void
   hasSquad: boolean
 }) {
   return (
@@ -33,6 +35,12 @@ export function HomeScreen({
               New Game — Reset Squad
             </div>
           )}
+          <div
+            onClick={onOpenSettings}
+            className="cursor-pointer text-center text-[11px] font-semibold tracking-wide text-[var(--color-text-tertiary)] uppercase"
+          >
+            Settings
+          </div>
         </div>
       </div>
     </ScreenShell>

@@ -43,6 +43,7 @@ interface Props {
   squad: Player[]
   tactic: Tactic
   teamColor: string
+  userTeamName: string
   seed: string
   onExit: () => void
   /** Debug/demo entry point (e.g. ?simExtraTime) — skips straight to extra time for the given tie, which must already have two tied legs recorded on `bracket`. */
@@ -65,7 +66,7 @@ function userAggregateSoFar(tie: KnockoutTie): { mine: number; theirs: number } 
   )
 }
 
-export function KnockoutFlow({ bracket, onBracketChange, teamsById, squad, tactic, teamColor, seed, onExit, debugEntry }: Props) {
+export function KnockoutFlow({ bracket, onBracketChange, teamsById, squad, tactic, teamColor, userTeamName, seed, onExit, debugEntry }: Props) {
   const [kfScreen, setKfScreen] = useState<KFScreen>(() => debugEntry?.screen ?? 'bracket')
   const [activeTieId, setActiveTieId] = useState<string | null>(() => debugEntry?.tieId ?? null)
   const [legNumber, setLegNumber] = useState<1 | 2>(1)
@@ -204,7 +205,7 @@ export function KnockoutFlow({ bracket, onBracketChange, teamsById, squad, tacti
         bracket={bracket}
         teamsById={teamsById}
         userTeamId={USER_TEAM_ID}
-        userTeamName="Your Squad"
+        userTeamName={userTeamName}
         userColor={teamColor}
         onBack={onExit}
         onPlayNext={handlePlayNext}
@@ -224,6 +225,7 @@ export function KnockoutFlow({ bracket, onBracketChange, teamsById, squad, tacti
       <>
         <MatchScreen
           opponent={engine.opponent}
+          userTeamName={userTeamName}
           label={legLabel}
           venue={venue}
           aggregateBefore={legNumber === 2 ? userAggregateSoFar(activeTie) : undefined}
@@ -260,6 +262,7 @@ export function KnockoutFlow({ bracket, onBracketChange, teamsById, squad, tacti
       <ResultsScreen
         result={lastLeg.matchResult!}
         opponent={opponent}
+        userTeamName={userTeamName}
         label={legLabel}
         venue={venue}
         userColor={teamColor}
@@ -280,6 +283,7 @@ export function KnockoutFlow({ bracket, onBracketChange, teamsById, squad, tacti
       <ExtraTimeScreen
         opponent={opponent}
         userColor={teamColor}
+        userTeamName={userTeamName}
         isHomeVenue={etHomeVenue}
         aggUserBefore={agg.mine}
         aggOppBefore={agg.theirs}
@@ -294,6 +298,7 @@ export function KnockoutFlow({ bracket, onBracketChange, teamsById, squad, tacti
       <PenaltyShootoutScreen
         opponent={opponent}
         userColor={teamColor}
+        userTeamName={userTeamName}
         isHomeVenue={etHomeVenue}
         kicks={penResult.kicks}
         onDone={handlePenaltiesDone}
@@ -307,6 +312,7 @@ export function KnockoutFlow({ bracket, onBracketChange, teamsById, squad, tacti
         tie={activeTie}
         opponent={opponent}
         userTeamId={USER_TEAM_ID}
+        userTeamName={userTeamName}
         userColor={teamColor}
         userAdvanced={activeTie.winnerTeamId === USER_TEAM_ID}
         isFinal={activeTie.round === 'final'}
@@ -316,7 +322,7 @@ export function KnockoutFlow({ bracket, onBracketChange, teamsById, squad, tacti
   }
 
   if (kfScreen === 'trophy') {
-    return <TrophyScreen userTeamName="Your Squad" userColor={teamColor} onDone={onExit} />
+    return <TrophyScreen userTeamName={userTeamName} userColor={teamColor} onDone={onExit} />
   }
 
   return null

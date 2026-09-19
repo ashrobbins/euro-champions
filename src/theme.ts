@@ -23,13 +23,6 @@ export const POS_LABEL: Record<string, string> = {
   FLEX: 'WILDCARD',
 }
 
-export const TIER_STYLE: Record<string, { label: string; color: string; bg: string }> = {
-  legend: { label: 'LEGEND', color: '#e8b93f', bg: 'rgba(232,185,63,0.18)' },
-  pro: { label: 'PRO', color: '#3fbf7f', bg: 'rgba(63,191,127,0.16)' },
-  specialist: { label: 'SPECIALIST', color: '#3fbf7f', bg: 'rgba(63,191,127,0.16)' },
-  workhorse: { label: 'WORKHORSE', color: '#3fbf7f', bg: 'rgba(63,191,127,0.16)' },
-}
-
 export const DEFAULT_TEAM_COLOR = '#e8b93f'
 
 /** Predefined kit-colour palette for the user's squad identity marker (Match/Results/League). Optional, defaults to gold. */

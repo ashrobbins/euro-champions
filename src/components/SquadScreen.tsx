@@ -11,6 +11,7 @@ interface Props {
   players: Record<DraftSlot, Player>
   tactic: Tactic
   teamColor: string
+  teamName: string
   onBack: () => void
   onSetTactic: (t: Tactic) => void
   onSetTeamColor: (color: string) => void
@@ -24,24 +25,20 @@ const TACTICS: { id: Tactic; label: string }[] = [
   { id: 'defensive', label: 'Defensive' },
 ]
 
-export function SquadScreen({ squad, players, tactic, teamColor, onBack, onSetTactic, onSetTeamColor, onViewPlayer, onContinue }: Props) {
+export function SquadScreen({ squad, players, tactic, teamColor, teamName, onBack, onSetTactic, onSetTeamColor, onViewPlayer, onContinue }: Props) {
   const [colorPickerOpen, setColorPickerOpen] = useState(false)
-  const legends = DRAFT_SLOTS.filter((s) => players[s].tier === 'legend').length
   const overall = squadOverall(squad)
 
   return (
     <div className="flex h-full flex-col">
       <div className="flex items-center justify-between px-5 pt-5">
         <BackChevron onClick={onBack} />
-        <div className="font-heading text-[15px] font-bold">Your Squad</div>
+        <div className="font-heading text-[15px] font-bold">{teamName}</div>
         <div className="w-[22px]" />
       </div>
 
       <div className="flex gap-2 px-5 pt-3.5">
         <div className="font-heading bg-[var(--color-accent)] px-2.5 py-1.5 text-[11px] font-bold text-[#ffffff]">
-          {legends}/3 LEGENDS
-        </div>
-        <div className="font-heading bg-[var(--color-card)] px-2.5 py-1.5 text-[11px] font-semibold text-[var(--color-text-secondary)]">
           {overall} OVR
         </div>
       </div>

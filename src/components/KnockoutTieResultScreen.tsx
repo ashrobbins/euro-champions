@@ -6,6 +6,7 @@ interface Props {
   tie: KnockoutTie
   opponent: Team
   userTeamId: string
+  userTeamName: string
   userColor: string
   userAdvanced: boolean
   isFinal: boolean
@@ -18,7 +19,7 @@ const DECIDED_BY_NOTE: Record<NonNullable<KnockoutTie['decidedBy']>, string> = {
   penalties: 'Decided on penalties',
 }
 
-export function KnockoutTieResultScreen({ tie, opponent, userTeamId, userColor, userAdvanced, isFinal, onContinue }: Props) {
+export function KnockoutTieResultScreen({ tie, opponent, userTeamId, userTeamName, userColor, userAdvanced, isFinal, onContinue }: Props) {
   const agg = tieAggregate(tie)
   const userIsHome = tie.homeTeamId === userTeamId
   const mine = userIsHome ? agg.home : agg.away
@@ -40,7 +41,7 @@ export function KnockoutTieResultScreen({ tie, opponent, userTeamId, userColor, 
       <div className="flex items-center gap-4">
         <div className="flex flex-col items-center gap-1.5">
           <span className="h-3 w-3" style={{ background: userColor }} />
-          <span className="text-[13px] font-semibold">Your Squad</span>
+          <span className="text-[13px] font-semibold">{userTeamName}</span>
         </div>
         <div className="flex items-baseline">
           <span className="font-heading text-[48px] leading-none tabular-nums">{mine}</span>

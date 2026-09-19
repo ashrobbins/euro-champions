@@ -164,7 +164,7 @@ export function BracketScreen({ bracket, teamsById, userTeamId, userTeamName, us
         <div className="w-5.5" />
       </div>
 
-      <div className="grow overflow-x-auto overflow-y-auto px-5 pb-4">
+      <div className="min-h-0 grow overflow-x-auto overflow-y-auto px-5 pb-4">
         <div className="flex" style={{ width: totalWidth, gap: 0 }}>
           {ROUND_ORDER.map((round, roundIdx) => (
             <div

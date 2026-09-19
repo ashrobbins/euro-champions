@@ -31,7 +31,7 @@ export function LeagueTableScreen({ rows, gamesPlayed, onBack, onNextFixture, on
         8 games &middot; standalone table &middot; game {gamesPlayed} of 8
       </div>
 
-      <div className="grow overflow-y-auto">
+      <div className="min-h-0 grow overflow-y-auto">
         <div className="flex gap-2.5 border-b border-black/8 px-4.5 pb-2 text-[10px] font-bold tracking-wide text-[var(--color-text-tertiary)]">
           <span className="w-5">#</span>
           <span className="grow">TEAM</span>

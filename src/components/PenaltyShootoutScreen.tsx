@@ -6,7 +6,8 @@ import { AccentButton, MatchHeader } from './ui'
 interface Props {
   opponent: Team
   userColor: string
-  /** True when the user is the away side for this leg — swaps which side of the header "Your Squad" sits on. */
+  userTeamName: string
+  /** True when the user is the away side for this leg — swaps which side of the header the user's team sits on. */
   isHomeVenue: boolean
   kicks: RawPenaltyKick[]
   onDone: () => void
@@ -32,7 +33,7 @@ function PenaltyRow({ label, color, kicks }: { label: string; color: string; kic
   )
 }
 
-export function PenaltyShootoutScreen({ opponent, userColor, isHomeVenue, kicks, onDone }: Props) {
+export function PenaltyShootoutScreen({ opponent, userColor, userTeamName, isHomeVenue, kicks, onDone }: Props) {
   const [revealed, setRevealed] = useState(0)
 
   useEffect(() => {
@@ -54,20 +55,20 @@ export function PenaltyShootoutScreen({ opponent, userColor, isHomeVenue, kicks,
       <MatchHeader
         eyebrowTop="Penalty Shootout"
         eyebrowBottom="Sudden Death If Level"
-        homeLabel={isHomeVenue ? 'Your Squad' : opponent.name}
-        awayLabel={isHomeVenue ? opponent.name : 'Your Squad'}
+        homeLabel={isHomeVenue ? userTeamName : opponent.name}
+        awayLabel={isHomeVenue ? opponent.name : userTeamName}
         homeGoals={isHomeVenue ? userScore : oppScore}
         awayGoals={isHomeVenue ? oppScore : userScore}
         homeColor={isHomeVenue ? userColor : opponent.accentColor}
         awayColor={isHomeVenue ? opponent.accentColor : userColor}
       />
 
-      <div className="grow px-6 pt-6.5">
-        <div className="flex h-full flex-col gap-5 bg-[var(--color-card)] p-4">
-          <PenaltyRow label="Your Squad" color={userColor} kicks={userShown} />
+      <div className="min-h-0 grow px-6 pt-6.5">
+        <div className="flex h-full min-h-0 flex-col gap-5 bg-[var(--color-card)] p-4">
+          <PenaltyRow label={userTeamName} color={userColor} kicks={userShown} />
           <PenaltyRow label={opponent.name} color={opponent.accentColor} kicks={oppShown} />
 
-          <div className="mt-2 flex flex-col gap-1.5 overflow-y-auto text-[13px] text-[var(--color-text-secondary)]">
+          <div className="min-h-0 grow mt-2 flex flex-col gap-1.5 overflow-y-auto text-[13px] text-[var(--color-text-secondary)]">
             {shown
               .slice()
               .reverse()
@@ -76,7 +77,7 @@ export function PenaltyShootoutScreen({ opponent, userColor, isHomeVenue, kicks,
                   key={i}
                   className={i === 0 ? 'font-heading text-[15px] font-bold text-[var(--color-text-primary)]' : ''}
                 >
-                  {k.side === 'user' ? 'Your Squad' : opponent.name} &mdash; {k.takerName}: {k.scored ? 'Scored!' : 'Missed'}
+                  {k.side === 'user' ? userTeamName : opponent.name} &mdash; {k.takerName}: {k.scored ? 'Scored!' : 'Missed'}
                 </div>
               ))}
           </div>

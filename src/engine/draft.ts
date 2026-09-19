@@ -31,31 +31,8 @@ export function findPlayer(id: string): Player {
   return p
 }
 
-export const MAX_LEGENDS = 3
-
-/**
- * Per §13.1: reject a new legend pick if the squad already has MAX_LEGENDS
- * legends elsewhere, unless it's replacing an existing legend in the same slot.
- */
-export function legendCount(squad: Partial<Squad>, excludeSlot?: DraftSlot): number {
-  let n = 0
-  for (const slot of DRAFT_SLOTS) {
-    if (slot === excludeSlot) continue
-    const id = squad[slot]
-    if (id && findPlayer(id).tier === 'legend') n++
-  }
-  return n
-}
-
-export function canSelect(squad: Partial<Squad>, slot: DraftSlot, playerId: string): boolean {
-  const candidate = findPlayer(playerId)
-  if (candidate.tier !== 'legend') return true
-  return legendCount(squad, slot) < MAX_LEGENDS
-}
-
 export function isValidSquad(squad: Partial<Squad>): squad is Squad {
-  if (DRAFT_SLOTS.some((slot) => !squad[slot])) return false
-  return legendCount(squad) <= MAX_LEGENDS
+  return !DRAFT_SLOTS.some((slot) => !squad[slot])
 }
 
 export function squadPlayers(squad: Squad): Player[] {

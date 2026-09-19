@@ -1,8 +1,8 @@
 import type { DraftSlot, Player, Squad } from '../types'
 import { DRAFT_SLOTS } from '../types'
-import { candidatesFor, canSelect, findPlayer, legendCount } from '../engine/draft'
+import { candidatesFor, findPlayer } from '../engine/draft'
 import { POS_LABEL } from '../theme'
-import { BackChevron, Ring, TierBadge } from './ui'
+import { BackChevron, Ring } from './ui'
 import { MiniPitch } from './MiniPitch'
 
 interface Props {
@@ -17,7 +17,6 @@ interface Props {
 export function DraftScreen({ step, picks, seed, onBack, onPick }: Props) {
   const slot = DRAFT_SLOTS[step]
   const candidates = candidatesFor(slot, seed)
-  const totalLegends = legendCount(picks)
 
   const squadForPitch: Partial<Record<DraftSlot, Player>> = {}
   for (const s of DRAFT_SLOTS) {
@@ -32,15 +31,13 @@ export function DraftScreen({ step, picks, seed, onBack, onPick }: Props) {
         <div className="font-heading  bg-[var(--color-card)] px-3 py-1.5 text-xs font-semibold text-[var(--color-text-secondary)]">
           {step + 1} / 5
         </div>
-        <div className="font-heading  bg-[var(--color-accent)] px-2.5 py-1.5 text-[11px] font-bold text-[#ffffff]">
-          {totalLegends}/3 LEGENDS
-        </div>
+        <div className="w-5.5" />
       </div>
 
       <div className="px-5 pt-2.5">
         <div className="font-heading text-[22px] font-bold">Build your squad</div>
         <div className="mt-1 text-[13px] leading-relaxed text-[var(--color-text-secondary)]">
-          Choose one player per position. Maximum three legends in your final five.
+          Choose one player per position.
         </div>
       </div>
 
@@ -51,30 +48,19 @@ export function DraftScreen({ step, picks, seed, onBack, onPick }: Props) {
       </div>
 
       <div className="flex flex-col gap-2 px-5 py-2">
-        {candidates.map((c) => {
-          const disabled = !canSelect(picks, slot, c.id)
-          return (
-            <div
-              key={c.id}
-              onClick={disabled ? undefined : () => onPick(slot, c.id)}
-              className="flex items-center gap-3 bg-black p-2.5"
-              style={{ opacity: disabled ? 0.4 : 1, cursor: disabled ? 'default' : 'pointer' }}
-            >
-              <Ring player={c} size={34} />
-              <div className="grow">
-                <div className="text-[13px] font-semibold text-white">{c.name}</div>
-                <div className="mt-0.5 flex items-center gap-1.5">
-                  <TierBadge tier={c.tier} />
-                  <span className="text-[10px] text-white/50">{c.traits.join(' · ')}</span>
-                </div>
-              </div>
-              <div className="text-right">
-                <div className="font-heading text-[17px] font-bold text-white">{c.overall}</div>
-                <div className="text-[9px] tracking-wide text-white/50">OVR</div>
-              </div>
+        {candidates.map((c) => (
+          <div key={c.id} onClick={() => onPick(slot, c.id)} className="flex cursor-pointer items-center gap-3 bg-black p-2.5">
+            <Ring player={c} size={34} />
+            <div className="grow">
+              <div className="text-[13px] font-semibold text-white">{c.name}</div>
+              <div className="mt-0.5 text-[10px] text-white/50">{c.traits.join(' · ')}</div>
             </div>
-          )
-        })}
+            <div className="text-right">
+              <div className="font-heading text-[17px] font-bold text-white">{c.overall}</div>
+              <div className="text-[9px] tracking-wide text-white/50">OVR</div>
+            </div>
+          </div>
+        ))}
       </div>
 
       <div className="mt-3 shrink-0 px-5 pb-4">

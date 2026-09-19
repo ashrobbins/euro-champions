@@ -1,7 +1,7 @@
 import type { Player, StatField } from '../types'
 import { STAT_FIELDS } from '../types'
 import { POS_LABEL } from '../theme'
-import { BackChevron, Ring, TierBadge } from './ui'
+import { BackChevron, Ring } from './ui'
 
 const STAT_LABEL: Record<StatField, string> = {
   finishing: 'Finishing',
@@ -26,7 +26,6 @@ export function PlayerScreen({ player, onBack }: { player: Player; onBack: () =>
         <div>
           <div className="font-heading text-[20px] font-bold">{player.name}</div>
           <div className="mt-1.5 flex gap-1.5">
-            <TierBadge tier={player.tier} />
             <span className=" bg-[var(--color-card)] px-2 py-0.5 text-[10px] font-semibold tracking-wide text-[var(--color-text-secondary)]">
               {POS_LABEL[player.position]}
             </span>

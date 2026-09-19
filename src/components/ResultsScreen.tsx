@@ -5,6 +5,7 @@ import { MatchHeader } from './ui'
 interface Props {
   result: MatchResult
   opponent: Team
+  userTeamName: string
   /** Eyebrow label, e.g. "Group 3" or "Round of 16 · Leg 1". */
   label: string
   venue: 'HOME' | 'AWAY'
@@ -34,6 +35,7 @@ function OutcomeIcon({ success }: { success: boolean }) {
 export function ResultsScreen({
   result,
   opponent,
+  userTeamName,
   label,
   venue,
   userColor,
@@ -91,9 +93,9 @@ export function ResultsScreen({
       <MatchHeader
         eyebrowTop={label}
         eyebrowBottom="Full Time"
-        homeLabel={isHomeVenue ? 'Your Squad' : opponent.name}
+        homeLabel={isHomeVenue ? userTeamName : opponent.name}
         homeSub={isHomeVenue ? 'Home' : 'Away'}
-        awayLabel={isHomeVenue ? opponent.name : 'Your Squad'}
+        awayLabel={isHomeVenue ? opponent.name : userTeamName}
         awaySub={isHomeVenue ? 'Away' : 'Home'}
         homeGoals={isHomeVenue ? result.userGoals : result.oppGoals}
         awayGoals={isHomeVenue ? result.oppGoals : result.userGoals}
@@ -107,7 +109,7 @@ export function ResultsScreen({
         </div>
       )}
 
-      <div className="grow overflow-y-auto px-5 pt-5">
+      <div className="min-h-0 grow overflow-y-auto px-5 pt-5">
         {scorers.length > 0 && (
           <div className="mb-6" style={{ textAlign: isHomeVenue ? 'left' : 'right' }}>
             <div className="font-heading mb-2 text-[11px] font-bold tracking-[0.14em] text-black/40">GOALSCORERS</div>
