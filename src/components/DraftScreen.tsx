@@ -28,7 +28,7 @@ export function DraftScreen({ step, picks, seed, onBack, onPick }: Props) {
     <div className="flex h-full flex-col overflow-y-auto">
       <div className="flex items-center justify-between px-5 pt-5">
         <BackChevron onClick={onBack} />
-        <div className="font-heading  bg-[var(--color-card)] px-3 py-1.5 text-xs font-semibold text-[var(--color-text-secondary)]">
+        <div className="font-heading rounded-full bg-[var(--color-card)] px-3 py-1.5 text-xs font-semibold text-[var(--color-text-secondary)]">
           {step + 1} / 5
         </div>
         <div className="w-5.5" />
@@ -49,15 +49,19 @@ export function DraftScreen({ step, picks, seed, onBack, onPick }: Props) {
 
       <div className="flex flex-col gap-2 px-5 py-2">
         {candidates.map((c) => (
-          <div key={c.id} onClick={() => onPick(slot, c.id)} className="flex cursor-pointer items-center gap-3 bg-black p-2.5">
+          <div
+            key={c.id}
+            onClick={() => onPick(slot, c.id)}
+            className="flex cursor-pointer items-center gap-3 bg-[var(--color-card)] p-2.5 rounded-2xl shadow-[var(--shadow-card)]"
+          >
             <Ring player={c} size={34} />
             <div className="grow">
-              <div className="text-[13px] font-semibold text-white">{c.name}</div>
-              <div className="mt-0.5 text-[10px] text-white/50">{c.traits.join(' · ')}</div>
+              <div className="text-[13px] font-semibold text-[var(--color-text-primary)]">{c.name}</div>
+              <div className="mt-0.5 text-[10px] text-[var(--color-text-tertiary)]">{c.traits.join(' · ')}</div>
             </div>
             <div className="text-right">
-              <div className="font-heading text-[17px] font-bold text-white">{c.overall}</div>
-              <div className="text-[9px] tracking-wide text-white/50">OVR</div>
+              <div className="font-heading text-[17px] font-bold text-[var(--color-text-primary)]">{c.overall}</div>
+              <div className="text-[9px] tracking-wide text-[var(--color-text-tertiary)]">OVR</div>
             </div>
           </div>
         ))}

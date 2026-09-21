@@ -1,4 +1,4 @@
-import type { DraftSlot, Fixture, Squad, Tactic } from '../types'
+import type { Bracket, DraftSlot, Fixture, Squad, Tactic } from '../types'
 
 const KEY = 'euro-champions:v1'
 
@@ -10,6 +10,8 @@ export interface SavedState {
   streak: number
   lastResult: string | null
   teamColor: string
+  /** Knockout bracket progress, if the group stage is done and the user has entered it. Persisted so it survives a reload — previously lost, which also meant it couldn't be captured in season history. */
+  bracket: Bracket | null
 }
 
 export function todayId(): string {
@@ -43,6 +45,7 @@ export function defaultState(dayId: string): SavedState {
     streak: 0,
     lastResult: null,
     teamColor: '#e8b93f',
+    bracket: null,
   }
 }
 
@@ -90,6 +93,53 @@ export function addCareerGoals(matchGoals: Record<string, number>) {
       current[name] = (current[name] ?? 0) + count
     }
     localStorage.setItem(CAREER_KEY, JSON.stringify(current))
+  } catch {
+    // localStorage unavailable — degrade silently, per MVP scope.
+  }
+}
+
+/** The furthest a season went in the knockout stage — null covers both "didn't qualify" and "qualified but never entered". */
+export type KnockoutOutcome = 'r16' | 'qf' | 'sf' | 'final' | 'champion'
+
+export interface SeasonRecord {
+  dayId: string
+  teamName: string
+  played: number
+  won: number
+  drawn: number
+  lost: number
+  points: number
+  /** 1-indexed league finish. */
+  position: number
+  totalTeams: number
+  qualifiedForKnockout: boolean
+  knockoutOutcome: KnockoutOutcome | null
+}
+
+/** One row per completed (or abandoned) season, newest first. Its own key — outlives the daily reset and "New Game". */
+const HISTORY_KEY = 'euro-champions:season-history:v1'
+
+export function loadSeasonHistory(): SeasonRecord[] {
+  try {
+    const raw = localStorage.getItem(HISTORY_KEY)
+    if (!raw) return []
+    return JSON.parse(raw) as SeasonRecord[]
+  } catch {
+    return []
+  }
+}
+
+/**
+ * Logs a finished/abandoned season — one record per dayId. A later call for the same dayId
+ * replaces the earlier one rather than adding a duplicate, since there's only ever one season
+ * per day; this also means recording early (e.g. right when the trophy's won) is always safe to
+ * later "upgrade" with a more complete record without leaving a stale duplicate behind.
+ */
+export function appendSeasonRecord(record: SeasonRecord) {
+  try {
+    const history = loadSeasonHistory().filter((r) => r.dayId !== record.dayId)
+    history.unshift(record)
+    localStorage.setItem(HISTORY_KEY, JSON.stringify(history))
   } catch {
     // localStorage unavailable — degrade silently, per MVP scope.
   }

@@ -26,7 +26,7 @@ export function PlayerScreen({ player, onBack }: { player: Player; onBack: () =>
         <div>
           <div className="font-heading text-[20px] font-bold">{player.name}</div>
           <div className="mt-1.5 flex gap-1.5">
-            <span className=" bg-[var(--color-card)] px-2 py-0.5 text-[10px] font-semibold tracking-wide text-[var(--color-text-secondary)]">
+            <span className="rounded-full bg-[var(--color-card)] px-2 py-0.5 text-[10px] font-semibold tracking-wide text-[var(--color-text-secondary)]">
               {POS_LABEL[player.position]}
             </span>
           </div>
@@ -44,9 +44,9 @@ export function PlayerScreen({ player, onBack }: { player: Player; onBack: () =>
           return (
             <div key={stat} className="mb-3 flex items-center gap-2.5">
               <span className="w-[88px] text-xs text-[var(--color-text-secondary)]">{STAT_LABEL[stat]}</span>
-              <div className="h-1.5 grow overflow-hidden  bg-[var(--color-card)]">
+              <div className="h-1.5 grow overflow-hidden rounded-full bg-[var(--color-card)]">
                 <div
-                  className="h-full "
+                  className="h-full rounded-full"
                   style={{ width: `${value}%`, background: irrelevant ? 'var(--color-text-tertiary)' : 'var(--color-accent)' }}
                 />
               </div>
@@ -64,7 +64,7 @@ export function PlayerScreen({ player, onBack }: { player: Player; onBack: () =>
           {player.traits.map((t) => (
             <span
               key={t}
-              className=" bg-[var(--color-card)] px-2.5 py-1.5 text-[11px] text-[var(--color-text-secondary)]"
+              className="rounded-full bg-[var(--color-card)] px-2.5 py-1.5 text-[11px] text-[var(--color-text-secondary)]"
             >
               {t}
             </span>
@@ -72,7 +72,7 @@ export function PlayerScreen({ player, onBack }: { player: Player; onBack: () =>
         </div>
       </div>
 
-      <div className="mt-auto border-t border-black/8 px-6 pt-4.5 pb-7 text-center text-xs text-[var(--color-text-tertiary)]">
+      <div className="mt-auto border-t border-[var(--color-card-border)] px-6 pt-4.5 pb-7 text-center text-xs text-[var(--color-text-tertiary)]">
         Ratings are the only source of truth — no hidden stats.
       </div>
     </div>

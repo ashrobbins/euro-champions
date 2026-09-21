@@ -243,8 +243,6 @@ export function KnockoutFlow({ bracket, onBracketChange, teamsById, squad, tacti
             event={engine.currentEvent()!}
             candidates={engine.candidates()}
             actor={engine.actor()}
-            index={engine.decisions.length}
-            total={engine.eventQueue.length}
             minute={minuteForDecisions(engine.decisions.length, engine.eventQueue.length)}
             {...revealedScore(engine.decisions, engine.ambientEvents, minuteForDecisions(engine.decisions.length, engine.eventQueue.length))}
             onChoose={handleChoose}
@@ -258,6 +256,9 @@ export function KnockoutFlow({ bracket, onBracketChange, teamsById, squad, tacti
   if (kfScreen === 'legResult' && engineRef.current) {
     const lastLeg = activeTie.legs[activeTie.legs.length - 1]
     const agg = userAggregateSoFar(activeTie)
+    // Same left-to-right (home-away) order as the score in the header above it, not a fixed
+    // "us first" order — otherwise the two disagree whenever we were away for this leg.
+    const aggText = venue === 'HOME' ? `${agg.mine}-${agg.theirs}` : `${agg.theirs}-${agg.mine}`
     return (
       <ResultsScreen
         result={lastLeg.matchResult!}
@@ -266,7 +267,7 @@ export function KnockoutFlow({ bracket, onBracketChange, teamsById, squad, tacti
         label={legLabel}
         venue={venue}
         userColor={teamColor}
-        bannerNote={`Aggregate ${agg.mine}-${agg.theirs} — Leg 2 next`}
+        bannerNote={`Aggregate ${aggText} — Leg 2 next`}
         continueLabel="PLAY LEG 2"
         onContinue={() => startLeg(activeTie, 2)}
       />

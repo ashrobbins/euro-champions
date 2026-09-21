@@ -27,7 +27,7 @@ export function KnockoutTieResultScreen({ tie, opponent, userTeamId, userTeamNam
   const roundLabel = ROUND_LABEL[tie.round as KnockoutRoundId]
 
   return (
-    <div className="flex h-full flex-col items-center justify-center gap-6 px-8 text-center" style={{ background: '#ffffff' }}>
+    <div className="flex h-full flex-col items-center justify-center gap-6 px-8 text-center" style={{ background: 'var(--color-bg)' }}>
       <div>
         <div className="font-heading text-[13px] font-bold tracking-[0.18em] uppercase" style={{ color: 'var(--color-accent)' }}>
           {roundLabel}
@@ -45,7 +45,7 @@ export function KnockoutTieResultScreen({ tie, opponent, userTeamId, userTeamNam
         </div>
         <div className="flex items-baseline">
           <span className="font-heading text-[48px] leading-none tabular-nums">{mine}</span>
-          <span className="font-heading px-1 text-[48px] leading-none tabular-nums text-black/25">:</span>
+          <span className="font-heading px-1 text-[48px] leading-none tabular-nums text-[var(--color-text-tertiary)]">:</span>
           <span className="font-heading text-[48px] leading-none tabular-nums">{theirs}</span>
         </div>
         <div className="flex flex-col items-center gap-1.5">

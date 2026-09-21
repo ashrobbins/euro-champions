@@ -17,16 +17,13 @@ interface Props {
   onViewFixtures?: () => void
 }
 
-const PURPLE = '#6D28D9'
-const INK = '#0A0A0A'
-
 function OutcomeIcon({ success }: { success: boolean }) {
   return success ? (
-    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#16A34A" strokeWidth="3">
+    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--color-green)" strokeWidth="3">
       <path d="M5 13l4 4L19 7" />
     </svg>
   ) : (
-    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#DC2626" strokeWidth="3">
+    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--color-red)" strokeWidth="3">
       <path d="M6 6l12 12M18 6L6 18" />
     </svg>
   )
@@ -89,14 +86,17 @@ export function ResultsScreen({
   const isHomeVenue = venue === 'HOME'
 
   return (
-    <div className="flex h-full flex-col" style={{ background: '#ffffff', color: INK, fontFamily: "'IBM Plex Sans', system-ui, sans-serif" }}>
+    <div
+      className="flex h-full flex-col"
+      style={{ background: 'var(--color-bg)', color: 'var(--color-text-primary)', fontFamily: "'IBM Plex Sans', system-ui, sans-serif" }}
+    >
       <MatchHeader
         eyebrowTop={label}
         eyebrowBottom="Full Time"
         homeLabel={isHomeVenue ? userTeamName : opponent.name}
-        homeSub={isHomeVenue ? 'Home' : 'Away'}
+        homeSub="Home"
         awayLabel={isHomeVenue ? opponent.name : userTeamName}
-        awaySub={isHomeVenue ? 'Away' : 'Home'}
+        awaySub="Away"
         homeGoals={isHomeVenue ? result.userGoals : result.oppGoals}
         awayGoals={isHomeVenue ? result.oppGoals : result.userGoals}
         homeColor={isHomeVenue ? userColor : opponent.accentColor}
@@ -104,7 +104,10 @@ export function ResultsScreen({
       />
 
       {bannerNote && (
-        <div className="mx-5 mt-4 px-4 py-2.5 text-center text-[13px] font-bold" style={{ background: 'rgba(109,40,217,0.1)', color: PURPLE }}>
+        <div
+          className="mx-5 mt-4 rounded-xl px-4 py-2.5 text-center text-[13px] font-bold"
+          style={{ background: 'var(--color-accent-dim)', color: 'var(--color-accent)' }}
+        >
           {bannerNote}
         </div>
       )}
@@ -112,13 +115,13 @@ export function ResultsScreen({
       <div className="min-h-0 grow overflow-y-auto px-5 pt-5">
         {scorers.length > 0 && (
           <div className="mb-6" style={{ textAlign: isHomeVenue ? 'left' : 'right' }}>
-            <div className="font-heading mb-2 text-[11px] font-bold tracking-[0.14em] text-black/40">GOALSCORERS</div>
+            <div className="font-heading mb-2 text-[11px] font-bold tracking-[0.14em] text-[var(--color-text-tertiary)]">GOALSCORERS</div>
             <div className="flex flex-col gap-2">
               {scorers.map((s, i) => (
                 <div key={i} className="flex items-center gap-2.5" style={{ flexDirection: isHomeVenue ? 'row' : 'row-reverse', justifyContent: isHomeVenue ? 'flex-start' : 'flex-end' }}>
                   <span
-                    className="font-heading flex h-6 min-w-6 items-center justify-center px-1 text-[12px] font-bold text-white"
-                    style={{ background: PURPLE }}
+                    className="font-heading flex h-6 min-w-6 items-center justify-center rounded-full px-1 text-[12px] font-bold text-white"
+                    style={{ background: 'var(--color-accent)' }}
                   >
                     {Math.max(1, s.minute)}&rsquo;
                   </span>
@@ -129,25 +132,27 @@ export function ResultsScreen({
           </div>
         )}
 
-        <div className="font-heading mb-1.5 text-[11px] font-bold tracking-[0.14em] text-black/40">TACTICAL DECISIONS</div>
+        <div className="font-heading mb-1.5 text-[11px] font-bold tracking-[0.14em] text-[var(--color-text-tertiary)]">
+          TACTICAL DECISIONS
+        </div>
         {feed.map((entry, i) =>
           entry.isGoal ? (
-            <div key={i} className="flex items-start gap-2.5 border-b border-black/8 py-2.5">
+            <div key={i} className="flex items-start gap-2.5 border-b border-[var(--color-card-border)] py-2.5">
               <OutcomeIcon success={entry.good} />
               <div className="grid grow grid-cols-[24px_1fr] gap-x-2 gap-y-0.5">
-                <span className="font-heading text-[13px] font-bold text-black">{entry.minute}&rsquo;</span>
-                <span className="font-heading text-[15px] font-bold tracking-wide text-black uppercase">
+                <span className="font-heading text-[13px] font-bold text-[var(--color-text-primary)]">{entry.minute}&rsquo;</span>
+                <span className="font-heading text-[15px] font-bold tracking-wide text-[var(--color-text-primary)] uppercase">
                   GOAL! {entry.playerName} &mdash; {entry.scoreAfter}
                 </span>
                 <span />
-                <span className="text-[13px] font-normal text-black/70">{entry.text}</span>
+                <span className="text-[13px] font-normal text-[var(--color-text-secondary)]">{entry.text}</span>
               </div>
             </div>
           ) : (
-            <div key={i} className="flex items-center gap-2.5 border-b border-black/8 py-2.5">
+            <div key={i} className="flex items-center gap-2.5 border-b border-[var(--color-card-border)] py-2.5">
               <OutcomeIcon success={entry.good} />
-              <span className="font-heading w-6 shrink-0 text-[11px] text-black/40">{entry.minute}&rsquo;</span>
-              <div className="grow text-[13px] text-black/75">{entry.text}</div>
+              <span className="font-heading w-6 shrink-0 text-[11px] text-[var(--color-text-tertiary)]">{entry.minute}&rsquo;</span>
+              <div className="grow text-[13px] text-[var(--color-text-secondary)]">{entry.text}</div>
             </div>
           ),
         )}
@@ -157,14 +162,22 @@ export function ResultsScreen({
         <div className="mb-2.5">
           <button
             onClick={onContinue}
-            className="w-full cursor-pointer py-4 text-center text-[17px] tracking-wide text-white uppercase"
-            style={{ background: PURPLE, fontFamily: 'var(--font-score)' }}
+            className="w-full cursor-pointer rounded-2xl py-4 text-center text-[17px] tracking-wide text-white uppercase"
+            style={{
+              background: 'linear-gradient(135deg, var(--color-accent), var(--color-accent-2))',
+              boxShadow: '0 14px 26px -14px rgba(139,92,246,0.55)',
+              fontFamily: 'var(--font-score)',
+            }}
           >
             {continueLabel}
           </button>
         </div>
         {onViewFixtures && (
-          <div onClick={onViewFixtures} className="cursor-pointer text-center text-[13px] font-semibold" style={{ color: PURPLE }}>
+          <div
+            onClick={onViewFixtures}
+            className="cursor-pointer text-center text-[13px] font-semibold"
+            style={{ color: 'var(--color-accent)' }}
+          >
             View fixtures &rarr;
           </div>
         )}

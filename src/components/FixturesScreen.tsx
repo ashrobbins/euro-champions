@@ -40,7 +40,7 @@ export function FixturesScreen({ fixtures, teamsById, onBack, onPlayNext }: Prop
           return (
             <div
               key={f.n}
-              className="flex items-center gap-2.5  border bg-[var(--color-card)] px-2.5 py-1.5"
+              className="flex items-center gap-2.5 rounded-xl border bg-[var(--color-card)] px-2.5 py-1.5 shadow-[var(--shadow-card)]"
               style={{
                 borderColor: isNext ? 'var(--color-accent)' : 'rgba(255,255,255,0.08)',
                 boxShadow: isNext ? '0 0 0 1px var(--color-accent) inset' : undefined,
@@ -63,7 +63,7 @@ export function FixturesScreen({ fixtures, teamsById, onBack, onPlayNext }: Prop
         })}
       </div>
 
-      <div className="border-t border-black/8 px-5 pt-4 pb-7">
+      <div className="border-t border-[var(--color-card-border)] px-5 pt-4 pb-7">
         {nextFixture && (
           <div className="mb-2.5">
             <AccentButton onClick={() => onPlayNext(nextFixture)}>KICK OFF</AccentButton>

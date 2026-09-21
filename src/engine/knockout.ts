@@ -111,6 +111,16 @@ export function userWonFinal(bracket: Bracket, userTeamId: string): boolean {
   return final?.winnerTeamId === userTeamId
 }
 
+/** The furthest round the user was drawn into (win or lose, played or not yet started) — for season-history logging. Null if they never qualified for the bracket at all. */
+export function furthestRoundReached(bracket: Bracket, userTeamId: string): KnockoutRoundId | null {
+  let furthest: KnockoutRoundId | null = null
+  for (const tie of bracket.ties) {
+    if (!isUserTie(tie, userTeamId)) continue
+    if (!furthest || ROUND_ORDER.indexOf(tie.round) > ROUND_ORDER.indexOf(furthest)) furthest = tie.round
+  }
+  return furthest
+}
+
 export function tieAggregate(tie: KnockoutTie): { home: number; away: number } {
   return tie.legs.reduce((acc, leg) => ({ home: acc.home + leg.homeGoals, away: acc.away + leg.awayGoals }), { home: 0, away: 0 })
 }

@@ -6,15 +6,13 @@ interface Props {
   event: DrawnEvent
   candidates: Player[]
   actor: Player | null
-  index: number
-  total: number
   minute: number
   userGoals: number
   oppGoals: number
   onChoose: (choiceIndex: 0 | 1 | 2) => void
 }
 
-export function DecisionModal({ event, candidates, actor, index, total, minute, userGoals, oppGoals, onChoose }: Props) {
+export function DecisionModal({ event, candidates, actor, minute, userGoals, oppGoals, onChoose }: Props) {
   const isAction = event.choiceMode === 'action'
   const commentary = commentaryFor(event, minute, userGoals, oppGoals)
 
@@ -22,13 +20,10 @@ export function DecisionModal({ event, candidates, actor, index, total, minute, 
     <div className="absolute inset-0 flex flex-col justify-end" style={{ background: 'rgba(5,7,13,0.72)' }}>
       <div
         className="absolute inset-0"
-        style={{ background: 'radial-gradient(60% 40% at 50% 20%, rgba(109,40,217,0.06), transparent)' }}
+        style={{ background: 'radial-gradient(60% 40% at 50% 20%, rgba(139,92,246,0.10), transparent)' }}
       />
-      <div className="relative flex flex-col gap-4 bg-[var(--color-bg-elev)] pt-5 pb-5.5">
-        <div className="flex items-center justify-between px-5">
-          <div className="text-[11px] font-bold tracking-[0.08em] text-[var(--color-text-tertiary)]">
-            DECISION {index + 1} OF {total}
-          </div>
+      <div className="relative flex flex-col gap-4 rounded-t-[24px] bg-[var(--color-bg-elev)] pt-5 pb-5.5 shadow-[0_-20px_40px_-24px_rgba(0,0,0,0.6)]">
+        <div className="flex items-center justify-end px-5">
           <div className="font-heading flex items-center gap-2 text-[13px] font-bold tabular-nums">
             <span>
               {userGoals}&ndash;{oppGoals}
@@ -47,7 +42,7 @@ export function DecisionModal({ event, candidates, actor, index, total, minute, 
         </div>
 
         {isAction && actor && !event.hideActor && (
-          <div className="mx-5 flex items-center gap-3 bg-[var(--color-card)] p-3">
+          <div className="mx-5 flex items-center gap-3 rounded-2xl bg-[var(--color-card)] p-3">
             <Ring player={actor} size={34} />
             <div className="grow">
               <div className="text-[13px] font-semibold">{actor.name}</div>
@@ -62,31 +57,35 @@ export function DecisionModal({ event, candidates, actor, index, total, minute, 
           </div>
         )}
 
-        <div className="flex flex-col gap-[3px]">
+        <div className="flex flex-col gap-2 px-5">
           {isAction
             ? event.choices.map((label, i) => (
                 <div
                   key={label}
                   onClick={() => onChoose(i as 0 | 1 | 2)}
-                  className="cursor-pointer bg-black px-5 py-4 text-center"
+                  className="cursor-pointer rounded-xl px-4 py-4 text-center"
+                  style={{ background: 'rgba(139,92,246,0.10)', border: '1px solid rgba(139,92,246,0.22)' }}
                 >
-                  <span className="text-[15px] font-semibold text-white">{label}</span>
+                  <span className="text-[15px] font-semibold text-[var(--color-text-primary)]">{label}</span>
                 </div>
               ))
             : candidates.map((c, i) => (
                 <div
                   key={c.id}
                   onClick={() => onChoose(i as 0 | 1 | 2)}
-                  className="flex cursor-pointer items-center gap-3 bg-black px-5 py-4"
+                  className="flex cursor-pointer items-center gap-3 rounded-xl px-4 py-4"
+                  style={{ background: 'rgba(139,92,246,0.10)', border: '1px solid rgba(139,92,246,0.22)' }}
                 >
                   <Ring player={c} size={40} />
                   <div className="grow">
-                    <div className="text-[14px] font-semibold text-white">{c.name}</div>
-                    <div className="mt-0.5 text-[11px] text-white/50">{c.traits[0]}</div>
+                    <div className="text-[14px] font-semibold text-[var(--color-text-primary)]">{c.name}</div>
+                    <div className="mt-0.5 text-[11px] text-[var(--color-text-tertiary)]">{c.traits[0]}</div>
                   </div>
                   <div className="text-right">
-                    <div className="font-heading text-[16px] font-bold text-white">{c.ratings[event.statA]}</div>
-                    <div className="text-[9px] text-white/50">{event.statA.toUpperCase()}</div>
+                    <div className="font-heading text-[16px] font-bold text-[var(--color-text-primary)]">
+                      {c.ratings[event.statA]}
+                    </div>
+                    <div className="text-[9px] text-[var(--color-text-tertiary)]">{event.statA.toUpperCase()}</div>
                   </div>
                 </div>
               ))}

@@ -21,13 +21,13 @@ export interface PoolEvent extends EventDefinition {
 export type DrawnEvent = PoolEvent
 
 export const EVENT_POOL: PoolEvent[] = [
-  { id: 'penalty_save', label: 'Penalty save', prompt: 'Which way does he go?', choiceMode: 'action', choices: ['Dive left', 'Dive centre', 'Dive right'], statA: 'goalkeeping', statB: 'composure', teamStat: 'setPieces', weight: 20 },
+  { id: 'penalty_save', label: 'Penalty save', prompt: 'Which way does he go?', choiceMode: 'action', choices: ['Dive left', 'Stay central', 'Dive right'], statA: 'goalkeeping', statB: 'composure', teamStat: 'setPieces', weight: 20 },
   { id: 'free_kick', label: 'Free kick', prompt: 'Who takes it?', choiceMode: 'player', choices: ['Curl it in', 'Drive it low', 'Chip the wall'], statA: 'setPieces', statB: 'composure', teamStat: 'goalkeeping', weight: 15 },
   { id: 'one_on_one', label: 'One-on-one', prompt: 'How does he finish?', choiceMode: 'action', choices: ['Place it', 'Smash it', 'Dink the keeper'], statA: 'finishing', statB: 'composure', teamStat: 'goalkeeping', weight: 15 },
   { id: 'corner', label: 'Corner', prompt: 'Where do you send it?', choiceMode: 'action', choices: ['Near post', 'Far post', 'Play it short'], statA: 'setPieces', statB: 'pace', teamStat: 'defence', weight: 15 },
-  { id: 'break_press', label: 'Break the press', prompt: 'Which way out?', choiceMode: 'action', choices: ['Middle', 'Wing', 'Long clearance'], statA: 'passing', statB: 'pace', teamStat: 'defence', weight: 15 },
+  { id: 'break_press', label: 'Break the press', prompt: 'Which way out?', choiceMode: 'action', choices: ['Through the middle', 'Hit the wing', 'Hoof it long'], statA: 'passing', statB: 'pace', teamStat: 'defence', weight: 15 },
   { id: 'late_tactic', label: 'Late-game tactic', prompt: "What's the call?", choiceMode: 'action', hideActor: true, choices: ['Attack! Attack! Attack!', 'Keep it balanced', 'Park the Bus'], statA: 'stamina', statB: 'defending', teamStat: 'stamina', weight: 15 },
-  { id: 'last_ditch_tackle', label: 'Last-ditch tackle', prompt: 'How does he defend it?', choiceMode: 'action', choices: ['Slide tackle', 'Stand off', 'Block the shot'], statA: 'defending', statB: 'composure', teamStat: 'attack', weight: 30 },
+  { id: 'last_ditch_tackle', label: 'Last-ditch tackle', prompt: 'How does he defend it?', choiceMode: 'action', choices: ['Slide tackle', 'Jockey', 'Block the shot'], statA: 'defending', statB: 'composure', teamStat: 'attack', weight: 30 },
   { id: 'long_range', label: 'Long-range effort', prompt: 'Who takes the shot?', choiceMode: 'player', choices: ['Near post', 'Far post', 'Pass instead'], statA: 'finishing', statB: 'composure', teamStat: 'goalkeeping', weight: 10 },
   { id: 'def_set_piece', label: 'Defensive set piece', prompt: 'How do you set up?', choiceMode: 'action', hideActor: true, choices: ['Zonal marking', 'Man marking', 'Short setup'], statA: 'defending', statB: 'goalkeeping', teamStat: 'setPieces', weight: 30 },
   { id: 'counter_attack', label: 'Counter-attack trigger', prompt: 'How do you play it?', choiceMode: 'action', choices: ['Fast break', 'Hold possession', 'Switch play'], statA: 'pace', statB: 'passing', teamStat: 'attack', weight: 10 },

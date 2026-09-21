@@ -7,22 +7,29 @@
   /* Extra-tall condensed display face for the match-centre redesign (scores, team names, titles). */
   --font-score: 'Bebas Neue', 'Anton', 'Archivo Black', system-ui, sans-serif;
 
-  --color-bg: #ffffff;
-  --color-bg-elev: #f6f3fc;
-  --color-card: #f4f1fb;
-  --color-card-border: rgb(0 0 0 / 8%);
-  --color-text-primary: #0a0a0a;
-  --color-text-secondary: rgb(10 10 10 / 62%);
-  --color-text-tertiary: rgb(10 10 10 / 42%);
-  --color-accent: #6d28d9;
-  --color-accent-dim: rgb(109 40 217 / 12%);
-  --color-green: #16a34a;
-  --color-red: #dc2626;
+  /* Night-ground palette — deep violet-black ground, cards lifted a step lighter so they read
+     clearly against both the page and the match-screen gradient hero, per the design refresh. */
+  --color-bg: #0a0815;
+  --color-bg-elev: #150f2a;
+  --color-card: #251d47;
+  --color-card-2: #2d2456;
+  --color-card-border: rgb(255 255 255 / 13%);
+  --color-text-primary: #f6f4fb;
+  --color-text-secondary: rgb(246 244 251 / 64%);
+  --color-text-tertiary: rgb(246 244 251 / 40%);
+  --color-accent: #8b5cf6;
+  --color-accent-2: #ec4899;
+  --color-accent-dim: rgb(139 92 246 / 14%);
+  --color-green: #34d399;
+  --color-red: #fb7185;
+  --color-gold: #f2b705;
 
-  --color-pos-gk: #22b573;
-  --color-pos-def: #3e6fe0;
-  --color-pos-mid: #8266e0;
-  --color-pos-att: #e0527a;
+  --color-pos-gk: #22c58f;
+  --color-pos-def: #4d8dff;
+  --color-pos-mid: #9b6bf0;
+  --color-pos-att: #f0577e;
+
+  --shadow-card: 0 10px 26px -16px rgb(0 0 0 / 70%), inset 0 1px 0 rgb(255 255 255 / 5%);
 }
 
 html,
@@ -32,7 +39,10 @@ body {
 
 body {
   margin: 0;
-  background: var(--color-bg);
+  background:
+    radial-gradient(ellipse 900px 500px at 15% -10%, rgb(139 92 246 / 22%), transparent 60%),
+    radial-gradient(ellipse 800px 500px at 90% 10%, rgb(236 72 153 / 13%), transparent 55%),
+    var(--color-bg);
   color: var(--color-text-primary);
   font-family: var(--font-body);
 }

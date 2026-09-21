@@ -9,10 +9,10 @@ export function posColorKey(player: Player): PosColorKey {
 }
 
 export const POS_HEX: Record<PosColorKey, string> = {
-  gk: '#22b573',
-  def: '#3e6fe0',
-  mid: '#8266e0',
-  att: '#e0527a',
+  gk: '#22c58f',
+  def: '#4d8dff',
+  mid: '#9b6bf0',
+  att: '#f0577e',
 }
 
 export const POS_LABEL: Record<string, string> = {

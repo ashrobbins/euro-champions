@@ -152,13 +152,20 @@ export function MatchScreen({
   const displayOppGoals = runningOpp
   // Newest event first, so the running score is always visible without scrolling as the feed grows.
   const tickerNewestFirst = [...ticker].reverse()
-  const aggregateNote = aggregateBefore
-    ? `Aggregate ${aggregateBefore.mine + displayUserGoals}-${aggregateBefore.theirs + displayOppGoals}`
-    : undefined
 
   // The header always reads left-to-right as "home side, away side" — so when we're the away
   // side, "Your Squad" moves to the right-hand slot instead of always sitting on the left.
   const isHomeVenue = venue === 'HOME'
+
+  // Matches the big score's left-to-right (home-away) order, not a fixed "us first" order —
+  // otherwise the aggregate reads backwards from the score directly above it whenever we're away.
+  const aggregateNote = aggregateBefore
+    ? `Aggregate ${
+        isHomeVenue
+          ? `${aggregateBefore.mine + displayUserGoals}-${aggregateBefore.theirs + displayOppGoals}`
+          : `${aggregateBefore.theirs + displayOppGoals}-${aggregateBefore.mine + displayUserGoals}`
+      }`
+    : undefined
 
   return (
     <div className="flex h-full flex-col">
@@ -167,9 +174,9 @@ export function MatchScreen({
         eyebrowBottom="Live Match"
         onBack={onBack}
         homeLabel={isHomeVenue ? userTeamName : opponent.name}
-        homeSub={isHomeVenue ? 'Home' : 'Away'}
+        homeSub="Home"
         awayLabel={isHomeVenue ? opponent.name : userTeamName}
-        awaySub={isHomeVenue ? 'Away' : 'Home'}
+        awaySub="Away"
         homeGoals={isHomeVenue ? displayUserGoals : displayOppGoals}
         awayGoals={isHomeVenue ? displayOppGoals : displayUserGoals}
         homeColor={isHomeVenue ? userColor : opponent.accentColor}
@@ -179,7 +186,7 @@ export function MatchScreen({
       />
 
       <div className="min-h-0 grow px-6 pt-6.5">
-        <div className="flex h-full min-h-0 flex-col  bg-[var(--color-card)] p-3.5">
+        <div className="flex h-full min-h-0 flex-col bg-[var(--color-card)] p-3.5 rounded-2xl shadow-[var(--shadow-card)]">
           <div className="font-heading mb-2.5 text-[11px] font-bold tracking-[0.08em] text-[var(--color-text-tertiary)]">
             MATCH EVENTS
           </div>

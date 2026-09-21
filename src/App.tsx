@@ -8,8 +8,20 @@ import { generateFixtures } from './engine/fixtures'
 import { MatchEngine, isUserGoalEvent, minuteForDecisions, revealedScore } from './engine/simulation'
 import { SeededRandom } from './engine/random'
 import { buildLeagueTable } from './engine/league'
-import { buildBracket } from './engine/knockout'
-import { load, save, defaultState, todayId, addCareerGoals, loadTeamName, saveTeamName } from './engine/persistence'
+import { buildBracket, furthestRoundReached, isUserEliminated, userWonFinal } from './engine/knockout'
+import {
+  load,
+  save,
+  defaultState,
+  todayId,
+  addCareerGoals,
+  loadTeamName,
+  saveTeamName,
+  loadSeasonHistory,
+  appendSeasonRecord,
+  type SavedState,
+  type SeasonRecord,
+} from './engine/persistence'
 import { DEFAULT_TEAM_COLOR } from './theme'
 import { ScreenShell } from './components/ui'
 import { HomeScreen } from './components/HomeScreen'
@@ -25,6 +37,7 @@ import { PlayerScreen } from './components/PlayerScreen'
 import { KnockoutFlow } from './components/KnockoutFlow'
 import { TrophyScreen } from './components/TrophyScreen'
 import { TeamNameScreen } from './components/TeamNameScreen'
+import { SeasonHistoryScreen } from './components/SeasonHistoryScreen'
 
 const teams = teamsData.teams as unknown as Team[]
 const teamsById: Record<string, Team> = Object.fromEntries(teams.map((t) => [t.id, t]))
@@ -33,12 +46,60 @@ const mockStandings = mockLeagueStageData.standings as LeagueRow[]
 /** Fixed demo squad used to jump straight into the knockout stage via ?simKnockout, bypassing the draft. */
 const SIM_SQUAD: Squad = { GK: 'kahn', DEF: 'maldini', MID: 'zidane', ATT: 'saviola', FLEX: 'parkjs' }
 
-type Screen = 'home' | 'draft' | 'squad' | 'fixtures' | 'match' | 'results' | 'league' | 'player' | 'knockout' | 'trophy' | 'nameEntry' | 'settings'
+type Screen =
+  | 'home'
+  | 'draft'
+  | 'squad'
+  | 'fixtures'
+  | 'match'
+  | 'results'
+  | 'league'
+  | 'player'
+  | 'knockout'
+  | 'trophy'
+  | 'nameEntry'
+  | 'settings'
+  | 'history'
+
+/** Snapshots a finished (or abandoned) season into a history row, or null if nothing was actually played. */
+function buildSeasonRecord(state: SavedState, teamName: string): SeasonRecord | null {
+  const played = state.fixtures.filter((f) => f.result).length
+  if (played === 0) return null
+
+  const rows = buildLeagueTable(state.dayId, teams, teamName, state.teamColor, state.fixtures)
+  const userIndex = rows.findIndex((r) => r.teamId === 'user')
+  const userRow = rows[userIndex]
+  const qualifiedForKnockout = userIndex >= 0 && userIndex < 24
+
+  let knockoutOutcome: SeasonRecord['knockoutOutcome'] = null
+  if (state.bracket) {
+    knockoutOutcome = userWonFinal(state.bracket, 'user') ? 'champion' : furthestRoundReached(state.bracket, 'user')
+  }
+
+  return {
+    dayId: state.dayId,
+    teamName,
+    played: userRow.played,
+    won: userRow.won,
+    drawn: userRow.drawn,
+    lost: userRow.lost,
+    points: userRow.points,
+    position: userIndex + 1,
+    totalTeams: rows.length,
+    qualifiedForKnockout,
+    knockoutOutcome,
+  }
+}
 
 function App() {
   const dayId = useMemo(() => todayId(), [])
   const initial = useMemo(() => {
     const loaded = load()
+    if (loaded && loaded.dayId !== dayId) {
+      // A new day rolled over since this squad last played — log what it did before it's wiped.
+      const record = buildSeasonRecord(loaded, loadTeamName() || 'Your Squad')
+      if (record) appendSeasonRecord(record)
+    }
     return loaded && loaded.dayId === dayId ? loaded : defaultState(dayId)
   }, [dayId])
 
@@ -55,7 +116,7 @@ function App() {
   const [teamName, setTeamName] = useState<string>(() => loadTeamName() ?? '')
   const [pendingOutcome, setPendingOutcome] = useState<DecisionRecord | null>(null)
   const [decisionOpen, setDecisionOpen] = useState(false)
-  const [bracket, setBracket] = useState<Bracket | null>(null)
+  const [bracket, setBracket] = useState<Bracket | null>(initial.bracket ?? null)
   const [knockoutDebugEntry, setKnockoutDebugEntry] = useState<{ tieId: string; screen: 'extraTime' } | undefined>(undefined)
   const [, forceUpdate] = useState(0)
   const engineRef = useRef<MatchEngine | null>(null)
@@ -119,6 +180,7 @@ function App() {
       streak: number
       lastResult: string | null
       teamColor: string
+      bracket: Bracket | null
     }> = {},
   ) {
     save({
@@ -129,7 +191,23 @@ function App() {
       streak: overrides.streak ?? streak,
       lastResult: overrides.lastResult ?? lastResult,
       teamColor: overrides.teamColor ?? teamColor,
+      bracket: 'bracket' in overrides ? (overrides.bracket ?? null) : bracket,
     })
+  }
+
+  /**
+   * Keeps the knockout bracket persisted alongside the rest of the day's state, so it survives a
+   * reload. Also logs the season to history the moment it's actually decided (won or knocked
+   * out) — rather than only on the next "New Game"/day rollover — so a title or an elimination
+   * shows up in history right away.
+   */
+  function handleBracketChange(next: Bracket) {
+    setBracket(next)
+    persist({ bracket: next })
+    if (userWonFinal(next, 'user') || isUserEliminated(next, 'user')) {
+      const record = buildSeasonRecord({ dayId, squad: picks, tactic, fixtures, streak, lastResult, teamColor, bracket: next }, displayName)
+      if (record) appendSeasonRecord(record)
+    }
   }
 
   function handleSetTeamColor(color: string) {
@@ -168,14 +246,18 @@ function App() {
     setScreen('home')
   }
 
-  /** Wipes today's squad/tactic/fixtures (keeps streak/last-result history) and starts a fresh draft. */
+  /** Wipes today's squad/tactic/fixtures/bracket (keeps streak/last-result and season history) and starts a fresh draft. */
   function handleNewGame() {
+    const record = buildSeasonRecord({ dayId, squad: picks, tactic, fixtures, streak, lastResult, teamColor, bracket }, displayName)
+    if (record) appendSeasonRecord(record)
+
     setPicks({})
     setTactic('balanced')
     setFixtures([])
     setActiveFixtureN(null)
+    setBracket(null)
     engineRef.current = null
-    persist({ squad: {}, tactic: 'balanced', fixtures: [] })
+    persist({ squad: {}, tactic: 'balanced', fixtures: [], bracket: null })
     setDraftStep(0)
     setScreen('draft')
   }
@@ -271,7 +353,9 @@ function App() {
   }
 
   function handleEnterKnockout() {
-    setBracket(buildBracket(dayId, leagueRows))
+    const newBracket = buildBracket(dayId, leagueRows)
+    setBracket(newBracket)
+    persist({ bracket: newBracket })
     setScreen('knockout')
   }
 
@@ -291,9 +375,12 @@ function App() {
             onPlay={handlePlay}
             onNewGame={handleNewGame}
             onOpenSettings={() => setScreen('settings')}
+            onOpenHistory={() => setScreen('history')}
             hasSquad={squadValid}
           />
         )}
+
+        {screen === 'history' && <SeasonHistoryScreen records={loadSeasonHistory()} onBack={() => setScreen('home')} />}
 
         {screen === 'nameEntry' && <TeamNameScreen mode="onboarding" initialName={teamName} onSubmit={handleNameEntrySubmit} />}
 
@@ -348,8 +435,6 @@ function App() {
                 event={engine.currentEvent()!}
                 candidates={engine.candidates()}
                 actor={engine.actor()}
-                index={engine.decisions.length}
-                total={engine.eventQueue.length}
                 minute={minuteForDecisions(engine.decisions.length, engine.eventQueue.length)}
                 {...revealedScore(engine.decisions, engine.ambientEvents, minuteForDecisions(engine.decisions.length, engine.eventQueue.length))}
                 onChoose={handleChoose}
@@ -389,7 +474,7 @@ function App() {
         {screen === 'knockout' && bracket && squadValid && (
           <KnockoutFlow
             bracket={bracket}
-            onBracketChange={setBracket}
+            onBracketChange={handleBracketChange}
             teamsById={teamsById}
             squad={squadPlayers(picks as Squad)}
             tactic={tactic}

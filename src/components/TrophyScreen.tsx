@@ -50,7 +50,10 @@ export function TrophyScreen({ userTeamName, userColor, onDone }: Props) {
   )
 
   return (
-    <div className="relative flex h-full flex-col items-center justify-center overflow-hidden px-8 text-center" style={{ background: '#ffffff' }}>
+    <div
+      className="relative flex h-full flex-col items-center justify-center overflow-hidden px-8 text-center"
+      style={{ background: 'var(--color-bg)' }}
+    >
       <style>{`
         @keyframes euc-confetti-fall {
           0% { transform: translateY(-10%) rotate(0deg); opacity: 1; }

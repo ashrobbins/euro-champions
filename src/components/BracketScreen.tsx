@@ -55,7 +55,7 @@ function teamLabel(teamId: string | null, teamsById: Record<string, Team>, userT
 }
 
 function teamColor(teamId: string | null, teamsById: Record<string, Team>, userTeamId: string, userColor: string): string {
-  if (!teamId) return 'rgba(0,0,0,0.15)'
+  if (!teamId) return 'rgba(255,255,255,0.18)'
   if (teamId === userTeamId) return userColor
   return teamsById[teamId]?.accentColor ?? '#999999'
 }
@@ -96,14 +96,14 @@ function TieCard({
 
   return (
     <div
-      className="absolute flex flex-col justify-center gap-1 overflow-hidden px-3"
+      className="absolute flex flex-col justify-center gap-1 overflow-hidden rounded-2xl px-3"
       style={{
         left: x,
         top: y,
         width: CARD_W,
         height: CARD_H,
-        background: highlighted ? 'rgba(109,40,217,0.08)' : '#ffffff',
-        boxShadow: highlighted ? 'inset 0 0 0 2px var(--color-accent)' : 'inset 0 0 0 1px rgba(0,0,0,0.08)',
+        background: highlighted ? 'rgba(139,92,246,0.12)' : 'var(--color-card)',
+        boxShadow: highlighted ? 'inset 0 0 0 2px var(--color-accent)' : 'inset 0 0 0 1px var(--color-card-border)',
       }}
     >
       <div className="flex items-center justify-between gap-2" style={{ opacity: homeFaded ? 0.35 : 1 }}>
@@ -120,7 +120,7 @@ function TieCard({
         </div>
         {hasScore && <span className="font-heading shrink-0 text-[13px] font-bold tabular-nums">{agg.away}</span>}
       </div>
-      <div className="h-[11px] text-[9px] font-semibold tracking-wide text-black/40 uppercase">{note}</div>
+      <div className="h-[11px] text-[9px] font-semibold tracking-wide text-[var(--color-text-tertiary)] uppercase">{note}</div>
     </div>
   )
 }
@@ -184,7 +184,7 @@ export function BracketScreen({ bracket, teamsById, userTeamId, userTeamName, us
                 key={c.key}
                 d={`M ${c.xLeft} ${c.top} H ${c.xMid} V ${c.bottom} H ${c.xLeft}`}
                 fill="none"
-                stroke="rgba(0,0,0,0.15)"
+                stroke="rgba(255,255,255,0.18)"
                 strokeWidth={1.5}
               />
             ))}
@@ -195,7 +195,7 @@ export function BracketScreen({ bracket, teamsById, userTeamId, userTeamName, us
                 y1={(c.top + c.bottom) / 2}
                 x2={c.xRight}
                 y2={(c.top + c.bottom) / 2}
-                stroke="rgba(0,0,0,0.15)"
+                stroke="rgba(255,255,255,0.18)"
                 strokeWidth={1.5}
               />
             ))}

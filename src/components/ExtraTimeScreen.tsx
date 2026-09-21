@@ -76,7 +76,7 @@ export function ExtraTimeScreen({ opponent, userColor, userTeamName, isHomeVenue
       />
 
       <div className="min-h-0 grow px-6 pt-6.5">
-        <div className="flex h-full min-h-0 flex-col bg-[var(--color-card)] p-3.5">
+        <div className="flex h-full min-h-0 flex-col bg-[var(--color-card)] p-3.5 rounded-2xl shadow-[var(--shadow-card)]">
           <div className="font-heading mb-2.5 text-[11px] font-bold tracking-[0.08em] text-[var(--color-text-tertiary)]">
             EXTRA TIME
           </div>

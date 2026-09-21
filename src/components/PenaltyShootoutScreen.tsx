@@ -23,10 +23,10 @@ function PenaltyRow({ label, color, kicks }: { label: string; color: string; kic
       </span>
       <div className="flex flex-wrap gap-1.5">
         {kicks.map((k, i) => (
-          <span key={i} className="h-5 w-5" style={{ background: k.scored ? '#16A34A' : '#DC2626' }} />
+          <span key={i} className="h-5 w-5" style={{ background: k.scored ? 'var(--color-green)' : 'var(--color-red)' }} />
         ))}
         {Array.from({ length: Math.max(0, 5 - kicks.length) }).map((_, i) => (
-          <span key={`pending-${i}`} className="h-5 w-5" style={{ background: 'rgba(0,0,0,0.08)' }} />
+          <span key={`pending-${i}`} className="h-5 w-5" style={{ background: 'rgba(255,255,255,0.10)' }} />
         ))}
       </div>
     </div>
@@ -64,7 +64,7 @@ export function PenaltyShootoutScreen({ opponent, userColor, userTeamName, isHom
       />
 
       <div className="min-h-0 grow px-6 pt-6.5">
-        <div className="flex h-full min-h-0 flex-col gap-5 bg-[var(--color-card)] p-4">
+        <div className="flex h-full min-h-0 flex-col gap-5 bg-[var(--color-card)] p-4 rounded-2xl shadow-[var(--shadow-card)]">
           <PenaltyRow label={userTeamName} color={userColor} kicks={userShown} />
           <PenaltyRow label={opponent.name} color={opponent.accentColor} kicks={oppShown} />
 

@@ -38,7 +38,7 @@ export function SquadScreen({ squad, players, tactic, teamColor, teamName, onBac
       </div>
 
       <div className="flex gap-2 px-5 pt-3.5">
-        <div className="font-heading bg-[var(--color-accent)] px-2.5 py-1.5 text-[11px] font-bold text-[#ffffff]">
+        <div className="font-heading rounded-full bg-[var(--color-accent)] px-2.5 py-1.5 text-[11px] font-bold text-[#ffffff]">
           {overall} OVR
         </div>
       </div>
@@ -50,7 +50,7 @@ export function SquadScreen({ squad, players, tactic, teamColor, teamName, onBac
             <div
               key={slot}
               onClick={() => onViewPlayer(slot)}
-              className="flex cursor-pointer items-center gap-2.5 bg-[var(--color-card)] px-2.5 py-1.5"
+              className="flex cursor-pointer items-center gap-2.5 rounded-xl bg-[var(--color-card)] px-2.5 py-1.5"
             >
               <span className="w-[30px] shrink-0 text-[9px] font-bold tracking-wide text-[var(--color-text-tertiary)]">
                 {slot}
@@ -75,10 +75,10 @@ export function SquadScreen({ squad, players, tactic, teamColor, teamName, onBac
                 <div
                   key={t.id}
                   onClick={() => onSetTactic(t.id)}
-                  className="flex-1 cursor-pointer py-2.5 text-center text-xs"
+                  className="flex-1 cursor-pointer rounded-xl py-2.5 text-center text-xs"
                   style={{
-                    background: active ? 'var(--color-accent)' : 'black',
-                    color: active ? '#ffffff' : 'rgba(255,255,255,0.55)',
+                    background: active ? 'var(--color-accent)' : 'var(--color-card-2)',
+                    color: active ? '#ffffff' : 'var(--color-text-secondary)',
                     fontWeight: active ? 700 : 400,
                   }}
                 >
@@ -95,7 +95,7 @@ export function SquadScreen({ squad, players, tactic, teamColor, teamName, onBac
           </div>
           <div
             onClick={() => setColorPickerOpen((v) => !v)}
-            className="flex cursor-pointer items-center justify-center bg-black"
+            className="flex cursor-pointer items-center justify-center rounded-xl bg-[var(--color-card-2)]"
             style={{ height: 38, width: 38 }}
           >
             <div className="h-4 w-4" style={{ background: teamColor }} />
@@ -103,7 +103,7 @@ export function SquadScreen({ squad, players, tactic, teamColor, teamName, onBac
 
           {colorPickerOpen && (
             <div
-              className="absolute z-10 grid grid-cols-5 gap-2.5 bg-black"
+              className="absolute z-10 grid grid-cols-5 gap-2.5 bg-[var(--color-card-2)] rounded-2xl shadow-[var(--shadow-card)]"
               style={{ top: 62, right: 0, width: 'max-content', padding: 14 }}
             >
               {TEAM_COLORS.map((c) => {
@@ -120,7 +120,7 @@ export function SquadScreen({ squad, players, tactic, teamColor, teamName, onBac
                       height: 32,
                       width: 32,
                       background: c,
-                      boxShadow: active ? '0 0 0 2px black, 0 0 0 4px var(--color-accent)' : undefined,
+                      boxShadow: active ? '0 0 0 2px var(--color-card-2), 0 0 0 4px var(--color-accent)' : undefined,
                     }}
                   />
                 )
@@ -134,7 +134,7 @@ export function SquadScreen({ squad, players, tactic, teamColor, teamName, onBac
         <MiniPitch squad={players} height={170} />
       </div>
 
-      <div className="mt-auto border-t border-black/8 px-5 pt-4.5 pb-7">
+      <div className="mt-auto border-t border-[var(--color-card-border)] px-5 pt-4.5 pb-7">
         <AccentButton onClick={onContinue}>CONTINUE</AccentButton>
       </div>
     </div>
